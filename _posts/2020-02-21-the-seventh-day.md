@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Sixth Day
+title: The Seventh Day
 subtitle: You Make Me Calm Down
 bigimg: /img/day6.png
 tags: [reasonable, calm]
