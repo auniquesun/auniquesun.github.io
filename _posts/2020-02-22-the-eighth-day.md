@@ -3,7 +3,7 @@ layout: post
 title: The Eighth Day
 subtitle: We Don't Talk With Each Other Today
 bigimg: /img/day8.png
-tags: [sad, anxious]
+tags: [upset, peaceful]
 ---
 
 今天是2020年02月22日，农历正月廿九，我们认识的第八天。下午评论了你的票圈，想借机再和你说几句话，因为昨晚你没回应，
