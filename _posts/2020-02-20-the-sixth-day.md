@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Fifth Day
+title: The Sixth Day
 subtitle: Nice to Meet You
 bigimg: /img/day5.png
 tags: [exciting, happy]
