@@ -4,7 +4,7 @@ title: Hongyu Sun
 # subtitle: Why you'd want to go on a date with me
 ---
 
-# A Ph.D student, research interest includes Computer Vision and SLAM
+# A Ph.D student. My research interest includes Computer Vision and SLAM
 
 
 ## Contact
