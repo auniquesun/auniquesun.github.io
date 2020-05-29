@@ -1,16 +1,16 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Hongyu Sun
+# subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+# A Ph.D student, research interest includes Computer Vision and SLAM
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+## Contact
+- St. No.59, Haidian District, Zhongguancun, Beijing, China
+- [Mr.sunhy@outlook.com](Mr.sunhy@outlook.com)
 
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+## Education
+- Bachelor degree, 2013~2017, Computer Science and Technology, School of Computing, [Inner Mongolia University](https://www.imu.edu.cn/)
+- Master degree, 2017~2020, Computer Science and Technology, School of Information, [Renmin University of China](https://www.ruc.edu.cn/)
+- At present, I am a Ph.D student, also studying in School of Information, [Renmin University of China](https://www.ruc.edu.cn/)
