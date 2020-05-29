@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 comments: true
-title:  "Testing MathJax in GitHub Pages Jekyll Blog"
+title:  "Testing MathJax in This Blog"
 tags: [MathJax, jekyll]
 ---
 
