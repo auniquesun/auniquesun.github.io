@@ -5,7 +5,7 @@ title: Hongyu Sun
 ---
 
 # A Ph.D student. My research interest includes Computer Vision and SLAM
-<br/><br/>
+<br/>
 
 ### Contact
 - St. No.59, Haidian District, Zhongguancun, Beijing, China
