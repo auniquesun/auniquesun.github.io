@@ -20,10 +20,11 @@ description: Tells You a Story about Me!
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
+  Home: "https://auniquesun.github.io"
   Blog: "https://auniquesun.github.io"
-  Paper: "https://auniquesun.github.io"
-  Project: "https://github.com/auniquesun"
+  About: "aboutme"
+  # Paper: "https://auniquesun.github.io"
+  # Project: "https://github.com/auniquesun"
   #Resources:
   #  - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
   #  - Learn markdown: "http://www.markdowntutorial.com/"
