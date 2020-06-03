@@ -8,7 +8,7 @@ title: Hongyu Sun
 <br/>
 
 ### Contact
-- St. No.59, Haidian District, Zhongguancun, Beijing, China
+- No.59, St. Zhongguancun, Haidian District, Beijing, China
 - [Mr.sunhy@outlook.com](mailto:Mr.sunhy@outlook.com)
 
 ### Education
