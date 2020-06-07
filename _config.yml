@@ -20,7 +20,7 @@ description: Tell You a Story about Me!
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "home"
+  Home: "https://auniquesun.github.io"
   Blog: "https://auniquesun.github.io"
   About: "aboutme"
   # Paper: "https://auniquesun.github.io"
