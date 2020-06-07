@@ -4,7 +4,7 @@
 title: Hongyu Sun
 
 # Short description of your site
-description: Tells You a Story about Me!
+description: Tell You a Story about Me!
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -20,7 +20,7 @@ description: Tells You a Story about Me!
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "https://auniquesun.github.io"
+  Home: "home"
   Blog: "https://auniquesun.github.io"
   About: "aboutme"
   # Paper: "https://auniquesun.github.io"
@@ -105,7 +105,7 @@ share-links-active:
 #gtag: ""
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+google_analytics: "168755926"
 
 # Google Tag Manager ID
 #gtm: ""
