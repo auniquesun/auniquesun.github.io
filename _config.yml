@@ -21,7 +21,7 @@ description: Tell You a Story about Me!
 # List of links in the navigation bar
 navbar-links:
   Home: "https://auniquesun.github.io"
-  Blog: "https://auniquesun.github.io"
+  Blog: "blog"
   About: "aboutme"
   # Paper: "https://auniquesun.github.io"
   # Project: "https://github.com/auniquesun"
@@ -164,6 +164,7 @@ timezone: "America/Vancouver"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
+paginate_path: "/blog/page:num/"
 paginate: 5
 
 kramdown:
