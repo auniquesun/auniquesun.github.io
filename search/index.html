@@ -1,6 +1,6 @@
 ---
 layout: page
-title: the Amazing Google
+title: by Google
 subtitle: Search Contents Within this Website
 ---
 
@@ -10,7 +10,24 @@ subtitle: Search Contents Within this Website
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <script async src="https://cse.google.com/cse.js?cx=002241641766983936922:2qdqnzejz_g"></script>
-    <div class="gcse-search"></div>
+    <!-- <script async src="https://cse.google.com/cse.js?cx=002241641766983936922:2qdqnzejz_g"></script>
+    <div class="gcse-search"></div> -->
+
+    <div id="google-custom-search">
+      <script>
+        (function() {
+          var cx = '002241641766983936922:2qdqnzejz_g';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:searchbox></gcse:searchbox>
+      <gcse:searchresults></gcse:searchresults>
+      </div>
   </body>
 </html>
