@@ -77,7 +77,7 @@ social-network-links:
   email: "mr.sunhy@outlook.com"
   github: auniquesun
   stackoverflow: "13726644/auniquesun"
-  zhihu: "people/jerry-sun-61"
+  # zhihu: "people/jerry-sun-61"
   # twitter: Jerry Sun
 #  reddit: yourname
 #  linkedin: daattali
@@ -93,9 +93,9 @@ social-network-links:
 
 # Select which share links to show in posts
 share-links-active:
-  # twitter: true
-  # facebook: true
-  zhihu: true
+  twitter: true
+  facebook: true
+  # zhihu: true
   linkedin: true
 
 # How to display the link to the website in the footer
