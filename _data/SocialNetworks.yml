@@ -90,3 +90,8 @@ yelp:
   name: "Yelp"
   baseURL: "https://{{ site.author.yelp }}.yelp.com"
   icon: "fa-yelp"
+
+zhihu:
+  name: "Zhihu"
+  baseURL: "https://www.zhihu.com/"
+  icon: "fa-zhihu"
