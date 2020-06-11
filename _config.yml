@@ -73,10 +73,11 @@ author:
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
   # rss: true
-  email: "mr.sunhy@outlook.com"
   # facebook: Jerry Sun
+  email: "mr.sunhy@outlook.com"
   github: auniquesun
   stackoverflow: "13726644/auniquesun"
+  zhihu: "people/jerry-sun-61"
   # twitter: Jerry Sun
 #  reddit: yourname
 #  linkedin: daattali
