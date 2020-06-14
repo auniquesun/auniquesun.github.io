@@ -2,6 +2,7 @@
 layout: page
 title: Hongyu Sun
 # subtitle: Why you'd want to go on a date with me
+use-site-title: true
 ---
 
 # A Ph.D student. My research interest includes Computer Vision and SLAM
