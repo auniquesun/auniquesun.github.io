@@ -4,7 +4,7 @@ mathjax: true
 comments: true
 title:  "Face Detection with OpenCV in real time"
 tags: [Face Detection, OpenCV]
-gh-repo: shantnu/FaceDetect.git
+gh-repo: shantnu/FaceDetect
 gh-badge: [star, fork, follow]
 ---
 
@@ -12,10 +12,12 @@ gh-badge: [star, fork, follow]
 搞通《机场飞鸟检测》项目的各个流程，包括摄像头输入、图像获取、物体识别、输出视频流。所以这篇文章就从这几
 个方面介绍——用OpenCV实现实时人脸检测。
 
+
 ## 开发环境准备
 0. Ubuntu 16.04，比较适合程序开发  
 1. 安装 Python，这里我用的 miniconda3，方便配置针对具体项目的Python环境  
 2. 安装 opencv-python，**不需要再下载 OpenCV 源码，自己再编译安装**，我之前一直以为要使用opencv-python，先要自己在系统手动编译安装 OpenCV 源码
+
 
 ## 获取摄像头输入
 1. OpenCV 可以操作电脑摄像头，从摄像头读取一帧帧图片，这是它强大的地方，因为通常来说操作硬件会涉及到系统
@@ -28,12 +30,14 @@ gh-badge: [star, fork, follow]
     video_capture = cv2.VideoCapture(0)
     ```
 
+
 ## 从摄像头获取图像
 1. 读取摄像头数据后，是把它存在了内存区域，并不直接得到图片数据，还需经过一定转换，转换步骤如下
     ```python
     ret, frame = video_capture.read()
     ```
     - ret的类型是 bool，代表图片是否被正确读取；frame 就是一帧图片，有了图片就能做后续处理
+
 
 ## 人脸检测
 1. 人脸检测技术，不管怎么变，目前输入的基本单元都是图片；现实视频场景中的人脸检测，也需要先获取到图片，和这个demo的道理一样
@@ -63,13 +67,15 @@ gh-badge: [star, fork, follow]
     ```
 4. 上面只是处理了一帧图片，还达不到实时检测的效果，所以把这段代码**放在循环里**
 
+
 ## 输出视频流
 1. 这看似一件很复杂的事情，需要把处理完的图片显示出来，才能看到效果。OpenCV让这变得简单起来，只需
     ```python
     cv2.imshow('Video', frame)
     ```
     - 播放图片序列，形成视频
-    
+
+
 ## 本项目完整的代码
 {% highlight python linenos %}
 import cv2
