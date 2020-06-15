@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 comments: true
-title:  "Face Detection with OpenCV in real time"
+title:  "Face Detection with OpenCV in Real Time"
 tags: [Face Detection, OpenCV]
 gh-repo: shantnu/FaceDetect
 gh-badge: [star, fork, follow]
