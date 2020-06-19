@@ -16,10 +16,8 @@ comments: true
 ![EfficientDet效果](img/effidet.png)
 
 ### 论文贡献
-1. 保证准确率的情况下，大幅提高检测效率
-
-2. 提出一个检测器系列 EfficientDet D0-D7，适配不同资源场景
-
+1. 保证准确率的情况下，大幅提高检测效率  
+2. 提出一个检测器系列 EfficientDet D0-D7，适配不同资源场景  
 3. 提出BiFPN，提升特征融合效果（可能是为了凑工作量）
 
 ### 测试原因
