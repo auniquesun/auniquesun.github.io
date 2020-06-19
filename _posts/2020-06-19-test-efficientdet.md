@@ -11,9 +11,9 @@ comments: true
 
 论文标题： [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
 
-论文作者： Mingxing Tan, Ruoming Pang, Quoc V. Le； 都来自Google Brain
+论文作者： Mingxing Tan, Ruoming Pang, Quoc V. Le (both from Google Brain)
 
-![EfficientDet效果](img/effidet.png)
+![EfficientDet效果](../img/effidet.png)
 
 ### 论文贡献
 1. 保证准确率的情况下，大幅提高检测效率  
