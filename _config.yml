@@ -23,7 +23,8 @@ navbar-links:
   Home: "https://auniquesun.github.io"
   Blog: "blog"
   About: "aboutme"
-  Search: "search"
+nav-search: "search"
+  # Search: "search"
   # Paper: "https://auniquesun.github.io"
   # Project: "https://github.com/auniquesun"
   #Resources:
