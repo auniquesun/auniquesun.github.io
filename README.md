@@ -200,14 +200,14 @@ Want your website featured here? [Contact me](https://deanattali.com/aboutme#con
 | :------ |:----------- |
 | [repidemicsconsortium.org/](https://www.repidemicsconsortium.org/) | R Epidemics Consortium |
 | [vaccineimpact.org](https://www.vaccineimpact.org/) | Vaccine Impact Modelling Consortium |
-| [derekogle.com/fishR](http://derekogle.com/fishR/) | Using R for Fisheries Analyses |
-| [bigdata.juju.solutions](http://bigdata.juju.solutions) | Creating Big Data solutions Juju Solutions |
-| [joecks.github.io/clipboard-actions](http://joecks.github.io/clipboard-actions/) | Clipboard Actions - an Android app |
-| [deanattali.com/shinyjs](http://deanattali.com/shinyjs/) | shinyjs - an R package |
-| [blabel.github.io](http://blabel.github.io) | Library for canonicalising blank node labels in RDF graphs |
-| [reactionic.github.io](http://reactionic.github.io) | Create iOS and Android apps with React and Ionic |
-| [ja2-stracciatella.github.io](http://ja2-stracciatella.github.io) | Jagged Alliance 2 Stracciatella |
-| [ddocent.com](http://ddocent.com/) | RADSeq Bioinformatics and Beyond |
+| [derekogle.com/fishR](https://derekogle.com/fishR/) | Using R for Fisheries Analyses |
+| [bigdata.juju.solutions](https://bigdata.juju.solutions) | Creating Big Data solutions Juju Solutions |
+| [joecks.github.io/clipboard-actions](https://joecks.github.io/clipboard-actions/) | Clipboard Actions - an Android app |
+| [deanattali.com/shinyjs](https://deanattali.com/shinyjs/) | shinyjs - an R package |
+| [blabel.github.io](https://blabel.github.io) | Library for canonicalising blank node labels in RDF graphs |
+| [reactionic.github.io](https://reactionic.github.io) | Create iOS and Android apps with React and Ionic |
+| [ja2-stracciatella.github.io](https://ja2-stracciatella.github.io) | Jagged Alliance 2 Stracciatella |
+| [ddocent.com](https://ddocent.com/) | RADSeq Bioinformatics and Beyond |
 | [guitarlessons.org](https://www.guitarlessons.org/) | Free online guitar lessons for all |
 | [terremotocentroitalia.info](https://www.terremotocentroitalia.info/) | Information about the 2016 Italy earthquake |
 
@@ -217,14 +217,14 @@ Want your website featured here? [Contact me](https://deanattali.com/aboutme#con
 | Website | Who | What |
 | :------ |:--- | :--- |
 | [deanattali.com](https://deanattali.com) | Dean Attali | Creator of Beautiful Jekyll |
-| [ouzor.github.io](http://ouzor.github.io) | Juuso Parkkinen | Data scientist |
-| [derekogle.com](http://derekogle.com/) | Derek Ogle | Professor of Mathematical Sciences and Natural Resources |
-| [melyanna.github.io](http://melyanna.github.io/) | Melyanna | Shows off her nice art |
-| [chauff.github.io](http://chauff.github.io/) | Claudia Hauff | Professor at Delft University of Technology |
-| [kootenpv.github.io](http://kootenpv.github.io/) | Pascal van Kooten | Data analytics |
-| [sjackman.ca](http://sjackman.ca) | Shaun Jackman | PhD candidate in bioinformatics |
-| [anudit.in](http://www.anudit.in/) | Anudit Verma | Engineering student |
-| [sharepointoscar.github.io](http://sharepointoscar.github.io) | Oscar Medina | Independent Hacker |
+| [ouzor.github.io](https://ouzor.github.io) | Juuso Parkkinen | Data scientist |
+| [derekogle.com](https://derekogle.com/) | Derek Ogle | Professor of Mathematical Sciences and Natural Resources |
+| [melyanna.github.io](https://melyanna.github.io/) | Melyanna | Shows off her nice art |
+| [chauff.github.io](https://chauff.github.io/) | Claudia Hauff | Professor at Delft University of Technology |
+| [kootenpv.github.io](https://kootenpv.github.io/) | Pascal van Kooten | Data analytics |
+| [sjackman.ca](https://sjackman.ca) | Shaun Jackman | PhD candidate in bioinformatics |
+| [anudit.in](https://www.anudit.in/) | Anudit Verma | Engineering student |
+| [sharepointoscar.github.io](https://sharepointoscar.github.io) | Oscar Medina | Independent Hacker |
 | [ocram85.com](https://ocram85.com) | Marco Blessing | A personal blog about PowerShell and automation |
 | [khanna.cc](https://khanna.cc/) | Harry Khanna | Law and software |
 
@@ -249,7 +249,7 @@ Beautiful Jekyll is meant to be so simple to use that you can do it all within t
     ```
 
 
-Now that Docker is set up, you do not need to run the above steps again. You can now view your website at http://localhost:4000/. You can start the container again in the future with:
+Now that Docker is set up, you do not need to run the above steps again. You can now view your website at https://localhost:4000/. You can start the container again in the future with:
 
 ```bash
 docker start beautiful-jekyll
@@ -308,7 +308,7 @@ This template was not made entirely from scratch. I would like to give special t
 - [Barry Clark](https://github.com/barryclark) and his project [Jekyll Now](https://github.com/barryclark/jekyll-now), from whom I've taken several ideas and code snippets, as well as some documenation tips.
 - [Iron Summit Media](https://github.com/IronSummitMedia) and their project [Bootstrap Clean Blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog), from which I've used some design ideas and some of the templating code for posts and pagination.
 
-I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](http://jekyllthemes.org/), and another [Jekyll Themes](http://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
+I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](https://jekyllthemes.org/), and another [Jekyll Themes](https://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
 
 ## Contributions
 
