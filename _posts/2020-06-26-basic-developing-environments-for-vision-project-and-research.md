@@ -50,5 +50,5 @@ comments: true
 
 3.	如果想测试一些轻量级的代码、简单的程序，装个双系统/虚拟机/Vagrant
 
-
-有待补充ing ...
+{: .box-warning}
+**Warning:** 有待补充ing ...
