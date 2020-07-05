@@ -4,7 +4,7 @@ title: About Research
 use-site-title: true
 ---
 
-> “Everything is theoretically impossible, until it is done.”
+> “Everything Is Theoretically Impossible, Until It Is Done.”
 <br/>
 
 ### Paper Lists
