@@ -8,7 +8,7 @@ mathjax: true
 comments: true
 ---
 
-[上一篇 post](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)从全局角度讲解了做视觉开发、研究的服务器基础环境配置问题，本文是对上篇文章的深入，讲解实施细节。具体来说，当 Ubuntu 系统装好以后，
+上一篇[post](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)从全局角度讲解了做视觉开发、研究的服务器基础环境配置问题，本文是对上篇文章的深入，讲解实施细节。具体来说，当 Ubuntu 系统装好以后，
 * 如何为新用户创建友好的、易用的Shell —— 用户在Ubuntu服务器上操作，Shell是用户和系统最主要的交互工具
     * 有人可能好奇，Shell都是命令行操作，还有友好、易用之分？根据[新用户指南](#新用户指南)配置完成，你就切身体会到了：**原生的Shell只是让你能够使用系统，并不能让你高效方便的使用系统**
 * 在多用户使用的情况下，如何共享数据资源 —— 节省时间、提高效率，比如常用的miniconda3安装包，下载一份多人使用即可
@@ -64,11 +64,12 @@ comments: true
     mkdir /mnt/sdb/public/data/hs
     ```
 
-4. 用户将文件拷贝到 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software` 或者 `/mnt/sdb/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
+
+4. 用户将文件拷贝到 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/` 或者 `/mnt/sdb/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
     ```shell
     chmod o+rx <filename>
     ```
     > e.g. chmod o+rx Miniconda3-latest-Linux-x86_64.sh
-    
+
 3. 用户对共享目录有读、写、执行权限，【**请勿删除、修改**】 `public/` 目录下的任何文件
 
