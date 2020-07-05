@@ -61,7 +61,7 @@ comments: true
 * 每个用户主目录下不要存放 _大数据文件_，因为“根目录/”只剩400G+空间，这部分要留给一些重要的程序和软件用
 * 大的数据文件存放于 `/mnt/sdb/public/data/<username>/` 目录下，将 `<username>` 替换成自己的用户名，建立目录
     ```shell
-    mkdir `/mnt/sdb/public/data/hs`
+    mkdir /mnt/sdb/public/data/hs
     ```
 
 3. 用户对共享目录有读、写、执行权限，【**请勿删除、修改**】 `public/` 目录下的任何文件
