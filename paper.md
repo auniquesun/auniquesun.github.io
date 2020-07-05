@@ -4,7 +4,7 @@ title: About Research
 use-site-title: true
 ---
 
-> “The Important Thing is to Never Stop Questioning or Learning.” – Albert Einstein
+> “The Important Thing is to Never Stop Questioning or Learning.” &nbsp;&nbsp;&nbsp;&nbsp;– Albert Einstein
 
 <br/>
 
