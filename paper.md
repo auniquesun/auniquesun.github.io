@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Dedicated to Research
+title: About Research
 use-site-title: true
 ---
 
-# "If I have seen further it is by standing on the shoulders of Giants."
-
+> "If I have seen further it is by standing on the shoulders of Giants."  ——  Issac Newton
+<br/>
 
 ### Paper Lists
 - Zhang X, **Sun HY**, Xin DX, Li CP, Chen H. Research survey on automatic term extraction. Ruan Jian Xue Bao/Journal of Software, (in Chinese). [link](http://www.jos.org.cn/1000-9825/6040.htm)
