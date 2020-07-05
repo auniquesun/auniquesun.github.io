@@ -22,6 +22,7 @@ description: Tell You a Story about Me!
 navbar-links:
   Home: "https://auniquesun.github.io"
   Blog: "blog"
+  Paper: "paper"
   About: "aboutme"
 nav-search: "search"
   # Search: "search"
