@@ -64,5 +64,11 @@ comments: true
     mkdir /mnt/sdb/public/data/hs
     ```
 
+4. 用户将文件拷贝到 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software` 或者 `/mnt/sdb/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
+    ```shell
+    chmod o+rx <filename>
+    ```
+    > e.g. chmod o+rx Miniconda3-latest-Linux-x86_64.sh
+    
 3. 用户对共享目录有读、写、执行权限，【**请勿删除、修改**】 `public/` 目录下的任何文件
 
