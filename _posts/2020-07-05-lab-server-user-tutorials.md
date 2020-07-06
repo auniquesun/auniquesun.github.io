@@ -19,7 +19,7 @@ comments: true
 
 0. 【忽略这一步，已由管理员完成】首先需要安装 `zsh`，因为它没有内置在 Ubuntu 系统；确保有管理员权限，然后执行如下命令
     ```shell
-        sudo apt install zsh
+    sudo apt install zsh
     ```
 
 1. 把Shell切换成 `zsh`，执行如下命令
