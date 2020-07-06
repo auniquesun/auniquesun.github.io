@@ -17,6 +17,11 @@ comments: true
 ### 新用户指南
 > 管理员创建好一个用户，系统会给用户配置默认的Shell —— `bash`，它对用户并不很友好；用户需要切换到对 **ta** 更好的 `zsh`
 
+0. 【忽略这一步，已由管理员完成】首先需要安装 `zsh`，因为它没有内置在 Ubuntu 系统；确保有管理员权限，然后执行如下命令
+    ```shell
+        sudo apt install zsh
+    ```
+
 1. 把Shell切换成 `zsh`，执行如下命令
     ```shell
     chsh -s $(which zsh)
@@ -48,6 +53,7 @@ comments: true
 ### 数据共享
 0. `/mnt/sdb` 目录挂载的是一块 4TB 的机械硬盘，磁盘空间较为充足；其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
 * **注意：** 每个用户主目录下不要存放大的数据文件，大的数据文件存放于 `/mnt/sdb/public/<username>` 下
+* 如果不清楚如何挂在硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)
 
 1. 共享文件夹目录结构：
     > `public/`
