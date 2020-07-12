@@ -45,6 +45,16 @@ comments: true
     * 找到 `ZSH_THEME=` 所在行，替换 `robbyrussell` 为 `pygmalion`
     ![](../img/zsh.png)
 
+5. `Shell`里几乎都是用命令操作，命令补全功能为用户提供了便利。`zsh-autosuggestions`是一个命令补全plugin，安装方法如下
+    * step 1：下载 `zsh-autosuggestions` 到指定目录
+    ```shell
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+    * step 2：打开 ~/.zshrc，把 `zsh-autosuggestions` 添加到 plugins 列表
+    ```shell
+    plugins=(zsh-autosuggestions)
+    ```
+
 5. **为了使用GPU**，需要设置`cuda`环境变量，在`~/.zshrc`文件末尾添加如下两行代码
     ```shell
     export CUDA_HOME=/usr/local/cuda
