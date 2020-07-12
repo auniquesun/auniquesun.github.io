@@ -50,7 +50,7 @@ comments: true
     ```shell
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     ```
-    * step 2：打开 ~/.zshrc，把 `zsh-autosuggestions` 添加到 plugins 列表
+    * step 2：打开文件 `~/.zshrc`，把 `zsh-autosuggestions` 添加到 plugins 列表
     ```shell
     plugins=(zsh-autosuggestions)
     ```
