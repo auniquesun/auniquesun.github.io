@@ -96,3 +96,6 @@ comments: true
 
 3. 用户对共享目录有读、写、执行权限，【**请勿删除、修改**】 `public/` 目录下的任何文件
 
+### 相关文档
+* 上一篇：[视觉项目研发环境配置](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)
+* 下一篇：[服务器GPU配置](https://auniquesun.com/2020-07-13-GPU-utility-settings/)
