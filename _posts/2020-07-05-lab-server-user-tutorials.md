@@ -68,7 +68,7 @@ comments: true
 
 ### 数据共享
 0. `/mnt/sdb` 目录挂载的是一块 4TB 的机械硬盘，磁盘空间较为充足；其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
-* **注意：** 每个用户主目录下不要存放大的数据文件，大的数据文件存放于 `/mnt/sdb/public/<username>` 下
+* **注意：** 每个用户主目录下不要存放大的数据文件，大的数据文件存放于 `/mnt/sdb/public/data/<username>` 下
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 
