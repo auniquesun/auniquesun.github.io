@@ -28,7 +28,7 @@ comments: true
 **Prerequisite :** 安装者要有管理员权限，因为涉及到 `sudo` 操作
 
 ### CUDA Toolkit 安装步骤
-0. **致实验室用户**：直接跳过 `CUDA Toolkit ` 安装步骤，因为管理员已由管理员完成，只需进行[用户环境变量设置](#用户环境变量设置)
+0. 【**致实验室用户**】：直接跳过 `CUDA Toolkit` 安装步骤，因为已由管理员完成，只需进行[用户环境变量设置](#用户环境变量设置)
 
 1. 下载 `CUDA Toolkit`，这是[下载地址](https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal)；文件大小超过1G，如果网速慢会花些时间（我下载的版本是10.2，你很容易从Google找到想要的版本，定制你的安装）
 ![](../img/post/cuda_toolkit_info.png)
