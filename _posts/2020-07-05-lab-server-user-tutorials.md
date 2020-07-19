@@ -86,7 +86,10 @@ comments: true
     ```shell
     mkdir /mnt/sdb/public/data/hs
     ```
-
+* 修改刚才建立的文件夹的权限，共享给其他用户
+   ```shell
+    chmod o+rx /mnt/sdb/public/data/hs
+    ```
 
 4. 用户将文件拷贝到 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/` 或者 `/mnt/sdb/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
     ```shell
