@@ -4,7 +4,7 @@ title: Reading List
 use-site-title: true
 ---
 
-> “The reading of all good books is like a conversation with the finest minds of past centuries.” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rene Descartes
+> “The reading of all good books is like a conversation with the finest minds of past centuries.” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——&nbsp;&nbsp;&nbsp;Rene Descartes
 
 <br/>
 
