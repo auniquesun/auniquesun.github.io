@@ -262,9 +262,5 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-exclude:
-  - CNAME
-  - LICENSE
-  - README.md
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
