@@ -14,7 +14,13 @@ bigimg:
   - "/img/bigimg/com_athlete_slider.jpg" : "Five Members of Cavaliers (2016)"
 ---
 
-<!-- <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script async src="https://cse.google.com/cse.js?cx=002241641766983936922:2qdqnzejz_g"></script>
-<div class="gcse-search"></div> -->
+{%- capture site_tags -%}
+    {%- for tag in site.tags -%}
+        {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+{%- endcapture -%}
+{%- assign tags_list = site_tags | split:',' | sort -%}
+
+{%- for tag in tags_list -%}
+    <a href="#{{- tag -}}" class="btn btn-primary tag-btn"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})</a>
+{%- endfor -%}
