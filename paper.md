@@ -13,4 +13,6 @@ use-site-title: true
 
 - **Hongyu Sun**, Jing Zhang, Cuiping Li, Hong Chen. Presenting Problems and Methods under Weak Supervision.
 
-- **Hongyu Sun**, Jing Zhang, Cuiping Li, Hong Chen. Survey on Probabilistic Topic Models.
+- **Hongyu Sun**, Cuiping Li, Hong Chen. Survey on Probabilistic Topic Models.
+
+- **Hongyu Sun**, Cuiping Li, Hong Chen. A Credit Allocation Mechanism Among Co-authors.
