@@ -5,7 +5,7 @@ title: Hongyu Sun
 use-site-title: true
 ---
 
-# A Ph.D student. My research interest includes Computer Vision and SLAM
+# A Ph.D student. My research interests focus on Computer Vision and SLAM
 <br/>
 
 ### Contact
