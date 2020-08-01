@@ -4,7 +4,7 @@ title: About Happiness
 # use-site-title: true
 ---
 
-> “Wine is Constant Proof that God Loves us and Loves to See us Happy.” – Benjamin Franklin​
+> “Wine is Constant Proof that God Loves us and Loves to See us Happy.” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– Benjamin Franklin​
 
 <br/>
 
