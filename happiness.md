@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Ways to Happiness
+title: About Happiness
 # use-site-title: true
 ---
 
-> “The Ultimate Purpose of Life is to Enjoy Happiness.”
+> “Wine is constant proof that God loves us and loves to see us happy.” &nbsp;&nbsp;&nbsp;&nbsp;– Benjamin Franklin​
 
 <br/>
 
