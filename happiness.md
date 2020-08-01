@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Ways to Happiness
-use-site-title: true
+# use-site-title: true
 ---
 
 > “The Ultimate Purpose of Life is to Enjoy Happiness.”
