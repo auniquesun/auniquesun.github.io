@@ -103,8 +103,9 @@ comments: true
         - $f_x$、$f_y$分别是 X、Y 轴上的焦距；$p_x$、$p_y$是图像的中心点坐标
         - ![](../img/post/camera2.png)
     * deep feature map 预测物体投影中心相对于 $\textbf{g}$ 的坐标 $\delta_{\textbf{c}} = (\delta_{x_{c}}, \delta_{y_{c}})$，所以物体投影中心在像平面的坐标为 $\delta_{\textbf{c}} + \textbf{g}$
-    * 所以，有了$Z_c$ 和 物体投影中心 $\textbf{c}$，就能得到 $\textbf{C}_{s} = (X_{c}, Y_{c}, Z_{c})$
-    * shallow feature map 得到 $\delta_{\textbf{C}}$，用来调整 $(X_{c}, Y_{c}, Z_{c})$；最终位置 $\textbf{C} = \textbf{C}_s + \delta_\textbf{C}$
+    * 所以，有了$Z_c$ 和 物体投影中心 $\textbf{c}$，就能得到 ${\textbf{C}}_{s} = (X_{c}, Y_{c}, Z_{c})$
+    * shallow feature map 得到 $\delta_{\textbf{C}}$，用来调整 $(X_{c}, Y_{c}, Z_{c})$
+    * 最终位置 $\textbf{C} = {\textbf{C}}_s + \delta_{\textbf{C}}$
 
 * 3D BBox Regression
     * 估计8个顶点 $ \mathcal{O} = \{\textbf{O}_k\} $, $k = 1,...,8$
@@ -128,7 +129,7 @@ comments: true
 
 * 一些实现细节
     - VGG-16 backbone，不带全连接层，抽取特征
-    - KITTIBox (Teichmann et al. 2016) for 2D detection
+    - KittiBox (Teichmann et al. 2016) for 2D detection
     - DORN (Fu et al. 2018) for depth encoder
     - 平衡因子，$w = \alpha = \beta = 10$
     - 7.7M paprameters for all 2D and 3D modules
@@ -145,7 +146,7 @@ comments: true
 
 * Local 3D Bounding Box Regression
     - 估计box宽、高、长
-    - 估计box朝向 orientation，用相机坐标系下的方位角计算（？？不太理解如何）
+    - 估计box朝向 orientation，用相机坐标系下的方位角计算（？？不太理解）
     ![](../img/post/3d_bbox_experiments.png)
 
 * 一些可视化案例
@@ -164,7 +165,7 @@ comments: true
         - height, width and length errors of the 3D bounding box almost remain the same
 
 ## 总结与思考
-- [ ] 提出了单目图像的3D物体检测和定位模型 `MonoGRNet`
-- [ ] 直接进行 instance-level depth estimation，而不是 pixel-level depth estimation
-- [ ] 把像平面**2D BBox中心点**和**物体3D中心在像平面的投影点**区分开来，利用相机模型进行 `geometric reasoning`
-- [ ] 其实本文3D定位的核心：先估计物体在相机坐标系的深度，**再利用相机成像模型**，把2D平面的点转换到3D空间
+[ ] 提出了单目图像的3D物体检测和定位模型 `MonoGRNet`  
+[ ] 直接进行 instance-level depth estimation，而不是 pixel-level depth estimation  
+[ ] 把像平面**2D BBox中心点**和**物体3D中心在像平面的投影点**区分开来，利用相机模型进行 `geometric reasoning`  
+[ ] 其实本文3D定位的核心：先估计物体在相机坐标系的深度，**再利用相机成像模型**，把2D平面的点转换到3D空间
