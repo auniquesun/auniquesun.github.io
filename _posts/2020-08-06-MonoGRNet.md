@@ -68,7 +68,7 @@ comments: true
         * 物体3D center在像平面的投影点 $\textbf{c}$
             * 用几何方法求出：3D center ($X_{c}, Y_{c}, Z_{c}$)
         * 3D BBox 
-            * 相对于3D center，有8个corner points $ \mathcal{O} = {\textbf{O}_k} $, $k = 1,...,8$
+            * 相对于3D center，有8个corner points $ \mathcal{O} = {\{\textbf{O}_k\}} $, $k = 1,...,8$
 
 * **MonoGRNet** 整体结构
     ![](../img/post/monogrnet_architecture.png)
@@ -108,7 +108,7 @@ comments: true
     * 最终位置：$$\textbf{C} = \textbf{C}_{s} + \delta_{\textbf{C}}$$
 
 * 3D BBox Regression
-    * 估计8个顶点 $ \mathcal{O} = \{\textbf{O}_k\} $, $k = 1,...,8$
+    * 估计8个顶点 $ \mathcal{O} = {\{\textbf{O}_k\}} $, $k = 1,...,8$
     * **直接估计8个顶点在相机坐标系的位置，具有歧义性** —— 不同的物体，由于相机视角，可能产生相同的投影
         - 参考前人的工作，在 local coordinate frame 下估计顶点坐标
     * 计算出来的顶点是相对于物体3D中心的，还需要转换到相机坐标系
