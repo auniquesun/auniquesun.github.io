@@ -68,7 +68,7 @@ comments: true
         * 物体3D center在像平面的投影点 $\textbf{c}$
             * 用几何方法求出：3D center ($X_{c}, Y_{c}, Z_{c}$)
         * 3D BBox 
-            * 相对于3D center，有8个corner points $ \mathcal{O} = \{\textbf{O}_k\} $, $k = 1,...,8$
+            * 相对于3D center，有8个corner points $ \mathcal{O} = {\textbf{O}_k} $, $k = 1,...,8$
 
 * **MonoGRNet** 整体结构
     ![](../img/post/monogrnet_architecture.png)
@@ -142,7 +142,7 @@ comments: true
 
 * 3D Detection
     - 评价指标：3D Average Precision ($AP_{3D}$) at different Intersection of Union (IoU) thresholds
-    ![](../img/post/3d_detection_experiments.png)
+![](../img/post/3d_detection_experiments.png)
 
 * Local 3D Bounding Box Regression
     - 估计box宽、高、长
