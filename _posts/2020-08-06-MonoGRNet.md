@@ -103,7 +103,7 @@ comments: true
         - $f_x$、$f_y$分别是 X、Y 轴上的焦距；$p_x$、$p_y$是图像的中心点坐标
         - ![](../img/post/instance_depth_subnet.png)
     * deep feature map 预测物体投影中心相对于 $\textbf{g}$ 的坐标 $\delta_{\textbf{c}} = (\delta_{x_{c}}, \delta_{y_{c}})$，所以物体投影中心在像平面的坐标为 $\delta_{\textbf{c}} + \textbf{g}$
-    * 所以，有了$Z_c$ 和 物体投影中心 $\textbf{c}$，就能得到 $\textbf{C}_s = (X_c, Y_{c}, Z_{c})$
+    * 所以，有了$Z_c$ 和 物体投影中心 $\textbf{c}$，就能得到 $\textbf{C}_{s} = (X_{c}, Y_{c}, Z_{c})$
     * shallow feature map 得到 $\delta_{\textbf{C}}$，用来调整 $(X_{c}, Y_{c}, Z_{c})$；最终位置 $\textbf{C} = \textbf{C}_s + \delta_\textbf{C}$
 
 * 3D BBox Regression
@@ -122,19 +122,20 @@ comments: true
     * 3D Localization Loss
         - ![](../img/post/gr_3d_localization_loss.png)
     * Local Corner Loss
-        - $$ \mathcal{L}_{corners} = \sum_{\textbf{g}} \sum_{k} \mathbb{#1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k, \tilde{\textbf{O}}_k) $$
+        - $$ \mathcal{L}_{corners} = \sum_{\textbf{g}} \sum_{k} \mathbb{1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k, \tilde{\textbf{O}}_k) $$
     * Joint 3D Loss
-        - $$ \mathcal{L}_{joint} = \sum_{\textbf{g}} \sum_{k} \mathbb{#1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k^{cam}, \tilde{\textbf{O}}_k^{cam}) $$
+        - $$ \mathcal{L}_{joint} = \sum_{\textbf{g}} \sum_{k} \mathbb{1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k^{cam}, \tilde{\textbf{O}}_k^{cam}) $$
 
 * 一些实现细节
     - VGG-16 backbone，不带全连接层，抽取特征
     - KITTIBox (Teichmann et al. 2016) for 2D detection
     - DORN (Fu et al. 2018) for depth encoder
+    - 平衡因子，$w = \alpha = \beta = 10$
     - 7.7M paprameters for all 2D and 3D modules
 
 ## 实验
 * 3D Location Estimation
-    - 评价指标：mean erros，$\rightarrow$ 预测的物体位置和距离最近的ground truth
+    - 评价指标：mean errors $\rightarrow$ 预测的物体位置和距离最近的 ground truth
     ![](../img/post/3d_localization_experiments.png)
     - 三个维度，depth error 占主导
 
@@ -166,6 +167,4 @@ comments: true
 * 提出了单目图像的3D物体检测和定位模型 `MonoGRNet`
 * 直接进行 instance-level depth estimation，而不是 pixel-level depth estimation
 * 把像平面**2D BBox中心点**和**物体3D中心在像平面的投影点**区分开来，利用相机模型进行 `geometric reasoning`
-
 - [ ] 其实本文3D定位的核心：先估计物体在相机坐标系的深度，**再利用相机成像模型**，把2D平面的点转换到3D空间
-- [ ] 3D BBox直接用神经网络估计相对于中心点的坐标值
