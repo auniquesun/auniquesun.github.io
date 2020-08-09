@@ -122,9 +122,9 @@ comments: true
     * 3D Localization Loss
         - ![](../img/post/gr_3d_localization_loss.png)
     * Local Corner Loss
-        - $$ \mathcal{L}_{corners} = \sum_{\textbf{g}} \sum_{k} \mathbbm{1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k, \tilde{\textbf{O}}_k) $$
+        - $$ \mathcal{L}_{corners} = \sum_{\textbf{g}} \sum_{k} \mathbb{#1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k, \tilde{\textbf{O}}_k) $$
     * Joint 3D Loss
-        - $$ \mathcal{L}_{joint} = \sum_{\textbf{g}} \sum_{k} \mathbbm{1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k^{cam}, \tilde{\textbf{O}}_k^{cam}) $$
+        - $$ \mathcal{L}_{joint} = \sum_{\textbf{g}} \sum_{k} \mathbb{#1}_{\textbf{g}}^{obj} \cdot d(\textbf{O}_k^{cam}, \tilde{\textbf{O}}_k^{cam}) $$
 
 * 一些实现细节
     - VGG-16 backbone，不带全连接层，抽取特征
@@ -162,11 +162,10 @@ comments: true
         - average orientation error increases from 0.251 to 0.442 radians
         - height, width and length errors of the 3D bounding box almost remain the same
 
-## 总结
+## 总结与思考
 * 提出了单目图像的3D物体检测和定位模型 `MonoGRNet`
 * 直接进行 instance-level depth estimation，而不是 pixel-level depth estimation
 * 把像平面**2D BBox中心点**和**物体3D中心在像平面的投影点**区分开来，利用相机模型进行 `geometric reasoning`
 
-## 思考
-* 其实本文3D定位的核心：先估计物体在相机坐标系的深度，**再利用相机成像模型**，把2D平面的点转换到3D空间
-* 3D BBox直接用神经网络估计相对于中心点的坐标值
+- [ ] 其实本文3D定位的核心：先估计物体在相机坐标系的深度，**再利用相机成像模型**，把2D平面的点转换到3D空间
+- [ ] 3D BBox直接用神经网络估计相对于中心点的坐标值
