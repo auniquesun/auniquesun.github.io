@@ -15,7 +15,7 @@ comments: true
 
 论文作者：Zengyi Qin, Jinglu Wang, Yan Lu （来自清华大学、MIT、Microsoft）
 
-## 简介
+### 简介
 2D物体检测在一些场景发挥了作用，它是物体跟踪、行人重识别等的基础，但是在机器人、自动驾驶、AR/VR领域，2D物体检测就不够用了，因为缺乏
 * 物体真实尺寸信息
 * 物体在3D空间的位置信息
@@ -28,7 +28,7 @@ comments: true
 
 有了物体的 depth，还需估计 horizontal 和 vertical 位置。本文首先预测物体3D中心在像平面的投影，再结合depth和相机成像模型，得到物体最终的3D位置。这个过程体现了 **Geometric Reasoning**。
 
-## 相关工作
+### 相关工作
 * 2D Object Detection
     * Region Proposal based Method
         * Girshick, R. 2015. Fast r-cnn. In Proceedings of the IEEE international conference on computer vision, 1440–1448.
@@ -59,7 +59,7 @@ comments: true
     * Eigen, D., and Fergus, R. 2015. Predicting depth, surface normals and semantic labels with a common multi-scale convolutional architecture. In Proceedings ofthe IEEE International Conference on Computer Vision, 2650–2658.
     * Fu, H.; Gong, M.;Wang, C.; Batmanghelich, K.; and Tao, D. 2018. Deep ordinal regression network for monocular depth estimation. In Computer Vision and Pattern Recognition (CVPR).
 
-## 主要方法
+### 主要方法
 * 问题定义
     - 输入：an RGB image
     - 输出：$$ B_{3d} = (B_{2d}, Z_c, \textbf{c}, \mathcal{O}) $$
@@ -134,7 +134,7 @@ comments: true
     - 平衡因子，$w = \alpha = \beta = 10$
     - 7.7M paprameters for all 2D and 3D modules
 
-## 实验
+### 实验
 * 3D Location Estimation
     - 评价指标：mean errors $\rightarrow$ 预测的物体位置和距离最近的 ground truth
     ![](../img/post/3d_localization_experiments.png)
@@ -164,7 +164,7 @@ comments: true
         - average orientation error increases from 0.251 to 0.442 radians
         - height, width and length errors of the 3D bounding box almost remain the same
 
-## 总结与思考
+### 总结与思考
 * 提出了单目图像的3D物体检测和定位模型 `MonoGRNet`  
 * 直接进行 instance-level depth estimation，而不是 pixel-level depth estimation  
 * 把像平面**2D BBox中心点**和**物体3D中心在像平面的投影点**区分开来，利用相机模型进行 `geometric reasoning`  
