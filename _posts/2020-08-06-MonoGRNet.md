@@ -103,9 +103,9 @@ comments: true
         - $f_x$、$f_y$分别是 X、Y 轴上的焦距；$p_x$、$p_y$是图像的中心点坐标
         - ![](../img/post/camera2.png)
     * deep feature map 预测物体投影中心相对于 $\textbf{g}$ 的坐标 $\delta_{\textbf{c}} = (\delta_{x_{c}}, \delta_{y_{c}})$，所以物体投影中心在像平面的坐标为 $\delta_{\textbf{c}} + \textbf{g}$
-    * 所以：有了 $Z_c$ 和物体投影中心 $\textbf{c}$，就能得到 $$\textbf{C}_{s} = (X_{c}, Y_{c}, Z_{c})$$
+    * 因此，有了 $Z_c$ 和物体投影中心 $\textbf{c}$，就能得到 $$\textbf{C}_{s} = (X_{c}, Y_{c}, Z_{c})$$
     * shallow feature map 得到 $\delta_{\textbf{C}}$，用来调整 $\textbf{C}_{s}$
-    * 最终位置 $$\textbf{C} = \textbf{C}_{s} + \delta_{\textbf{C}}$$
+    * 最终位置：$$\textbf{C} = \textbf{C}_{s} + \delta_{\textbf{C}}$$
 
 * 3D BBox Regression
     * 估计8个顶点 $ \mathcal{O} = \{\textbf{O}_k\} $, $k = 1,...,8$
