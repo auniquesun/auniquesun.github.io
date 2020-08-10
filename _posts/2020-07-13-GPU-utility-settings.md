@@ -15,7 +15,7 @@ comments: true
 进入正文，首先要明确`CUDA`是什么？**`CUDA`是NVIDA公司开发的、支持并行计算的平台和编程模型**。为了使用`CUDA`，你需要具备以下硬件、软件条件：
 * CUDA-capable GPU —— 支持 CUDA 的GPU，是硬件设备
 * A supported version of Linux with a gcc compiler and toolchain —— `Ubuntu` 系统自带
-* [NVIDIA CUDA Toolkit](http://developer.nvidia.com/cuda-downloads) —— 本文**重点关注**的
+* [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) —— 本文**重点关注**的
 
 可以把 `CUDA Toolkit` 理解为一个软件工具箱，里面包含支持 `CUDA` 运行的各种库。`CUDA Toolkit`有两种安装方法：
 * distribution-specific packages（RPM and Deb packages）
@@ -46,7 +46,7 @@ comments: true
 
     * 下载CUDA仓库 `deb` 安装包，执行如下命令
     ```shell
-    wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
+    wget https://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
     ```
 
     * 安装CUDA仓库 `deb` 安装包，执行如下命令
