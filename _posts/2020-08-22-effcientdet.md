@@ -54,9 +54,9 @@ EfficientDet 一些亮点：
     * Joseph Redmon and Ali Farhadi. Yolo9000: better, faster, stronger. CVPR, 2017.
     * Laurent Sifre. Rigid-motion scattering for image classifica- tion. Ph.D. thesis section 6.2, 2014.
     * Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang Fu, and Alexander C Berg. SSD: Single shot multibox detector. ECCV, 2016.
-    * Jonathan Huang, Vivek Rathod, Chen Sun, Menglong Zhu, Anoop Korattikara, Alireza Fathi, Ian Fischer, ZbigniewWo- jna, Yang Song, Sergio Guadarrama, et al. Speed/accuracy trade-offs for modern convolutional object detectors. CVPR, 2017.
+    * Jonathan Huang, Vivek Rathod, Chen Sun, Menglong Zhu, Anoop Korattikara, Alireza Fathi, Ian Fischer, ZbigniewWojna, Yang Song, Sergio Guadarrama, et al. Speed/accuracy trade-offs for modern convolutional object detectors. CVPR, 2017.
     * Hei Law and Jia Deng. Cornernet: Detecting objects as paired keypoints. ECCV, 2018.
-    * Qijie Zhao, Tao Sheng, YongtaoWang, Zhi Tang, Ying Chen, Ling Cai, and Haibin Ling. M2det: A single-shot object de- tector based on multi-level feature pyramid network. AAAI, 2019.
+    * Qijie Zhao, Tao Sheng, YongtaoWang, Zhi Tang, Ying Chen, Ling Cai, and Haibin Ling. M2det: A single-shot object detector based on multi-level feature pyramid network. AAAI, 2019.
     * Xingyi Zhou, Dequan Wang, and Philipp Krhenbhl. Objects as points. arXiv:1904.07850, 2019.
 
 * Two-Stage Detectors
@@ -73,14 +73,14 @@ EfficientDet 一些亮点：
     * FPN proposes a top-down pathway to combine multi-scale features
         - Tsung-Yi Lin, Piotr Doll´ar, Ross Girshick, Kaiming He, Bharath Hariharan, and Serge Belongie. Feature pyramid networks for object detection. CVPR, 2017.
         - Shu Liu, Lu Qi, Haifang Qin, Jianping Shi, and Jiaya Jia. Path aggregation network for instance segmentation. CVPR, 2018.
-        - Peng Zhou, Bingbing Ni, Cong Geng, Jianguo Hu, and Yi Xu. Scale-transferrable object detection. CVPR, pages 528– 537, 2018.
+        - Peng Zhou, Bingbing Ni, Cong Geng, Jianguo Hu, and Yi Xu. Scale-transferrable object detection. CVPR, pages 528–537, 2018.
         - Golnaz Ghiasi, Tsung-Yi Lin, Ruoming Pang, and Quoc V. Le. Nas-fpn: Learning scalable feature pyramid architecture for object detection. CVPR, 2019.
         - Md Amirul Islam, Mrigank Rochan, Neil DB Bruce, and Yang Wang. Gated feedback refinement network for dense image labeling. CVPR, pages 3751–3759, 2017.
 
 * Model Scaling
     * Mingxing Tan and Quoc V. Le. Efficientnet: Rethinking model scaling for convolutional neural networks. ICML, 2019.
     * Tsung-Yi Lin, Piotr Doll´ar, Ross Girshick, Kaiming He, Bharath Hariharan, and Serge Belongie. Focal loss for dense object detection. ICCV, 2017. 1,
-    * Barret Zoph, Ekin D. Cubuk, Golnaz Ghiasi, Tsung-Yi Lin, Jonathon Shlens, and Quoc V. Le. Learning data aug- mentation strategies for object detection. arXiv preprint arXiv:1804.02767, 2019. 1,
+    * Barret Zoph, Ekin D. Cubuk, Golnaz Ghiasi, Tsung-Yi Lin, Jonathon Shlens, and Quoc V. Le. Learning data augmentation strategies for object detection. arXiv preprint arXiv:1804.02767, 2019. 1,
     * Andrew Howard, Mark Sandler, Grace Chu, Liang-Chieh Chen, Bo Chen, Mingxing Tan, Weijun Wang, Yukun Zhu, Ruoming Pang, Vijay Vasudevan, Quoc V. Le, and Hartwig Adam. Searching for mobilenetv3. ICCV, 2019.
     * Mingxing Tan, Bo Chen, Ruoming Pang, Vijay Vasudevan, and Quoc V Le. Mnasnet: Platform-aware neural architec- ture search for mobile. CVPR, 2019.
 
@@ -88,19 +88,19 @@ EfficientDet 一些亮点：
 * BiFPN
     * 对backbone抽取的特征进行融合，为什么先介绍它？我觉得是作者想强调这部分创新点，backbone部分使用的已发表的工作
     * 问题定义
-        * 输入：a list of multi-scale features $\overrightarrow{P}^{in} = (P_{l_1}^{in}, P_{l_2}^{in}, ...)$
+        * 输入：a list of multi-scale features $\overrightarrow{P^{in}} = (P_{l_1}^{in}, P_{l_2}^{in}, ...)$
             - $P_{l_i}^{in}$ 是backbone $l_i$ 层的特征
-        * 输出：a list of new features $\overrightarrow{P}^{out} = f(\overrightarrow{P}^{in})$
+        * 输出：a list of new features $\overrightarrow{P^{out}} = f(\overrightarrow{P^{in}})$
             * 目标是找到一个变换 $f$ 有效地融合不同层特征
 
     * 拿FPN举例说明
         ![](../img/post/fea_net_design.png)
-        * 3-7 层是输入特征 $\overrightarrow{P}^{in} = (P_{3}^{in}, ..., P_{7}^{in})$，$P_{i}^{in}$ 表示第i层的feature map，它的分辨率等于输入图片的 $1/2^i$
-        * 例如：输入图片的大小是 640x640，那么 $P_{3}^{in}$ 表示 80x80 的特征图 $\leftarrow$ 640/$2^3$ = 80，其他层依次类推
+        * 3-7 层是输入特征 $\overrightarrow{P^{in}} = (P_{3}^{in}, ..., P_{7}^{in})$，$P_{i}^{in}$ 表示第i层的feature map，它的分辨率等于输入图片的 $1/2^i$
+        * 例如：输入图片的大小是 640 x 640，那么 $P_{3}^{in}$ 表示 80 x 80 的特征图 $\leftarrow$ 640/$2^3$ = 80，其他层依次类推
         * FPN 集成backbone不同层特征的方式是 top-down pathway：
             - ${P}_{7}^{out} = Conv({P}_{7}^{in})$
             - ${P}_{6}^{out} = Conv({P}_{6}^{in} + Resize({P}_{7}^{out}))$
-            - $cdots$
+            - $\cdots$
             - ${P}_{3}^{out} = Conv({P}_{3}^{in} + Resize({P}_{4}^{out}))$
             - $Resize$ 通常是 upsampling or downsampling op
             - $Conv$ 通常是卷积操作
