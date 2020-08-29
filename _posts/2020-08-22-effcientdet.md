@@ -147,7 +147,7 @@ EfficientDet 一些亮点：
             * EfficientNet 是在ImageNet上训练的，学习到了大量常见物体的特征
         - BiFPN network
             * 线性增加 BiFPN 的深度 $D_{bifpn}$(#layers) $\leftarrow$ 网络深度需要是整数
-            * 指数增加 BiFPN 的宽度 $W_{bifpn}$(#channels) $\leftarrow$，与EfficientNet的操作类似
+            * 指数增加 BiFPN 的宽度 $W_{bifpn}$(#channels) $\leftarrow$ 与EfficientNet的操作类似
             * 因此，$ W_{bifpn} = 64 \cdot (1.35^\phi)$，$D_{bifpn} = 3 + \phi$
                 - 1.35 是从 {1.2, 1.25, 1.3, 1.35, 1.4, 1.45} 网格搜索得到
         - Box&Class prediction network
@@ -155,4 +155,32 @@ EfficientDet 一些亮点：
         - input image resolution
             * 线性增加分辨率，$R_{input} = 512 + \phi \cdot 128$；由于之前BiFPN的设计，为了让分辨率能被 $2^7$ 整除
         - 至此，变换不同的 $\phi$，就能得到一系列不同架构的检测器
-        ![](../img/post/effidet_t2.png)
+        ![](../img/post/effidet_t1.png)
+
+### 实验
+* EfficientDet for Object Detection
+    * 数据集：
+        - COCO 2017 detection datasets [25] with 118K **training images**
+        - report accuracy for both **test-dev** (20K test images with no public ground-truth) and **val** with **5K validation images**
+    * ![](../img/post/effidet_t2.png)
+
+* EfficientDet for Semantic Segmentation
+    * 主要是为目标检测设计的，这里是为了看语义分割的效果
+    * modify EfficientDet model to keep feature level {P2, P3, ..., P7} in BiFPN, but **only use P2** for the final per-pixel classification
+    * only **evaluate a EfficientDet-D4 based model**, which uses a Ima- geNet pretrained EfficientNet-B4 backbone (similar size to ResNet-50)
+    * ![](../img/post/effidet_t3.png)
+
+* Ablation Study
+    * all accuracy results here are for COCO validation set
+    * Disentangling Backbone and BiFPN
+        - ![](../img/post/effidet_t4.png)
+    * BiFPN Cross-Scale Connections
+        - ![](../img/post/effidet_t5.png)
+    * Softmax vs. Fast Normalized Fusion
+        - ![](../img/post/effidet_t6.png)
+    * Compound Scaling
+        - ![](../img/post/effidet_f6.png)
+
+### 总结与讨论
+* 这篇论文告诉我们，同时缩放网络宽度、深度、输入图片分辨率，有助于提升检测准度和效率
+* BiFPN 架构是有效的
