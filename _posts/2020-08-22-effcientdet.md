@@ -11,11 +11,14 @@ comments: true
 目标检测是计算机视觉的一大研究主题，长期以来热度不减。深度学习大规模应用于视觉领域后，目标检测的研究进展飞快，例如：每年各大CV顶会论文，目标检测的主题占很大比例。随着检测准确率的提升，这方面的研究倾向于关注模型效率，追求更高的检测精度和更快的检测效率，同时往往和神经架构搜索结合，探索不同的模型架构，以适配不同的资源条件。本文介绍的这篇论文，是 Google 提出的目标检测模型 —— EfficientDet，**实验表明兼具准确率和效率优势**，它实际上是一个系列：共有 D0-D7 八个检测器，从最基本的 EfficientDet D0 出发，运用神经架构搜索和模型缩放技术，扩展出了 D1-D7，每种检测器的检测精度和效率不同，满足不同的资源场景的需求。
 
 ![](../img/post/EfficientDet_perf.png)
-**FLOPs** 指整个神经网络加法和乘法的运算次数，根据网络结构求得
+
+**FLOPs**：指整个神经网络加法和乘法的运算次数，根据网络结构求得
 
 EfficientDet 一些亮点：
-* EfficientDet-D0 uses 28x fewer FLOPs than YOLOv3 under similar accuracy constraint
-* EfficientDet-D7 achieves state-of-the-art 55.1 AP with 77M parameters and 410B FLOPs
+* EfficientDet-D0 uses 28x fewer FLOPs than YOLOv3
+    * under similar accuracy constraint
+* EfficientDet-D7 achieves state-of-the-art 55.1 AP 
+    * with 77M parameters and 410B FLOPs
     * outperforming previous best detector AmoebaNet-based NAS-FPN by 4 AP
     * while being 2.7x smaller and using 7.4x fewer FLOPs
 
