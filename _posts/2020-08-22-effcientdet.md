@@ -98,11 +98,11 @@ EfficientDet 一些亮点：
         * 3-7 层是输入特征 $\overrightarrow{P^{in}} = (P_{3}^{in}, ..., P_{7}^{in})$，$P_{i}^{in}$ 表示第i层的feature map，它的分辨率等于输入图片的 $1/2^i$
         * 例如：输入图片的大小是 640 x 640，那么 $P_{3}^{in}$ 表示 80 x 80 的特征图 $\leftarrow$ 640/$2^3$ = 80，其他层依次类推
         * FPN 集成backbone不同层特征的方式是 top-down pathway：
-            - ${P}_{7}^{out} = Conv({P}_{7}^{in})$
-            - ${P}_{6}^{out} = Conv({P}_{6}^{in} + Resize({P}_{7}^{out}))$
+            - $P_{7}^{out} = Conv(P_{7}^{in})$
+            - $P_{6}^{out} = Conv(P_{6}^{in} + Resize(P_{7}^{out}))$
             - $\cdots$
-            - ${P}_{3}^{out} = Conv({P}_{3}^{in} + Resize({P}_{4}^{out}))$
-            - $Resize$ 通常是 upsampling or downsampling op
+            - $P_{3}^{out} = Conv(P_{3}^{in} + Resize(P_{4}^{out}))$
+            - $Resize$ 通常是 upsampling or downsampling operation
             - $Conv$ 通常是卷积操作
 
     * Cross-Scale Connections —— 这一部分探究融合不同层次特征的方法，追求高的检测精度和运行速度
