@@ -119,7 +119,7 @@ EfficientDet 一些亮点：
     * Weighted Feature Fusion
         * 通常的特征融合方法，没有区别每层的输入特征对输出的贡献，本文认为应该区别对待，即对每层特征加权，加权的方式有几种：
         * unbounded fusion：$O = \sum_{i} w_i \cdot I_i$，$w_i$ 是个可学习的权重，具体可以是标量（per-feature）、向量（per-channel）、多维Tensor（per-pixel）。本文认为采用标量的形式，达到的效果与其他形式类似。但是标量的取值范围变化很大 —— 可以是非常大的值、非常小的值，因此要采用归一化的权重。（**？？不明白说这些有什么用，大家都懂，而且本文没采用这种方式加权特征**）
-        * softmax-based fusion: $O = \sum_{i} \frac{e_{w_i}}{\sum_{j}e_{w_j}} \cdot I_i$，相当于对归一化做的变形，这种方式的问题是计算量很大，会降低模型效率
+        * softmax-based fusion: $O = \sum_{i} \frac{e^{w_i}}{\sum_{j}e^{w_j}} \cdot I_i$，相当于对归一化做的变形，这种方式的问题是计算量很大，会降低模型效率
         * fast normalized fusion: $O = \sum_{i} \frac{w_i}{\epsilon + \sum_{j}w_j}$，$\epsilon$ = 0.0001，其实没有多大改变，就是关注到了很多细节之处。
             - 后面的实验表明 fast normalized fusion 这样做提高了模型运行效率
 
