@@ -184,4 +184,4 @@ EfficientDet 一些亮点：
 ### 总结与讨论
 * 这篇论文告诉我们
     - 选取一个好的 base backbone，同时缩放网络宽度、深度、输入图片分辨率，要由于单独缩放其中的某些量
-    * BiFPN 架构由于 FPN 和 NAS-FPN
+    * BiFPN 架构优于 FPN 和 NAS-FPN
