@@ -88,14 +88,14 @@ EfficientDet 一些亮点：
 * BiFPN
     * 对backbone抽取的特征进行融合，为什么先介绍它？我觉得是作者想强调这部分创新点，backbone部分使用的已发表的工作
     * 问题定义
-        * 输入：a list of multi-scale features $\overrightarrow{P^{in}} = (P_{l_1}^{in}, P_{l_2}^{in}, ...)$
+        * 输入：a list of multi-scale features $\overrightarrow{P}^{in} = (P_{l_1}^{in}, P_{l_2}^{in}, ...)$
             - $P_{l_i}^{in}$ 是backbone $l_i$ 层的特征
-        * 输出：a list of new features $\overrightarrow{P^{out}} = f(\overrightarrow{P^{in}})$
+        * 输出：a list of new features $\overrightarrow{P}^{out} = f(\overrightarrow{P}^{in})$
             * 目标是找到一个变换 $f$ 有效地融合不同层特征
 
     * 拿FPN举例说明
         ![](../img/post/fea_net_design.png)
-        * 3-7 层是输入特征 $\overrightarrow{P^{in}} = (P_{3}^{in}, ..., P_{7}^{in})$，$P_{i}^{in}$ 表示第i层的feature map，它的分辨率等于输入图片的 $1/2^i$
+        * 3-7 层是输入特征 $\overrightarrow{P}^{in} = (P_{3}^{in}, ..., P_{7}^{in})$，$P_{i}^{in}$ 表示第i层的feature map，它的分辨率等于输入图片的 $1/2^i$
         * 例如：输入图片的大小是 640 x 640，那么 $P_{3}^{in}$ 表示 80 x 80 的特征图 $\leftarrow$ 640/$2^3$ = 80，其他层依次类推
         * FPN 集成backbone不同层特征的方式是 top-down pathway：
             - $P_{7}^{out} = Conv(P_{7}^{in})$
