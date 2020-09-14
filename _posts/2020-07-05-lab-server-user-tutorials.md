@@ -49,7 +49,7 @@ comments: true
     ```
     * `NOTE:` 安装过程中，需要确认的地方输入 `y`；默认安装在了用户主目录下的这个位置 `~/.oh-my-zsh`
 
-4. 改变 ohmyzsh 主题元素，执行如下命令
+4. 【这一步可做可不做】改变 ohmyzsh 主题元素，执行如下命令
     ```shell
     vim ~/.zshrc
     ```
