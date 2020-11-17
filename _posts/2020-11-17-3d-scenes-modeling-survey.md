@@ -61,3 +61,19 @@ comments: true
         * indoor layout estimation
         * 3D object detection
         * mesh reconstruction
+
+### KinectFusion
+* 论文名称：KinectFusion: Real-time 3D Reconstruction and Interaction Using a Moving Depth Camera
+
+* 论文作者：Shahram Izadi, David Kim, Otmar Hilliges, David Molyneaux, Richard Newcombe, Pushmeet Kohli, Jamie Shotton, Steve Hodges, Dustin Freeman, Andrew Davison, Andrew Fitzgibbon（微软剑桥研究院、帝国理工大学、纽卡斯特大学、兰卡斯特大学、多伦多大学）
+
+* 收录情况：ACM symposium on User interface software and technology. 2011
+
+* 简介
+    1. KinectFusion使得用户手持一个 Kinect 相机，来回移动，就能快速建立细节清楚的室内3D场景图。
+
+    2. 仅来自Kinect的深度数据，被用来实时地跟踪传感器的3D姿态，和重构几何图形。
+
+    3. 本文展示了地城北的手持扫描、几何感知的增强现实和基于物理原理的交互系统。传感器使用GPU进行物体分割、用户交互没有降低相机跟踪和重建的性能。
+
+    4. 一些扩展功能被用于实时 multi-touch 交互，可触摸的平面/非平面重建
