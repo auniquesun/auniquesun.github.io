@@ -62,6 +62,14 @@ comments: true
         * 3D object detection
         * mesh reconstruction
 
+* **我的一些疑问与思考**    
+    * 这篇论文是做3D场景理解和物体重建的，那么3D场景理解具体指什么？是把场景中的每类物体识别出来，并分割吗？物体重建要如何重建？我知道必须的步骤是识别出物体，重建时候尽可能和原物体相同
+    * Mesh Reconstruction 是指什么？Voxel Representation 是什么？
+    * 理解了这些基本概念，我有什么思路做这个事情？
+    * 设计怎样的实验？
+    * 用什么数据集？如何评价实验效果？
+    * 做视觉研究展示效果，画怎样的图，用什么画图？
+
 ### KinectFusion
 * 论文名称：KinectFusion: Real-time 3D Reconstruction and Interaction Using a Moving Depth Camera
 
