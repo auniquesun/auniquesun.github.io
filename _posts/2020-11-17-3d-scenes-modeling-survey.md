@@ -85,3 +85,17 @@ comments: true
     3. 本文展示了地城北的手持扫描、几何感知的增强现实和基于物理原理的交互系统。传感器使用GPU进行物体分割、用户交互没有降低相机跟踪和重建的性能。
 
     4. 一些扩展功能被用于实时 multi-touch 交互，可触摸的平面/非平面重建
+
+### CoopUnderstanding
+* 论文名称：Cooperative Holistic Scene Understanding: Unifying 3D Object, Layout, and Camera Pose Estimation
+
+* 论文作者：Siyuan Huang, Qi Siyuan, Xiao Yinxue, Zhu Yixin, Ying Nian Wu, Song-Chun Zhu（UCLA）
+
+* 收录情况：NeurIPS 2018
+
+### Holistic 3D Scene Parse
+* 论文名称：Holistic 3D Scene Parsing and Reconstruction from a Single RGB Image
+
+* 论文作者：Siyuan Huang, Qi Siyuan, Xiao Yinxue, Zhu Yixin, Ying Nian Wu, Song-Chun Zhu（UCLA）
+
+* 收录情况：ECCV 2018
