@@ -45,7 +45,7 @@ comments: true
 
 * 论文作者：Yinyu Nie, Xiaoguang Han, Shihui Guo, Yujian Zheng, Jian Chang, Jian Jun Zhang（伯恩茅斯大学、港中文、深圳大数据研究所、厦大）
 
-* 收录情况：ECCV 2018
+* 收录情况：CVPR 2020
 
 * 简介
     1. 室内场景语义重建涉及到：（1）场景理解（2）物体重建
