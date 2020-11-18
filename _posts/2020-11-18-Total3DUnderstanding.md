@@ -8,6 +8,15 @@ mathjax: true
 comments: true
 ---
 
+这篇论文研究的问题是从单张RGB图片，运用深度学习的方法，同时建模室内布局，物体姿态和Mesh，取得了较好的效果。这篇文章是对其他工作的follow，
+之前NeurIPS\ECCV出现过研究同样的文章，有必要同时看一下，弄清楚一些来龙去脉。
+
+* 论文名称：[Total3DUnderstanding: Joint Layout, Object Pose and Mesh Reconstruction for Indoor Scenes from a Single Image](https://arxiv.org/abs/2002.12212)
+
+* 论文作者：Yinyu Nie, Xiaoguang Han, Shihui Guo, Yujian Zheng, Jian Chang, Jian Jun Zhang（伯恩茅斯大学、港中文、深圳大数据研究所、厦大）
+
+* 收录情况：ECCV 2018
+
 ### 主要方法
 * 3D Object and Layout Estimation
     * 让世界坐标系和相机坐标系一致（潜台词说相机是静止的），y-axis 垂直于地面，x-axis 指向相机
