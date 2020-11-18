@@ -43,7 +43,7 @@ comments: true
 ### Total3DUnderstanding
 * 论文名称：Total3DUnderstanding: Joint Layout, Object Pose and Mesh Reconstruction for Indoor Scenes from a Single Image
 
-* 论文作者：Yinyu Nie1,2,3,†, Xiaoguang Han2,3,∗, Shihui Guo4, Yujian Zheng2,3, Jian Chang1, Jian Jun Zhang（伯恩茅斯大学、港中文、深圳大数据研究所、厦大）
+* 论文作者：Yinyu Nie, Xiaoguang Han, Shihui Guo, Yujian Zheng, Jian Chang, Jian Jun Zhang（伯恩茅斯大学、港中文、深圳大数据研究所、厦大）
 
 * 收录情况：ECCV 2018
 
