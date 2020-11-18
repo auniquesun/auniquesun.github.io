@@ -9,13 +9,13 @@ comments: true
 ---
 
 这篇论文研究的问题是从单张RGB图片，运用深度学习的方法，同时建模室内布局，物体姿态和Mesh，取得了较好的效果。这篇文章是对其他工作的follow，
-之前NeurIPS\ECCV出现过研究同样的文章，有必要同时看一下，弄清楚一些来龙去脉。
+之前NeurIPS/ECCV出现过研究同样的文章，有必要同时看一下，弄清楚一些来龙去脉。
 
 * 论文名称：[Total3DUnderstanding: Joint Layout, Object Pose and Mesh Reconstruction for Indoor Scenes from a Single Image](https://arxiv.org/abs/2002.12212)
 
 * 论文作者：Yinyu Nie, Xiaoguang Han, Shihui Guo, Yujian Zheng, Jian Chang, Jian Jun Zhang（伯恩茅斯大学、港中文、深圳大数据研究所、厦大）
 
-* 收录情况：ECCV 2018
+* 收录情况：CVPR 2020
 
 ### 主要方法
 * 3D Object and Layout Estimation
@@ -23,7 +23,7 @@ comments: true
         - 因此，相机姿态可以用$\textbf{R}(\beta, \gamma)$表示，$\beta$表示pitch角，$\gamma$表示roll角
         - 世界坐标系中，物体的3D bbox的中心点$\textbf{C} \in \mathbb{R}^3$，尺寸$\textbf{s} \in \mathbb{R}^3$，朝向$\theta \in [-\pi, \pi]$
         - 对于室内的物体（？？？为什么还分室内室外），3D中心$\textbf{C}$ 表示成像平面2D投影 $\textbf{c} \in \mathbb{R}^2$，物体到相机平面的距离 $d \in \mathbb{R}$
-    * 给定相机内参矩阵$\textbf \mathbb{R}^{3 \times 3}$（原文把内参矩阵搞成了一个向量，写的不对），$\textbf{C}$ 可以表示成（？？？没懂推导）
+    * 给定相机内参矩阵$\textbf{K} \in \mathbb{R}^{3 \times 3}$（原文把内参矩阵搞成了一个向量，写的不对），$\textbf{C}$ 可以表示成（？？？没懂推导）
         - $$ \textbf{C} = \textbf{R}^{-1}(\beta, \gamma) \cdot d \cdot \frac{\textbf{K}^{-1}[\textbf{c}, 1]^{T}}{\parallel \textbf{K}^{-1}[\textbf{c}, 1]^{T} \parallel_{2}}$$
     * 2D 投影中心 $\textbf{c}$ 由两部分组成
         - $\textbf{c}^{b}$，bbox 中心点
@@ -32,3 +32,7 @@ comments: true
         - $$\textbf{F}(\textbf{I} | \textbf{\delta}, d, \beta, \gamma, \textbf{s}, \theta) \in \mathbb{R}^{3 \times 8}$$
         - 3D Object Detection Network 预测 $(\textbf{\delta}, d, \textbf{s}, \theta)$
         - Layout Estimation Network 预测 $\textbf{R}(\beta, \gamma)$ 和 $(\textbf{C}, \textbf{s}^{l}, \theta^{l})$
+    * Object Detection Network
+        - 本文认为每个物体与周围环境有 multi-lateral 的关系，所以预测物体边界框是要考虑室内所有物体
+        - ![](../img/post/t3du_fig3.png)
+        - 对于室内场景重建，object relation model 反映了现实世界中固有的性质：物体与其他物体相邻、相似
