@@ -46,7 +46,7 @@ comments: true
         - 本文认为每个物体与周围环境有 multi-lateral 的关系，所以预测物体边界框是要考虑室内所有物体
 
         - ODN模块设计时受到了别人的启发：2D 物体检测时，使用 attention 机制能提升效果；所以增加了 Attention sum
-            * 参考的论文是：$Relation networks for object detection{*}$. CVPR 2018
+            * 参考的论文是：$Relation~networks~for~object~detection{*}$. CVPR 2018
 
         - 3D 物体检测时
             * (1) 根据2D检测结果，用 ResNet-34 抽取物体 appearance feature；编码 2D bbox的相对位置和尺寸信息 $\Rightarrow$ geometry feature
@@ -80,8 +80,8 @@ comments: true
         * $\textbf{q}_i \in \mathbb{R}^{3}$ 是ground truth mesh上离$\textbf{p}_i$最近的一点
         * 设计了一个二分类器 $f(*)$ 预测 $\textbf{p}_{i}$ 是否与 ground truth mesh 接近
             - $$ f(\textbf{p}_{i}) = $$
-            - $N(\textbf{q}_{i})$ 是 $\textbf{q}_{i}$ 在 ground truth mesh 的邻居
-            - $D(\textbf{q}_{i})$ 是 $\textbf{q}_{i}$ 的 local density
+            - $$N(\textbf{q}\_{i})$$ 是 $$\textbf{p}_{i}$$ 在 ground truth mesh 的邻居
+            - $$D(\textbf{q}\_{i})$$ 是 $$\textbf{q}_{i}$$ 的 local density
         * 分类器的设计思路：
             - mesh 形状估计时，如果一个点属于 ground truth 的邻居 $N(*)$，模板上的这个点应该被保留，后续实验表明这种方法优于TMN单一阈值设置的方法
 
