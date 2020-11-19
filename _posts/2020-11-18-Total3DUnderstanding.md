@@ -9,7 +9,7 @@ comments: true
 ---
 
 这篇论文研究的问题是从单张RGB图片，运用深度学习的方法，同时建模室内布局，物体姿态和Mesh，取得了较好的效果。这篇文章是对其他工作的follow，
-之前NeurIPS/ECCV出现过研究同样的文章，有必要同时看一下，弄清楚一些来龙去脉。
+之前NeurIPS/ECCV出现过研究同样问题的文章，有必要同时看一下，弄清楚一些来龙去脉。
 
 * 论文名称：[Total3DUnderstanding: Joint Layout, Object Pose and Mesh Reconstruction for Indoor Scenes from a Single Image](https://arxiv.org/abs/2002.12212)
 
@@ -23,7 +23,8 @@ comments: true
 ![](../img/post/t3du_fig2.png)
 
 1. 3D Object and Layout Estimation
-    * 让世界坐标系和相机坐标系一致（潜台词说相机是静止的），y-axis 垂直于地面，x-axis 指向相机
+    * 让世界坐标系和相机坐标系一致，y-axis 垂直于地面，x-axis 指向相机
+        - 相机不一定静止，后面可能运动，这里只是说让二者开始保持一致，我是这么理解的
         - 因此，相机姿态可以用$\textbf{R}(\beta, \gamma)$表示，$\beta$表示pitch角，$\gamma$表示roll角
         - 世界坐标系中，物体的3D bbox的中心点$\textbf{C} \in \mathbb{R}^3$，尺寸$\textbf{s} \in \mathbb{R}^3$，朝向$\theta \in [-\pi, \pi]$
         - 对于室内的物体（？？？为什么还分室内室外），3D中心$\textbf{C}$ 表示成像平面2D投影 $\textbf{c} \in \mathbb{R}^2$，物体到相机平面的距离 $d \in \mathbb{R}$
@@ -158,3 +159,14 @@ comments: true
     ![](../img/post/t3du_tab3.png)
     ![](../img/post/t3du_tab4.png)
     ![](../img/post/t3du_tab5.png)
+    - C0：without relational features (in ODN) and joint training (Baseline)
+
+    - C1：Baseline + relational features
+
+    - C2：Baseline + (only) cooperative loss $\mathcal{L}_{co}$ in joint training
+
+    - C3：Baseline + (only) global loss $\mathcal{L}_{g}$ in joint training
+
+    - C4：Baseline + joint training ($\mathcal{L}_{g} + \mathcal{L}_{co}$)
+
+    - Full：Baseline + relational features + joint training
