@@ -124,3 +124,37 @@ comments: true
         * $$ \mathcal{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
             - 前三项分别对应ODN、LEN、MGN的损失
             - 后两项是各模块相互作用的总共损失
+
+### 实验
+* 数据集：       
+    * SUN RGB-D. 10335张带有3D layout、object bbox、depth map的真实室内场景图片
+        * train/test split
+        * NYU-37 object labels for evaluation: layout、camera pose estimation、3D object detection
+    * Pix3D. 395 furniture models with 9 categories，包含10069张图片
+        * train/test split
+        * 用来 mesh generation 的监督
+
+* 评价指标：
+    * $\textbf{3D IoU}$ for layout estimation
+    * $\textbf{mean absolute error}$ for camera pose
+    * $\textbf{mAP}$ for object detetion
+    * $\textbf{Chamfer distance}$ for mesh generation
+
+* 实现细节
+    * 2D detector 在coco上训练，在 SUN RGB-D 调优
+    * MGN中的template sphere有2562个单位半径的顶点，移除边的阈值是平均分类分数低于0.2
+    * 分别在 SUN RGB-D训练ODN、LEN，在Pix3D 训练MGN
+    * 然后把 Pix3D 和 SUN RGB-D 组合起来，联合训练三个子网络，这么做是为了和单独训练做对比实验
+
+* Qualitative Analysis
+    * Object Reconstruction
+    ![](../img/post/t3du_fig5.png)
+    * Scene Reconstruction
+    ![](../img/post/t3du_fig6.png)
+
+* Quantitative Analysis
+    ![](../img/post/t3du_tab1.png)
+    ![](../img/post/t3du_tab2.png)
+    ![](../img/post/t3du_tab3.png)
+    ![](../img/post/t3du_tab4.png)
+    ![](../img/post/t3du_tab5.png)
