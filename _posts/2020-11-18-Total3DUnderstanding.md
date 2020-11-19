@@ -152,7 +152,7 @@ comments: true
     * Scene Reconstruction
     ![](../img/post/t3du_fig6.png)
 
-* Quantitative Analysis
+* Quantitative Analysis  
     ![](../img/post/t3du_tab1.png)
     ![](../img/post/t3du_tab2.png)
     ![](../img/post/t3du_tab3.png)
