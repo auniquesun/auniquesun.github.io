@@ -61,7 +61,7 @@ comments: true
             1. camera pose：$\textbf{R}(\beta, \gamma)$（为什么算在 layout）
             2. 整个场景的布局 3D box：$(\textbf{C}, \textbf{s}^l, \theta^{l})$
 
-2. Mesh Generation for Indoor Objects
+2. Mesh Generation for Indoor Objects(MGN)
     ![](../img/post/t3du_fig4.png)
     - 输入：（1）检测的物体类别（2）ResNet-18 产生的物体特征
     - 输出：object mesh
@@ -88,3 +88,39 @@ comments: true
     - 本文认为TMN移除 faces 的方式存在问题，转向移除 mesh edges 的思路
         * 移除 伪正边 能降低不正确的 connections，这些connections会被 edge loss 惩罚（参见文献【50】）
         * 用二分类器 $f(*)$ 在 mesh edges 上随机采样点，如果该点的 average classification score低，就把该点所在的 edges 去除（？？？怎么判断点在哪条边，一个点可以在无穷条边上）
+
+3. Joint Learning for Total 3D Understanding
+    - 这部分讲解学习目标和损失函数
+
+    - Individual Loss
+        * ODN 预测相机坐标系下的3D box，$(\textbf{\delta}, d, \textbf{s}, \theta)$
+        
+        * LEN 预测layout box，$(\beta, \gamma, \textbf{C}, \textbf{s}^l, \theta^{l})$，把相机姿态和3D物体变换到世界坐标系
+
+        * 分类和回归（长度和角度）损失函数（？？？这里说的莫名其妙）
+            - $\mathcal{L}^{cls,reg} = \mathcal{L}^{cls} + \lambda_r \mathcal{L}^{reg}$ 优化 (\beta, \gamma, \textbf{s}, \textbf{s}^l, \theta, \theta^{l})
+            - 【参考文献14】
+
+        * L2 loss 预测 $\textbf{C}$ 和 $\textbf{\delta}$
+
+        * Chamfer loss for MGN
+
+        * edge loss $\mathcal{L}_e$
+
+        * boundary loss $\mathcal{L}_b$
+
+        * cross entropy loss $\mathcal{L}_{ce}$ 分类 edges in mesh modification
+
+    - Joint Loss
+        * 思路：（1）相机姿态估计应该和3D object detection相互促进（2）object meshes应该和3D object detection相互促进
+
+        * 对于第一点，采用 cooperative loss $\mathcal{L}_{co}$
+
+        * 对于第二点，采用 global loss $\mathcal{L}_{g}$
+            * $$ \mathcal{L}_{g} = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{| \mathbb{S}_i |} \sum_{\textbf{q} \in \mathbb{S}_i} \min_{\textbf{p} \in \mathbb{M}_i} \parallel \textbf{p} - \textbf{q} \parallel_{2}^{2}$$
+            * $\textbf{p}$、$\textbf{q}$是两个点，分别位于重建的 mesh $\mathbb{M}_i$ 和 ground truth surface $\mathbb{S}_i$，$i$ 代表第$i$个物体
+            * $N$ 是物体总数，$| \mathbb{S}_i |$ 是 $\mathbb{S}_i$ 上的点数
+        
+        * $$ \mathbb{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathbb{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathbb{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathbb{L}_z + \lambda_{co}\mathbb{L}_{co} + \lambda_{g}\mathbb{L}_g $$
+            - 前三项分别对应ODN、LEN、MGN的损失
+            - 后两项是各模块相互作用的总共损失
