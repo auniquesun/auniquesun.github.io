@@ -98,7 +98,7 @@ comments: true
         * LEN 预测layout box，$(\beta, \gamma, \textbf{C}, \textbf{s}^l, \theta^{l})$，把相机姿态和3D物体变换到世界坐标系
 
         * 分类和回归（长度和角度）损失函数（？？？这里说的莫名其妙）
-            - $\mathcal{L}^{cls,reg} = \mathcal{L}^{cls} + \lambda_r \mathcal{L}^{reg}$ 优化 (\beta, \gamma, \textbf{s}, \textbf{s}^l, \theta, \theta^{l})
+            - $\mathcal{L}^{cls,reg} = \mathcal{L}^{cls} + \lambda_r \mathcal{L}^{reg}$ 优化 $(\beta, \gamma, \textbf{s}, \textbf{s}^l, \theta, \theta^{l})$
             - 【参考文献14】
 
         * L2 loss 预测 $\textbf{C}$ 和 $\textbf{\delta}$
@@ -119,8 +119,8 @@ comments: true
         * 对于第二点，采用 global loss $\mathcal{L}_{g}$
             * $$ \mathcal{L}_{g} = \frac{1}{N} \sum_{i=1}^{N} \frac{1}{| \mathbb{S}_i |} \sum_{\textbf{q} \in \mathbb{S}_i} \min_{\textbf{p} \in \mathbb{M}_i} \parallel \textbf{p} - \textbf{q} \parallel_{2}^{2}$$
             * $\textbf{p}$、$\textbf{q}$是两个点，分别位于重建的 mesh $\mathbb{M}_i$ 和 ground truth surface $\mathbb{S}_i$，$i$ 代表第$i$个物体
-            * $N$ 是物体总数，$| \mathbb{S}_i |$ 是 $\mathbb{S}_i$ 上的点数
+            * $N$ 是物体总数，$\| \mathbb{S}_i \|$ 是 $\mathbb{S}_i$ 上的点数
         
-        * $$ \mathbb{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathbb{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathbb{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathbb{L}_z + \lambda_{co}\mathbb{L}_{co} + \lambda_{g}\mathbb{L}_g $$
+        * $$ \mathcal{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
             - 前三项分别对应ODN、LEN、MGN的损失
             - 后两项是各模块相互作用的总共损失
