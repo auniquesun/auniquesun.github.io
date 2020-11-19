@@ -80,8 +80,8 @@ comments: true
         * $\textbf{q}_i \in \mathbb{R}^{3}$ 是ground truth mesh上离$\textbf{p}_i$最近的一点
         * 设计了一个二分类器 $f(*)$ 预测 $\textbf{p}_{i}$ 是否与 ground truth mesh 接近
             - $$ f(\textbf{p}_{i}) = $$
-            - $$N(\textbf{q}\_{i})$$ 是 $$\textbf{p}_{i}$$ 在 ground truth mesh 的邻居
-            - $$D(\textbf{q}\_{i})$$ 是 $$\textbf{q}_{i}$$ 的 local density
+            - $$N(\textbf{q}_{i})$$ 是 $$\textbf{p}_{i}$$ 在 ground truth mesh 的邻居
+            - $$D(\textbf{q}_{i})$$ 是 $$\textbf{q}_{i}$$ 的 local density
         * 分类器的设计思路：
             - mesh 形状估计时，如果一个点属于 ground truth 的邻居 $N(*)$，模板上的这个点应该被保留，后续实验表明这种方法优于TMN单一阈值设置的方法
 
