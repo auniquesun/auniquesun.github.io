@@ -120,6 +120,22 @@ comments: true
 
 3. 用户对共享目录有读、写、执行权限，【**请勿删除、修改**】 `public/` 目录下的任何文件
 
+### 公共帐户
+> 为了满足用户临时（短期）使用服务器的需求，管理员建立了 `test` 公共用户，该用户与其他用户的唯一区别是：可由多个不同人员同时登陆并使用。
+
+1. `test` 用户登陆密码请向管理员咨询，但要遵循下面的原则：
+    1. 用户登录后，**务必`在主目录下`创建以自己姓名全拼命名**的文件夹，**杜绝直接在主目录下操作**，例如一个人员名叫**张三**，他需要创建
+        ```shell
+        mkdir zhangsan
+        ```
+
+    2. 使用服务器时，**张三** 用户需要切换到 `第2步` 创建的文件夹，相当于自己的工作区，其他用户进行类似的操作
+        ```shell
+        cd zhangsan
+        ```
+
+3. `test` 用户同样能够查看和使用公共数据区 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`，更多说明见上文[数据和软件共享](#数据和软件共享)
+
 ### 相关文档
 * 上一篇：[视觉项目研发环境配置](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)
 * 下一篇：[服务器GPU配置](https://auniquesun.com/2020-07-13-GPU-utility-settings/)
