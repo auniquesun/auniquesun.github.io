@@ -134,7 +134,18 @@ comments: true
         cd zhangsan
         ```
 
-3. `test` 用户同样能够查看和使用公共数据区 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`，更多说明见上文[数据和软件共享](#数据和软件共享)
+2. `test` 用户同样能够查看和使用公共数据区 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`，更多说明见上文[数据和软件共享](#数据和软件共享)
+
+3. `test` 用户短期内使用完服务器，备份好数据资料后，务必清除创建的文件夹
+    * 例如，**张三**清除自己的工作区，执行
+        ```shell
+        cd ~/home/test
+        rm -rf ~/home/test/zhangsan
+        ```
+    
+    * 如果`/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`存放有自己的数据，进行类似的清除操作
+
+    * 使用完毕服务器，如果用户不自行清除数据资料，**系统会定期清除，丢失不负责**
 
 ### 相关文档
 * 上一篇：[视觉项目研发环境配置](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)
