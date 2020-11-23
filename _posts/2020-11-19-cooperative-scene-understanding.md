@@ -72,7 +72,7 @@ comments: true
             * 相机内参 $R(\phi, \psi) \in \mathbb{R}^{3 \times 3}$，$T \in \mathbb{R}^{3}$，$\phi$和$\psi$是相机旋转角（？？？）
             * 如上图所示，3D 物体中心投影到像平面，不一定与2D bbox重合，记这个偏移量为 $\delta^I \in \mathbb{R}^{2}$
             * 综上，$C^W$ 可用下面公式计算
-            $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
+                - $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
 
         - 尺寸 $S^W \in \mathbb{R}^{3}$
         - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta$ 是沿$z$轴线的方位角
