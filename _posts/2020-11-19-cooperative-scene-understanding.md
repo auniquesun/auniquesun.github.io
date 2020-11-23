@@ -57,4 +57,31 @@ comments: true
 
 ### 主要方法
 ![](../img/post/coopscene_fig1.png)
+1. 这部分主要描述 3D bbox 的参数化表示 $parametrization$（其实很简单）和用于3D scene understanding 的神经网络
+    - $global~ geometric~ network$: 3D room layout、camera pose
+    - $local~ object~ network$: 3d object
+
 ![](../img/post/coopscene_fig2.png)
+1. Parametrization
+    * 3D objects. 
+        - $X^W \in \mathbb{R}^{3 \times 8}$ 表示世界坐标系中的3D物体，它的维度下面会解释
+        - 中心点 $C^W \in \mathbb{R}^{3}$不好求（RGB图片没有深度信息），分解为
+            * 物体在像平面2D bbox 中心 $C^{I} \in \mathbb{R}^{2}$
+            * 相机中心到3D物体的中心距离 $D$
+            * 相机内参 $K \in \mathbb{R}^{3 \times 3}$
+            * 相机内参 $R(\phi, \psi) \in \mathbb{R}^{3 \times 3}$，$T \in \mathbb{R}^{3}$，$\phi$和$\psi$是相机旋转角（？？？）
+            * 如上图所示，3D 物体中心投影到像平面，不一定与2D bbox重合，记这个偏移量为 $\delta^I \in \mathbb{R}^{2}$
+            * 综上，$C^W$ 可用下面公式计算
+            $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
+
+        - 尺寸 $S^W \in \mathbb{R}^{3}$
+        - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta$ 是沿$z$轴线的方位角
+        - 组合起来，$X^W = h(C^W, R(\theta^{W}), S)$，$h(\cdot)$是边界框函数
+            - **8个顶点，每个顶点3维**
+        - 
+    * 3D Room Layout. 
+        - 与3D objects类似，$X^L \in \mathbb{R}^{3 \times 8}$ 
+        - 中心点 $C^L \in \mathbb{R}^{3}$
+        - 尺寸 $S^L \in \mathbb{R}^{3}$
+        - 方向 $R(\theta^{L}) \in \mathbb{R}^{3 \times 3}$，$\theta$ 是旋转角
+        
