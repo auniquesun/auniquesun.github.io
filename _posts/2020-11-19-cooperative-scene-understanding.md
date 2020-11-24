@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cooperative Scene Understanding
-tags: [Computer Vision, 3D Scene Understanding & Object Reconstruction, Joint Learning]
+tags: [Computer Vision, 3D Scene Understanding, Cooperative Training]
 gh-repo: thusiyuan/cooperative_scene_parsing
 gh-badge: [star, fork, follow]
 mathjax: true
@@ -89,38 +89,80 @@ comments: true
         - 方向 $R(\theta^{L}) \in \mathbb{R}^{3 \times 3}$，$\theta^{L}$ 是旋转角
         
 2. Direct Estimations
-* $global~geometry~network$(GGN)
-    - 输入：RGB图片
-    - 输出：3D room layout + 3D camera pose
-    - 3D room layout、3D camera pose的预测依赖于 global geometry features
-    - 损失函数：$$\mathcal{L}_{GGN} = \mathcal{L}_{\phi} + \mathcal{L}_{\psi} + \mathcal{L}_{C^L} + \mathcal{L}_{S^L} + \mathcal{L}_{\theta^L}$$
-* $local~object~network$(LON)
-    - 输入：2D image patches（理解为图片的2D bbox）
-    - 输出：distance $d$ + size $S^W$ + heading angle $\theta^{W}$ + 2D offsets $\delta^{I}$
-    - 损失函数：$$ \mathcal{L}_{LON} = \frac{1}{N} \sum_{j=1}^{N} (\mathcal{L}_{D_j} + \mathcal{L}_{\delta^{I}_j} + \mathcal{L}_{S^W_j} + \mathcal{L}_{\theta^W_j}) $$
-    - $N$ 是场景中的物体数
-    - **直接拟合物体属性(e.g. 方位角)**不是一个好的方法，可能导致大的误差，所以采用了另外一种方法：
-        1. 预定义几个 size templates
-        2. 首先把物体对应的属性(e.g. 方位角) 分类到一个template，然后在template内部预测属性误差
-        3. 拿方位角举例，$$\mathcal{L}_{\phi} = \mathcal{L}_{\phi - cls} + \mathcal{L}_{\phi -reg}$$
+    * $global~geometry~network$(GGN)
+        - 输入：RGB图片
+        - 输出：3D room layout + 3D camera pose
+        - 3D room layout、3D camera pose的预测依赖于 global geometry features
+        - 损失函数：$$\mathcal{L}_{GGN} = \mathcal{L}_{\phi} + \mathcal{L}_{\psi} + \mathcal{L}_{C^L} + \mathcal{L}_{S^L} + \mathcal{L}_{\theta^L}$$
+    * $local~object~network$(LON)
+        - 输入：2D image patches（理解为图片的2D bbox）
+        - 输出：distance $d$ + size $S^W$ + heading angle $\theta^{W}$ + 2D offsets $\delta^{I}$
+        - 损失函数：$$ \mathcal{L}_{LON} = \frac{1}{N} \sum_{j=1}^{N} (\mathcal{L}_{D_j} + \mathcal{L}_{\delta^{I}_j} + \mathcal{L}_{S^W_j} + \mathcal{L}_{\theta^W_j}) $$
+        - $N$ 是场景中的物体数
+        - **直接拟合物体属性(e.g. 方位角)**不是一个好的方法，可能导致大的误差，所以采用了另外一种方法：
+            1. 预定义几个 size templates
+            2. 首先把物体对应的属性(e.g. 方位角) 分类到一个template，然后在template内部预测属性误差
+            3. 拿方位角举例，$$\mathcal{L}_{\phi} = \mathcal{L}_{\phi - cls} + \mathcal{L}_{\phi -reg}$$
 
 3. Cooperative Estimations
-* 心理学实验表明：
-    - 人们对场景的感知依赖的是全局信息而不是局部细节（Oliva, 2005; Oliva and Torralba, 2006）—— gist of scene
-    - 人们对特定任务的理解，往往涉及多条视觉线索的合作（Landy et al., 1995; Jacobs, 2002）—— depth perception
-    - 本文Cooperative Estimations遵循同样的原则，让各模块相互配合，促进整个任务（其实就是把不同模块的损失函数加权求和——常见的用法，这篇文章特意强调）
-* 3D Bounding Box Loss
-    - $$ \mathcal{L}_{3D} = \frac{1}{N} \sum_{j=1}^{N} \parallel h(C^W_j,R(\theta_j),S_j) - X^{W*}_j \parallel_2^2 $$
-    - $X^{W*}$ 是世界坐标系下的ground truth 3D bbox
-* 2D Projection Loss
-    - $$ \mathcal{L}_{PROJ} = \frac{1}{N} \sum_{j=1}^{N} \parallel f(X^W_j,R,K) - X^{W*}_j \parallel_2^2 $$
-    - $f(\cdot)$ 是可导的投影函数，把3D bbox投影成2D bbox
-    - $X^{I*}_j \in \mathbb{R}^{2 \times 4}$ 是2D bbox ground truth（把检测到的当做2D bbox ground truth）
-* Physical Loss
-    - $$ \mathcal{L}_{PHY} = \frac{1}{N} \sum_{j=1}^{N} (ReLU(Max(X_j^W) - Max(X^L)) + ReLU(Min(X^L) - Min(X^W_j))) $$
-    - $ReLU$ 是激活函数，$Max(\cdot) / Min(\cdot)$的输入是$X^W, X^L$，输出沿 $x,y,z$ 三个轴的 max/min value，作者认为这样就把3D layout和3D object联系起来
-* Total Loss
-    - $$ \mathcal{L}_{Total} = \mathcal{L}_{GGN} + \mathcal{L}_{LON} + \lambda_{COOP}(\mathcal{L}_{3D} + \mathcal{L}_{PROJ} + \mathcal{L}_{PHY}) $$
+    * 心理学实验表明：
+        - 人们对场景的感知依赖的是全局信息而不是局部细节（Oliva, 2005; Oliva and Torralba, 2006）—— gist of scene
+        - 人们对特定任务的理解，往往涉及多条视觉线索的合作（Landy et al., 1995; Jacobs, 2002）—— depth perception
+        - 本文Cooperative Estimations遵循同样的原则，让各模块相互配合，促进整个任务（其实就是把不同模块的损失函数加权求和——常见的用法，这篇文章特意强调）
+    * 3D Bounding Box Loss
+        - $$ \mathcal{L}_{3D} = \frac{1}{N} \sum_{j=1}^{N} \parallel h(C^W_j,R(\theta_j),S_j) - X^{W*}_j \parallel_2^2 $$
+        - $X^{W*}$ 是世界坐标系下的ground truth 3D bbox
+    * 2D Projection Loss
+        - $$ \mathcal{L}_{PROJ} = \frac{1}{N} \sum_{j=1}^{N} \parallel f(X^W_j,R,K) - X^{W*}_j \parallel_2^2 $$
+        - $f(\cdot)$ 是可导的投影函数，把3D bbox投影成2D bbox
+        - $X^{I*}_j \in \mathbb{R}^{2 \times 4}$ 是2D bbox ground truth（把检测到的当做2D bbox ground truth）
+    * Physical Loss
+        - $$ \mathcal{L}_{PHY} = \frac{1}{N} \sum_{j=1}^{N} (ReLU(Max(X_j^W) - Max(X^L)) + ReLU(Min(X^L) - Min(X^W_j))) $$
+        - $ReLU$ 是激活函数，$Max(\cdot) / Min(\cdot)$的输入是$X^W, X^L$，输出沿 $x,y,z$ 三个轴的 max/min value，作者认为这样就把3D layout和3D object联系起来
+    * Total Loss
+        - $$ \mathcal{L}_{Total} = \mathcal{L}_{GGN} + \mathcal{L}_{LON} + \lambda_{COOP}(\mathcal{L}_{3D} + \mathcal{L}_{PROJ} + \mathcal{L}_{PHY}) $$
+
+### 实现
+1. GGN、LON的骨干网络采用ResNet-34，把 256x256 的图片编码成2048维向量（编码器）
+    * **预测时**，在编码器上增加两个全连接层，最后输出 L 维的预测向量
+        1. 2048 $\times$ 1024
+        2. 1024 $\times$ L
+
+2. 训练过程分为2步
+    * 用30个common object categories调优2D detector（[Dai et al., 2017; Bodla et al., 2017），然后生成 2D bbox，作为3D bbox投影的监督信息
+
+    * 训练2个3D estimation networks —— GGN和LON。先分别在synthetic dataset（Song et al., 2017; s Zhang et al. 2017b）上训练，获得初始化权重，再放到SUN RGBD数据集一起训练。
+
+3. 数据增强方法
+    * 随机翻转图片
+    * shift 2D bboxes with corresponding labels
+
+### 实验评估
+* Qualitative Results
+![](../img/post/coopscene_fig3.png)
+* Quantatitive Results
+    * 3D layout estimation
+    ![](../img/post/coopscene_tab1.png)
+
+    * 3D object detection
+    ![](../img/post/coopscene_tab2.png)
+
+    * 3D box estimation
+    ![](../img/post/coopscene_tab3.png)
+
+    * 3D box estimation
+    ![](../img/post/coopscene_tab4.png)
+
+    * Holistic Scene Understanding & Ablation Analysis
+        1. The model trained without the supervision on 3D object bounding box corners (w/o L3D, **S1**). 
+        2. The model trained without the 2D supervision (w/o LPROJ, **S2**). 
+        3. The model trained without the penalty of physical constraint (w/o LPHY, **S3**). 
+        4. The model trained in an unsupervised fashion where we only use 2D supervision to estimate the 3D bounding boxes (w/o L3D + LGGN + LLON, **S4**).
+        5. the model trained directly on SUN RGB-D without pre-train (**S5**)
+        6. the model trained with 2D bounding boxes projected from ground truth 3D bounding boxes (**S6**)
+        ![](../img/post/coopscene_tab5.png)
+    
+    ![](../img/post/coopscene_fig4.png)
 
 ### 需要弄清楚
 1. 相机$\phi,\psi$具体是啥，最好用一幅图来说明
