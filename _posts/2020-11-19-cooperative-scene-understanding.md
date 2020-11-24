@@ -66,12 +66,12 @@ comments: true
 ![](../img/post/coopscene_fig2.png)
 1. Parametrization
     * 3D objects
-        - $X^W \in \mathbb{R}^{3 \times 8}$ 表示世界坐标系中的3D物体，它的维度下面会解释
+        - $X^W \in \mathbb{R}^{3 \times 8}$ 表示世界坐标系中的3D物体，维度解释：**立方体有8个顶点，每个顶点是3维向量**
         - 中心点 $C^W \in \mathbb{R}^{3}$不好求（RGB图片没有深度信息），分解为
             * 物体在像平面2D bbox 中心 $C^{I} \in \mathbb{R}^{2}$
             * 相机中心到3D物体的中心距离 $D$
             * 相机内参 $K \in \mathbb{R}^{3 \times 3}$
-            * 相机内参 $R(\phi, \psi) \in \mathbb{R}^{3 \times 3}$，$T \in \mathbb{R}^{3}$，$\phi$和$\psi$是相机旋转角（？？？）
+            * 相机外参 $R(\phi, \psi) \in \mathbb{R}^{3 \times 3}$，$T \in \mathbb{R}^{3}$，$\phi$和$\psi$是相机旋转角（理解为$roll$和$pitch$）
             * 如上图所示，3D 物体中心投影到像平面，不一定与2D bbox重合，记这个偏移量为 $\delta^I \in \mathbb{R}^{2}$
 
             * 综上，$C^W$ 可用下面公式计算（看起来很复杂，其实是相机投影模型的基本用法）
@@ -84,7 +84,6 @@ comments: true
         - 尺寸 $S^W \in \mathbb{R}^{3}$
         - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta^{W}$ 是沿$z$轴线的方位角
         - 组合起来，$X^W = h(C^W, R(\theta^{W}), S)$，$h(\cdot)$是边界框函数
-            - **8个顶点，每个顶点3维**
 
     * 3D Room Layout
         - 与3D objects类似，$X^L \in \mathbb{R}^{3 \times 8}$ 
