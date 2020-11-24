@@ -24,7 +24,7 @@ comments: true
 本文要解决的问题：
 * 2D-3D consistency. 2D像平面和3D世界的一致性
 * Cooperation. 人类感知系统非常擅长融合不同视觉信息，设计算法时应当遵循这样的原则，让不同模块协同工作
-* Physically Plausible. 建模出来的3D场景，应该与物理世界一致
+* Physically Plausible. 建模出来的3D场景，应该能用物理世界解释
 
 一些已知的方法或者不够高效，或者解决了部分问题
 
