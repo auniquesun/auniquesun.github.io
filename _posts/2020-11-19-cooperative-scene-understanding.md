@@ -74,12 +74,12 @@ comments: true
             * 相机内参 $R(\phi, \psi) \in \mathbb{R}^{3 \times 3}$，$T \in \mathbb{R}^{3}$，$\phi$和$\psi$是相机旋转角（？？？）
             * 如上图所示，3D 物体中心投影到像平面，不一定与2D bbox重合，记这个偏移量为 $\delta^I \in \mathbb{R}^{2}$
 
-            * 综上，$C^W$ 可用下面公式计算
+            * 综上，$C^W$ 可用下面公式计算（看起来很复杂，其实是相机投影模型的基本用法）
                 - $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
 
-            * 当相机坐标系原点与世界坐标系重合时，$T$ 变成 $\overrightarrow{0}$（是我的理解，原文是这么说的：从第一人称视角得到数据时，$T$ 变成 $\overrightarrow{0}$
+            * 当相机坐标系原点与世界坐标系重合时，$T$ 变成 $\overrightarrow{0}$（是我的理解，原文是这么说的：从第一人称视角得到数据时，$T$ 变成 $\overrightarrow{0}$）
             * 因此，可以记 $C^W = p(C^I, \delta^{I}, D, \phi, \psi, K)$，其中 $p$ 是可导的 $projection ~ function$
-            * 从3D box中心点 $C^W$ 的计算方式看，考虑了2D object center $C^I$，**有助于维护2D-3D的一致性**（其实是相机投影模型最基本的用法），减少3D bbox估计的方差（作者的观点，其实未必）。同时，里面集成了camera pose，体现了各个组件 $cooperative ~promoting$。
+            * 从3D box中心点 $C^W$ 的计算方式看，考虑了2D object center $C^I$，**有助于维护2D-3D的一致性**，减少3D bbox估计的方差（作者的观点，其实未必）。同时，里面集成了camera pose，体现了各个组件 $cooperative ~promoting$。
 
         - 尺寸 $S^W \in \mathbb{R}^{3}$
         - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta^{W}$ 是沿$z$轴线的方位角
