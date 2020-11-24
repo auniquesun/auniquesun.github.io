@@ -118,7 +118,7 @@ comments: true
         - $X^{W*}$ 是世界坐标系下的ground truth 3D bbox
 
     * 2D Projection Loss
-        - $$ \mathcal{L}_{PROJ} = \frac{1}{N} \sum_{j=1}^{N} \parallel f(X^W_j,R,K) - X^{W*}_j \parallel_2^2 $$
+        - $$ \mathcal{L}_{PROJ} = \frac{1}{N} \sum_{j=1}^{N} \parallel f(X^W_j,R,K) - X^{I*}_j \parallel_2^2 $$
         - $f(\cdot)$ 是可导的投影函数，把3D bbox投影成2D bbox
         - $X^{I*}_j \in \mathbb{R}^{2 \times 4}$ 是2D bbox ground truth（把检测到的当做2D bbox ground truth）
 
