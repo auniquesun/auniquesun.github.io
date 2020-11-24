@@ -76,6 +76,7 @@ comments: true
 
             * 综上，$C^W$ 可用下面公式计算（看起来很复杂，其实是相机投影模型的基本用法）
                 - $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
+                - ![](../img/post/coopscene_reproj_proof.png)
 
             * 当相机坐标系原点与世界坐标系重合时，$T$ 变成 $\overrightarrow{0}$（是我的理解，原文是这么说的：从第一人称视角得到数据时，$T$ 变成 $\overrightarrow{0}$）
             * 因此，可以记 $C^W = p(C^I, \delta^{I}, D, \phi, \psi, K)$，其中 $p$ 是可导的 $projection ~ function$
