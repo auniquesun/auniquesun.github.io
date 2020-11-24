@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Survey - 3D Scenes Modeling
+title: Survey - 3D Scene Modeling
 tags: [Computer Vision, CNN, 3D Scenes Modeling]
 # gh-repo: cvlab-dresden/DSAC
 # gh-badge: [star, fork, follow]
