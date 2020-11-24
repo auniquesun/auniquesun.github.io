@@ -150,7 +150,7 @@ comments: true
     * 3D box estimation
     ![](../img/post/coopscene_tab3.png)
 
-    * 3D box estimation
+    * camera pose estimation
     ![](../img/post/coopscene_tab4.png)
 
     * Holistic Scene Understanding & Ablation Analysis
@@ -163,7 +163,3 @@ comments: true
         ![](../img/post/coopscene_tab5.png)
     
     ![](../img/post/coopscene_fig4.png)
-
-### 需要弄清楚
-1. 相机$\phi,\psi$具体是啥，最好用一幅图来说明
-2. 以及$C^W$的计算公式
