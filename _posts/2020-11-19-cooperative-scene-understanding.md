@@ -63,7 +63,7 @@ comments: true
 
 ![](../img/post/coopscene_fig2.png)
 1. Parametrization
-    * 3D objects. 
+    * 3D objects
         - $X^W \in \mathbb{R}^{3 \times 8}$ 表示世界坐标系中的3D物体，它的维度下面会解释
         - 中心点 $C^W \in \mathbb{R}^{3}$不好求（RGB图片没有深度信息），分解为
             * 物体在像平面2D bbox 中心 $C^{I} \in \mathbb{R}^{2}$
@@ -73,15 +73,37 @@ comments: true
             * 如上图所示，3D 物体中心投影到像平面，不一定与2D bbox重合，记这个偏移量为 $\delta^I \in \mathbb{R}^{2}$
             * 综上，$C^W$ 可用下面公式计算
                 - $$ C^W = T + DR(\phi, \psi)^{-1} \frac{K^{-1}[C^I + \delta^I, 1]^{T}}{\parallel K^{-1}[C^I + \delta^I, 1]^{T} \parallel_{2}}$$
+            * 当相机坐标系原点与世界坐标系重合时，$T$ 变成 $\overleftarrow{0}$（是我的理解，原文是这么说的：从第一人称视角得到数据时，$T$ 变成 $\overleftarrow{0}）
+            * 因此，可以记 $C^W = p(C^I, \delta^{I}, D, \phi, \psi, K)$，其中 $p$ 是可导的 $projection ~ function$
+            * 从 $C^W$ 的计算方式看，考虑了2D object center $C^I$，有助于维护2D-3D的一致性，减少3D bbox估计的方差（作者的观点，其实未必）。同时，里面集成了camera pose，体现了各个组件 $cooperative ~promoting$。
 
         - 尺寸 $S^W \in \mathbb{R}^{3}$
-        - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta$ 是沿$z$轴线的方位角
+        - 方向 $R(\theta^{W}) \in \mathbb{R}^{3 \times 3}$，$\theta^{W}$ 是沿$z$轴线的方位角
         - 组合起来，$X^W = h(C^W, R(\theta^{W}), S)$，$h(\cdot)$是边界框函数
             - **8个顶点，每个顶点3维**
-        - 
-    * 3D Room Layout. 
+
+    * 3D Room Layout
         - 与3D objects类似，$X^L \in \mathbb{R}^{3 \times 8}$ 
         - 中心点 $C^L \in \mathbb{R}^{3}$
         - 尺寸 $S^L \in \mathbb{R}^{3}$
-        - 方向 $R(\theta^{L}) \in \mathbb{R}^{3 \times 3}$，$\theta$ 是旋转角
+        - 方向 $R(\theta^{L}) \in \mathbb{R}^{3 \times 3}$，$\theta^{L}$ 是旋转角
         
+2. Direct Estimations
+* $global~geometry~network$(GGN)
+    - 输入：RGB图片
+    - 输出：3D room layout + 3D camera pose
+    - 损失函数：$\mathcal{L}_{GGN} = \mathcal{L}_{\phi} + \mathcal{L}_{\psi} + \mathcal{L}_{C^L} + \mathcal{L}_{S^L} + \mathcal{L}_{\theta^L}$
+
+* $local~object~network$(LON)
+    - 输入：2D image patches
+    - 输出：distance $d$ + size $S^W$ + heading angle $\theta^{W}$ + 2D offsets $\delta^{I}$
+    - 损失函数：$ \mathcal{L}_{LON} = \frac{1}{N} \sum_{j=1}^{N} (\mathcal{L}_{D_j} + \mathcal{L}_{\delta^{I}_j} + \mathcal{L}_{S^W_j} + \mathcal{L}_{\theta^W_j}) $
+    - $N$ 是场景中的物体数
+    - **直接拟合物体属性(e.g. 方位角)**不是一个好的方法，可能导致大的误差，所以采用了另外一种方法：
+        1. 预定义几个 size templates
+        2. 首先把物体对应的属性(e.g. 方位角) 分类到一个template，然后在template内部预测属性误差
+        3. 拿方位角举例，$\mathcal{L}_{\phi} = \mathcal{L}_{\phi - cls} + \mathcal{L}_{\phi -reg}$
+
+### 需要弄清楚
+1. 相机$\phi,\psi$具体是啥，最好用一幅图来说明
+2. 以及$C^W$的计算公式
