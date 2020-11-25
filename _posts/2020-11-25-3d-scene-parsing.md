@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cooperative Scene Understanding
+title: Holistic Scene Parsing
 tags: [Computer Vision, 3D Scene Parsing & Reconstruction, Markov Chain Monte Carlo]
 gh-repo: thusiyuan/holistic_scene_parsing
 gh-badge: [star, fork, follow]
