@@ -151,6 +151,10 @@ comments: true
 ![](../img/post/coopscene_fig3.png)
 * Quantitative Results
     * 3D layout estimation
+        - IoU threshold 15%
+            - $P_g$：geometric precision
+            - $P_g$：geometric recall
+            - $R_r$：semantic recall
     ![](../img/post/coopscene_tab1.png)
 
     * 3D object detection
