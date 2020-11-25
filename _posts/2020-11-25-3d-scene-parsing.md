@@ -90,3 +90,12 @@ comments: true
     * Jiang, Y., Saxena, A.: Modeling high-dimensional humans for activity anticipation using gaussian process latent crfs. In: Robotics: Science and Systems (RSS). (2014)
 
 ### Holistic Scene Grammar
+1. HSG的组成
+    * 功能空间$\mathbb{F}$中 latent hierarchy structure
+    * 几何空间$\mathbb{G}$中的 terminal object entities
+
+### Probabilistic Formulation
+
+### Inference
+
+### 实验
