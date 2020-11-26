@@ -122,9 +122,10 @@ comments: true
         * 房间布局表示为一个立方体，进一步分解成房间的5个平面——left、right、middle wall、floor、ceiling（？？？为什么立方体会分出来5个平面）
 
     - 生产规则$R$
-        * $S \rightarrow V^c_f$: scene → category 1 | category 2 | . . . (e.g., scene → office | kitchen)
+        * $S \rightarrow V^c_f$: scene → category 1 \| category 2 \| . . . (e.g., scene → office \| kitchen)
         * $V_f^c \rightarrow V^a_f$: category → activity groups · layout (e.g., office → (walking,reading) · layout)
         * $V_f^c \rightarrow V^a_f$: activity group → functional objects (e.g., sitting → (desk, chair))
+        * 其中，$\cdot$ 表示 determinstic decomposition；$|$ 表示alternative explanations；() 表示组合
 
 4. 最后，a scene configuration 能表示成一个$\textbf{pg}$，终端节点是物体和布局，$$\textbf{pg} = \{pg_f, pg_g\}, E \in pg_g$$
 
