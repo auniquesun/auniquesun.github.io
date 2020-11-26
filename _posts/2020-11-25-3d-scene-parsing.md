@@ -17,6 +17,8 @@ comments: true
 * 收录情况：ECCV 2018
 
 ### 简介
+![](../img/post/coopscene_fig1.png)
+
 本文提出一种方法——Holistic Scene Grammar(HSG)，利用单张RGB图片解析和重建3D场景，重建的时候用到了一些CAD模型。HSG 能表示3D场景的结构信息，刻画室内场景的功能 + 几何空间的联合分布特性（functional and geometric space）。HSG 捕捉到了室内场景隐含的几方面维度：  
 
 * latent human context, describing the affordance and the functionality of a room arrangement 
@@ -90,12 +92,53 @@ comments: true
     * Jiang, Y., Saxena, A.: Modeling high-dimensional humans for activity anticipation using gaussian process latent crfs. In: Robotics: Science and Systems (RSS). (2014)
 
 ### Holistic Scene Grammar
+![](../img/post/coopscene_fig2.png)
 1. HSG的组成
     * 功能空间$\mathbb{F}$中 latent hierarchy structure
     * 几何空间$\mathbb{G}$中的 terminal object entities
 
-### Probabilistic Formulation
+2. 对于人工合成的环境，几何空间中物体的排列布置，应该来自功能空间的投影（？？？如何理解这句话）
+
+3. 功能空间被建模成**概率上下文无关文法** $probabilistic ~context~free~grammar$（PCFG），用来捕获功能群组（functional groups）的等级结构；几何空间捕获物体的空间上下文（spatial context among objects）关系，捕获的方式是在terminal nodes上定义一个 Markov Random Field；这两个空间共同构成了随机上下文敏感文法 $stochastic~context-sensitive~grammar$（SCSG）—— 就是指本文的HSG
+
+4. HSG 从场景根节点出发，到终端节点结束。一个室内场景能表示成一张 parse graph($\textbf{pg}$)，如上图所示。
+
+    - 形式化定义：HSG表示为一个5元组<S, V, R, E, P>
+        * S 是室内场景的根节点
+        * V 是顶点集，包括非终端节点$V_f \in \mathbb{F}$和终端节点$V_g \in \mathbb{G} $
+        * R 是生产规则
+        * E 是终端节点间的上下文关系，对应$\textbf{pg}$中的水平links（图中紫色、蓝色、绿色块间的水平连接）
+        * P 是定义在$\textbf{pg}的概率模型
+
+    - 功能空间$\mathbb{F}$：非终端节点 $$V_f = {V_f^c, V_f^a, V_f^o, V_f^l} \in \mathbb{F}$$
+        * 场景类别节点$V_f^c$
+        * 场景类别节点$V_f^a$
+        * 场景类别节点$V_f^o$
+        * 场景类别节点$V_f^l$
+
+    - 几何空间$\mathbb{G}$：终端节点 $$V_g = {V_g^o, V_g^l} \in \mathbb{G}$$，是 ojbect entities 和 room layout的CAD models
+        * 物体表示为一个CAD模型
+        * 物体外观参数：3D size，location， orientation
+        * 房间布局表示为一个立方体，进一步分解成房间的5个平面——left、right、middle wall、floor、ceiling（？？？为什么立方体会分出来5个平面）
+
+    - 生产规则$R$
+        * $S \rightarrow V^c_f$: scene → category 1 | category 2 | . . . (e.g., scene → office | kitchen)
+        * $V_f^c \rightarrow V^a_f$: category → activity groups · layout (e.g., office → (walking,reading) · layout)
+        * $V_f^c \rightarrow V^a_f$: activity group → functional objects (e.g., sitting → (desk, chair))
+
+4. 最后，a scene configuration 能表示成一个$\textbf{pg}$，终端节点是物体和布局，$$\textbf{pg} = \{pg_f, pg_g\}, E \in pg_g$$
 
 ### Inference
+![](../img/post/coopscene_fig3.png)
+![](../img/post/coopscene_fig4.png)
 
 ### 实验
+* 数据集：SUN RGB-D(在好多类似论文用了)
+* 评测任务：3D scene parsing, 3D reconstruction, 3D scene understanding
+
+* Qualitative Results
+![](../img/post/coopscene_fig5.png)
+
+* Quatitative Results
+![](../img/post/coopscene_tab1.png)
+![](../img/post/coopscene_tab2.png)
