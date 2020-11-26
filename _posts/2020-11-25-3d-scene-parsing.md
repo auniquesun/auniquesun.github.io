@@ -17,7 +17,7 @@ comments: true
 * 收录情况：ECCV 2018
 
 ### 简介
-![](../img/post/coopscene_fig1.png)
+![](../img/post/holi_scene_fig1.png)
 
 本文提出一种方法——Holistic Scene Grammar(HSG)，利用单张RGB图片解析和重建3D场景，重建的时候用到了一些CAD模型。HSG 能表示3D场景的结构信息，刻画室内场景的功能 + 几何空间的联合分布特性（functional and geometric space）。HSG 捕捉到了室内场景隐含的几方面维度：  
 
@@ -92,7 +92,7 @@ comments: true
     * Jiang, Y., Saxena, A.: Modeling high-dimensional humans for activity anticipation using gaussian process latent crfs. In: Robotics: Science and Systems (RSS). (2014)
 
 ### Holistic Scene Grammar
-![](../img/post/coopscene_fig2.png)
+![](../img/post/holi_scene_fig2.png)
 1. HSG的组成
     * 功能空间$\mathbb{F}$中 latent hierarchy structure
     * 几何空间$\mathbb{G}$中的 terminal object entities
@@ -125,20 +125,20 @@ comments: true
         * $S \rightarrow V^c_f$: scene → category 1 \| category 2 \| . . . (e.g., scene → office \| kitchen)
         * $V_f^c \rightarrow V^a_f$: category → activity groups · layout (e.g., office → (walking,reading) · layout)
         * $V_f^c \rightarrow V^a_f$: activity group → functional objects (e.g., sitting → (desk, chair))
-        * 其中，$\cdot$ 表示 determinstic decomposition；$|$ 表示alternative explanations；() 表示组合
+        * 其中，$\cdot$ 表示 determinstic decomposition；$\|$ 表示alternative explanations；() 表示组合
 
 4. 最后，a scene configuration 能表示成一个$\textbf{pg}$，终端节点是物体和布局，$$\textbf{pg} = \{pg_f, pg_g\}, E \in pg_g$$
 
 ### Inference
-![](../img/post/coopscene_fig3.png)
-![](../img/post/coopscene_fig4.png)
+![](../img/post/holi_scene_fig3.png)
+![](../img/post/holi_scene_fig4.png)
 
 ### 实验
 * 数据集：SUN RGB-D(在好多类似论文用了)
 * 评测任务：3D scene parsing, 3D reconstruction, 3D scene understanding
 
 * Qualitative Results
-![](../img/post/coopscene_fig5.png)
+![](../img/post/holiscene_fig5.png)
 
 * Quatitative Results
 ![](../img/post/coopscene_tab1.png)
