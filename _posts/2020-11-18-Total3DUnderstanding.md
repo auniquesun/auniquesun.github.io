@@ -29,16 +29,16 @@ comments: true
         - 世界坐标系中，物体的3D bbox的中心点$\textbf{C} \in \mathbb{R}^3$，尺寸$\textbf{s} \in \mathbb{R}^3$，朝向$\theta \in [-\pi, \pi]$
         - 对于室内的物体（？？？为什么还分室内室外），3D中心$\textbf{C}$ 表示成像平面2D投影 $\textbf{c} \in \mathbb{R}^2$，物体到相机平面的距离 $d \in \mathbb{R}$
 
-    * 给定相机内参矩阵$\textbf{K} \in \mathbb{R}^{3 \times 3}$（原文把内参矩阵搞成了一个向量，写的不对），$\textbf{C}$ 可以表示成（？？？没懂推导）
+    * 给定相机内参矩阵$\textbf{K} \in \mathbb{R}^{3 \times 3}$（原文把内参矩阵搞成了一个向量，写的不对），$\textbf{C}$ 可以表示成（相机投影模型的变形）
         - $$ \textbf{C} = \textbf{R}^{-1}(\beta, \gamma) \cdot d \cdot \frac{\textbf{K}^{-1}[\textbf{c}, 1]^{T}}{\parallel \textbf{K}^{-1}[\textbf{c}, 1]^{T} \parallel_{2}}$$
 
     * 2D 投影中心 $\textbf{c}$ 由两部分组成
         - $\textbf{c}^{b}$，bbox 中心点
-        - $\textbf{\delta} \in \mathbb{R}^2$，偏移量
+        - $\textbf{{\delta}} \in \mathbb{R}^2$，偏移量
 
     * 从2D detection $\textbf{I}$到 3D box corners（？？？这些描述不太准确吧），网络进行了$\textbf{F}$变换
-        - $$\textbf{F}(\textbf{I} | \textbf{\delta}, d, \beta, \gamma, \textbf{s}, \theta) \in \mathbb{R}^{3 \times 8}$$
-        - 3D Object Detection Network 预测 $(\textbf{\delta}, d, \textbf{s}, \theta)$
+        - $$\textbf{F}(\textbf{I} | \textbf{{\delta}}, d, \beta, \gamma, \textbf{s}, \theta) \in \mathbb{R}^{3 \times 8}$$
+        - 3D Object Detection Network 预测 $(\textbf{{\delta}}, d, \textbf{s}, \theta)$
         - Layout Estimation Network 预测 $\textbf{R}(\beta, \gamma)$ 和 $(\textbf{C}, \textbf{s}^{l}, \theta^{l})$
 
     * Object Detection Network（ODN）
@@ -53,13 +53,13 @@ comments: true
             * (1) 根据2D检测结果，用 ResNet-34 抽取物体 appearance feature；编码 2D bbox的相对位置和尺寸信息 $\Rightarrow$ geometry feature
             * (2) 对于每个 target object（？？？理解成当前正在计算的 object），计算与其他物体的 relational feature，计算的方法同样参考了 $^{*}$ 中的 $\textbf{object relation module}$
                 * 从上图可以看出，target object feature 和 relational feature 采用的是元素级别的加法，形成组织target object特征
-            * (3) 最后用两层的MLP，预测 $(\textbf{\delta}, d, \textbf{s}, \theta)$
+            * (3) 最后用两层的MLP，预测 $(\textbf{{\delta}}, d, \textbf{s}, \theta)$
 
         - 本文认为：对于室内场景重建，$\textbf{object relation module}$ 反映了现实世界中固有的性质——物体与其他物体有着相邻、相似关系
 
     * Layout Estimation Network（LEN）
         * 这部分网络架构与 ODN 相同，只是不带 relational feature，预测
-            1. camera pose：$\textbf{R}(\beta, \gamma)$（为什么算在 layout）
+            1. camera pose：$\textbf{R}(\beta, \gamma)$
             2. 整个场景的布局 3D box：$(\textbf{C}, \textbf{s}^l, \theta^{l})$
 
 2. Mesh Generation for Indoor Objects(MGN)
@@ -94,15 +94,15 @@ comments: true
     - 这部分讲解学习目标和损失函数
 
     - Individual Loss
-        * ODN 预测相机坐标系下的3D box，$(\textbf{\delta}, d, \textbf{s}, \theta)$
+        * ODN 预测相机坐标系下的3D box，$(\textbf{{\delta}}, d, \textbf{s}, \theta)$
         
         * LEN 预测layout box，$(\beta, \gamma, \textbf{C}, \textbf{s}^l, \theta^{l})$，把相机姿态和3D物体变换到世界坐标系
 
-        * 分类和回归（长度和角度）损失函数（？？？这里说的莫名其妙）
+        * 分类和回归（长度和角度）损失函数（见[这篇论文](https://auniquesun.com/2020-11-19-cooperative-scene-understanding/)中的实现细节：直接回归角度误差会很大，先分类到一个区间范围，再回归）
             - $\mathcal{L}^{cls,reg} = \mathcal{L}^{cls} + \lambda_r \mathcal{L}^{reg}$ 优化 $(\beta, \gamma, \textbf{s}, \textbf{s}^l, \theta, \theta^{l})$
             - 【参考文献14】
 
-        * L2 loss 预测 $\textbf{C}$ 和 $\textbf{\delta}$
+        * L2 loss 预测 $\textbf{C}$ 和 $\textbf{{\delta}}$
 
         * Chamfer loss for MGN
 
@@ -122,7 +122,7 @@ comments: true
             * $\textbf{p}$、$\textbf{q}$是两个点，分别位于重建的 mesh $\mathbb{M}_i$ 和 ground truth surface $\mathbb{S}_i$，$i$ 代表第$i$个物体
             * $N$ 是物体总数，$\| \mathbb{S}_i \|$ 是 $\mathbb{S}_i$ 上的点数
         
-        * $$ \mathcal{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
+        * $$ \mathcal{L} = \sum_{ x \in \{\textbf{{\delta}},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
             - 前三项分别对应ODN、LEN、MGN的损失
             - 后两项是各模块相互作用的总共损失
 
@@ -167,6 +167,6 @@ comments: true
 
     - C3：Baseline + (only) global loss $\mathcal{L}_{g}$ in joint training
 
-    - C4：Baseline + joint training ($\mathcal{L}_{g} + \mathcal{L}_{co}$)
+    - C4：Baseline + joint training ($$\mathcal{L}_{g} + \mathcal{L}_{co}$$)
 
     - Full：Baseline + relational features + joint training
