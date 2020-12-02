@@ -80,7 +80,7 @@ comments: true
         * $\textbf{p}_i \in \mathbb{R}^{3}$ 是重建的mesh上的一点
         * $\textbf{q}_i \in \mathbb{R}^{3}$ 是ground truth mesh上离$\textbf{p}_i$最近的一点
         * 设计了一个二分类器 $f(*)$ 预测 $\textbf{p}_{i}$ 是否与 ground truth mesh 接近
-            - $$ ![](../img/post/t3du_eq2.png)
+            - ![](../img/post/t3du_eq2.png)
             - $$N(\textbf{q}_{i})$$ 是 $$\textbf{p}_{i}$$ 在 ground truth mesh 的邻居
             - $$D(\textbf{q}_{i})$$ 是 $$\textbf{q}_{i}$$ 的 local density
         * 分类器的设计思路：
