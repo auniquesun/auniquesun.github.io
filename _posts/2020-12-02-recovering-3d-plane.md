@@ -81,3 +81,21 @@ comments: true
     - 因此，就把经过人工标注的高层语义利用了起来，并和传统的geometric methods设定阈值区分 planar 和 non-planar 的方法区分开来
 
 ### Network Architecture
+![](../img/post/planerecover_fig3.png)
+1. 本文采用的是 $fully ~convolutional ~network$(FCN)——已知的模型在语义分割任务取得了好的效果，用2个预测分支同时估计 plane segmentation map 和 plane parameters
+
+2. Plane segmentation map
+    - 采用 encoder-decoder 架构，与DispNet相似
+    - decoder的输入一部分来自encoder
+    - 最后的输出层采用 softmax function，其他层激活函数均使用了 ReLU
+
+3. Plane parameters
+    - 与segmentation分支共享高层特征图
+    - 由2个 stirde=2 的卷积层（3x3x512）组成
+    - 后接一个 1 x 1 x 3$m$ 的卷积层输出 $m$ 个平面的参数
+    - 后接一个 global average pooling，对所有空间位置的预测 aggregate
+    - 除了最后的输出层，其他层激活函数均使用了 ReLU
+
+4. Implementation details
+    - 网络从头训练
+    - 平面的个数 $m$ 设置为 5
