@@ -47,14 +47,37 @@ comments: true
     1. 每个像素的概率图 $S_i$，$S_i(\textbf{q})$ 是个(m+1)维的向量，其中第$j$个元素 $S_i^j(\textbf{q})$ 表示像素 $\textbf{q}$ 属于第$j$个平面的概率
     2. 图片 $I_i$ 所有的平面参数 $$\Pi_i = \{\textbf{n}_i^j\}_{j=1}^{m}$$，最小化目标函数
         - $$ \mathcal{L} = \sum_{i=1}^n \sum_{j=1}^m \left(  \right) + \alpha \sum_{i=1}^n \mathcal{L}_{reg}(S_i) $$
-        - $\mathcal{L}_{reg}(S_i)$ 是正则化项，阻止网络生成平凡解 —— $S_i^0(\codt) \equiv 1$，这样会把所有像素划分成 non-planar，$\alpha$ 是平衡因子
+        - $\mathcal{L}_{reg}(S_i)$ 是正则化项，阻止网络生成平凡解 —— $S_i^0(\cdot) \equiv 1$，这样会把所有像素划分成 non-planar，$\alpha$ 是平衡因子
         - 上式把 plane segmentation 和 plane parameter estimation 统一考虑，与用两种监督信息分别训练网络的方法不同
 
     3. 以上公式，$|(\textbf{n}_i^j)^TQ - 1|$ 衡量了图像$I_i$中第j个平面的3D点$Q$的偏差，又直到$Q$必在射线 $\lambda K^{-1} \textbf{q}$上，$\lambda$ 是$\textbf{q}$的深度值。若点$Q$又在第$j$个平面，则有
-        - $$(\textbf{n}_i^j) \cdot K^{-1} \textbf{q} = 1 \Rightarrow = \frac{1}{(\textbf{n}_i^j) \cdot \lambda K^{-1} \textbf{q}}$$
+        - $$(\textbf{n}_i^j) \cdot K^{-1} \textbf{q} = 1 \Rightarrow \lambda = \frac{1}{(\textbf{n}_i^j) \cdot \lambda K^{-1} \textbf{q}}$$
         - 因此，$\lambda$ 可看作点$\textbf{q}$在平面$(\textbf{n}_i^j)$的深度值
 
     4. 基于以上推导，有如下等式成立
-        - $$ |(\textbf{n}_i^j)^TQ - 1| = |(\textbf{n}_i^j)^T D_i(\textbf{q}) \cdot K^{-1} \textbf{q} - 1|$$
+        - $$ \|(\textbf{n}_i^j)^TQ - 1\ | = |(\textbf{n}_i^j)^T D_i(\textbf{q}) \cdot K^{-1} \textbf{q} - 1|$$
         - 可以看到，上式计算 $D_i(\textbf{q})$ 和 $\lambda$ 的差异，惩罚差异项
         - 因此，本文把 3D plane recovery 看成一个深度估计问题
+
+### Incorporating Semantics for Planar/Non-Planar Classification
+1. 这部分主要考虑正则项 $\mathcal{L}_{reg}(S_i)$。出发点是希望预测的平面能尽可能反映场景的几何性质，因此 $\mathcal{L}_{reg}(S_i)$ 要鼓励 plane prediction——通过交叉熵损失函数
+    - 令 $p_{plane}(\textbf{q}) = \sum_{j=1}^m S_i^j(\textbf{q})$
+    - $$ \mathcal{L}_{reg}(S_i) = \sum_{\textbf{q}} -1 \cdot \log(p_{plane}(\textbf{q})) - 0 \cdot \log(1 - p_{plane}(\textbf{q}))$$
+
+    - 损失函数的设计有效鼓励神经网络解释图像中的每个像素——使用预测平面模型
+    - 实际情况中，一些物体比另外的更可能形成有意义的平面，比如建筑物的正面，于此同时行人、汽车被看作 non-planar
+    - 进一步，能否把这样的高层语义信息考虑进来，提高 planar 和 non-planar 的分类能力
+
+2. 基于上文介绍，提出了利用数据集中的语义标签的方法，以 SYNTHIA 为例
+    - 该数据集提供了13类城市场景的像素集语义标签信息
+    - 把这些类分成
+        - planar = {building, fence, road, sidewalk, lane-marking}
+        - non-planar = {sky, vegetation, pole, car, traffic signs, pedestrians, cyclists, miscellaneous}
+        - 这种划分不固定，与问题和数据集相关
+    
+    - 令 $z(\textbf{q}) = 1$， 当 $\textbf{q}$ 属于 planar类别；否则 $z(\textbf{q}) = 0$，重写损失函数
+        - $$ \mathcal{L}_{reg}(S_i) = \sum_{\textbf{q}} -z(\textbf{q}) \cdot \log(p_{plane}(\textbf{q})) - (1-z(\textbf{q})) \cdot \log(1 - p_{plane}(\textbf{q}))$$
+
+    - 因此，就把经过人工标注的高层语义利用了起来，并和传统的geometric methods设定阈值区分 planar 和 non-planar 的方法区分开来
+
+### Network Architecture
