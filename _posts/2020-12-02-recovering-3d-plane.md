@@ -14,9 +14,26 @@ comments: true
 
 * 收录情况：ECCV 2018
 
+![](../img/post/planerecover_fig1.png)
 ### 简介
+1. 从单张图片进行3D重建是个有挑战性的任务，之前的工作提出了基于结构规则的方法，这些结构有 planar surfaces, repetitive patterns, symmetrics, rectangles, cuboids 等等。提取到这些结构的3D模型往往很有用，因为它们提供了高层的、压缩的场景几何性质表示，对于大规模地图压缩、语义场景理解、人机交互等很有用。
 
-## 主要方法
+2. 本文研究的问题是恢复3D平面——man-made 环境最常见的结构。前人对这个问题展开了一些研究，提出各种方法拟合场景的 piecewise planar。这些方法属于 2.$bottom-up~approach$
+    1. 检测图片中的直线段、角、结合点灯几何特征
+    2. 通过对检测到的空间几何性质分组，找到planar regions
+
+3. 尽管这些方法很受欢迎，但是$ottom-up~approach$存在潜在的问题
+    1. man-made环境不能保证检测到可靠几何性质——纹理很差、特殊表面
+    2. 检测到的几何特性，存在大量不相关单特征和异常值，使得基于几何特性的分组非常困难
+
+4. 本文提出了一种不同的方法恢复3D plane，这种方法不依赖于对 low-level geometric primitives（线段、小图像块） 的分组。
+    - 设计了一个端到端的神经网络，直接识别场景中的 planar surfaces，如最上面的图片所示，网络
+    - 输入：单幅rgb图片
+    - 输出：
+        1. segmentation map that identifies the planar surfaces in the image
+        2. the parameters of each plane in the 3D space
+
+    - 遇到的挑战是缺乏大规模带标注的3D planes数据集，为了避免投入大量人工标注成本，提出了 plane structure-induced loss，将问题转化为 single image depth prediction 问题，从而利用大量现有RGB-D数据集训练神经网络，而且把数据集中的像素类别标签考虑进来。
 
 ### 获取标准平面标签存在的困难
 * （1）图片中的平面区域边界往往很复杂，让人工标注会费很多时间，但是训练神经网络又需要大量带标签的数据。（2）如何从图片准确抽取各个平面的3D表示参数，仍然是一个没有解决的问题。
@@ -55,7 +72,7 @@ comments: true
         - 因此，$\lambda$ 可看作点$\textbf{q}$在平面$(\textbf{n}_i^j)$的深度值
 
     4. 基于以上推导，有如下等式成立
-        - $$ \|(\textbf{n}_i^j)^TQ - 1\ | = |(\textbf{n}_i^j)^T D_i(\textbf{q}) \cdot K^{-1} \textbf{q} - 1|$$
+        - $$ \|(\textbf{n}_i^j)^TQ - 1 \| = \|(\textbf{n}_i^j)^T D_i(\textbf{q}) \cdot K^{-1} \textbf{q} - 1 \|$$
         - 可以看到，上式计算 $D_i(\textbf{q})$ 和 $\lambda$ 的差异，惩罚差异项
         - 因此，本文把 3D plane recovery 看成一个深度估计问题
 
