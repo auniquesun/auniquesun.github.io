@@ -34,11 +34,11 @@ comments: true
 
     * 2D 投影中心 $\textbf{c}$ 由两部分组成
         - $\textbf{c}^{b}$，bbox 中心点
-        - $$\textbf{\delta} \in \mathbb{R}^2$$，偏移量
+        - $$\boldsymbol{\delta} \in \mathbb{R}^2$$，偏移量
 
     * 从2D detection $\textbf{I}$到 3D box corners（？？？这些描述不太准确吧），网络进行了$\textbf{F}$变换
-        - $$\textbf{F}(\textbf{I} | \textbf{\delta}, d, \beta, \gamma, \textbf{s}, \theta) \in \mathbb{R}^{3 \times 8}$$
-        - 3D Object Detection Network 预测 $$(\textbf{\delta}, d, \textbf{s}, \theta)$$
+        - $$\textbf{F}(\textbf{I} | \boldsymbol{\delta}, d, \beta, \gamma, \textbf{s}, \theta) \in \mathbb{R}^{3 \times 8}$$
+        - 3D Object Detection Network 预测 $$(\boldsymbol{\delta}, d, \textbf{s}, \theta)$$
         - Layout Estimation Network 预测 $\textbf{R}(\beta, \gamma)$ 和 $(\textbf{C}, \textbf{s}^{l}, \theta^{l})$
 
     * Object Detection Network（ODN）
@@ -53,7 +53,7 @@ comments: true
             * (1) 根据2D检测结果，用 ResNet-34 抽取物体 appearance feature；编码 2D bbox的相对位置和尺寸信息 $\Rightarrow$ geometry feature
             * (2) 对于每个 target object（？？？理解成当前正在计算的 object），计算与其他物体的 relational feature，计算的方法同样参考了 $^{*}$ 中的 $\textbf{object relation module}$
                 * 从上图可以看出，target object feature 和 relational feature 采用的是元素级别的加法，形成组织target object特征
-            * (3) 最后用两层的MLP，预测 $$(\textbf{\delta}, d, \textbf{s}, \theta)$$
+            * (3) 最后用两层的MLP，预测 $$(\boldsymbol{\delta}, d, \textbf{s}, \theta)$$
 
         - 本文认为：对于室内场景重建，$\textbf{object relation module}$ 反映了现实世界中固有的性质——物体与其他物体有着相邻、相似关系
 
@@ -94,7 +94,7 @@ comments: true
     - 这部分讲解学习目标和损失函数
 
     - Individual Loss
-        * ODN 预测相机坐标系下的3D box，$$(\textbf{\delta}, d, \textbf{s}, \theta)$$
+        * ODN 预测相机坐标系下的3D box，$$(\boldsymbol{\delta}, d, \textbf{s}, \theta)$$
         
         * LEN 预测layout box，$(\beta, \gamma, \textbf{C}, \textbf{s}^l, \theta^{l})$，把相机姿态和3D物体变换到世界坐标系
 
@@ -102,7 +102,7 @@ comments: true
             - $\mathcal{L}^{cls,reg} = \mathcal{L}^{cls} + \lambda_r \mathcal{L}^{reg}$ 优化 $(\beta, \gamma, \textbf{s}, \textbf{s}^l, \theta, \theta^{l})$
             - 【参考文献14】
 
-        * L2 loss 预测 $\textbf{C}$ 和 $$\textbf{\delta}$$
+        * L2 loss 预测 $\textbf{C}$ 和 $$\boldsymbol{\delta}$$
 
         * Chamfer loss for MGN
 
@@ -122,7 +122,7 @@ comments: true
             * $\textbf{p}$、$\textbf{q}$是两个点，分别位于重建的 mesh $\mathbb{M}_i$ 和 ground truth surface $\mathbb{S}_i$，$i$ 代表第$i$个物体
             * $N$ 是物体总数，$\| \mathbb{S}_i \|$ 是 $\mathbb{S}_i$ 上的点数
         
-        * $$ \mathcal{L} = \sum_{ x \in \{\textbf{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
+        * $$ \mathcal{L} = \sum_{ x \in \{\boldsymbol{\delta},d,\textbf{s},\theta\} } \lambda_{x}\mathcal{L}_x + \sum_{ y \in \{\beta,\gamma,\textbf{C},\textbf{s},\theta^{l}\} } \lambda_{y}\mathcal{L}_y + \sum_{ z \in \{c,e,b,ce,\theta^{l}\} } \lambda_{z}\mathcal{L}_z + \lambda_{co}\mathcal{L}_{co} + \lambda_{g}\mathcal{L}_g $$
             - 前三项分别对应ODN、LEN、MGN的损失
             - 后两项是各模块相互作用的总共损失
 
