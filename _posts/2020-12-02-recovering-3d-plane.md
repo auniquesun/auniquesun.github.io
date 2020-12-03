@@ -48,7 +48,6 @@ comments: true
     
     - 作者用大段落举这个例子，是想说明这种方法得到的平面标注数据质量并不很高，再用来训练神经网络容易学到错误的信息，目的是下文引出自己的方法，文章写作技巧很高
 
-
 ### Plane Structure-Induced Loss
 1. 上文阐述了获得可靠数据标签的挑战，这使得本文另辟蹊径，开发了另一方法进行3D平面恢复。有一个具体的问题：是否可以利用大规模的RGB-D / 3D 数据集，训练神经网络识别平面等几何结构，于此同时不需获取几何结构的ground truth标签？
     - 一个重要的想法是：如果能从图片恢复出3D平面，那么就能用这些平面（部分地）解释场景的几何性质 —— 通常用3D点云表示
@@ -116,3 +115,32 @@ comments: true
 4. Implementation details
     - 网络从头训练
     - 平面的个数 $m$ 设置为 5
+
+### 实验
+本文声称，在GTX 1080 Ti GPU上，测试速度能达到 60 $fps$，还是相当快了，我好奇神经网络也能运行如此之快？
+
+1. 数据集：
+    - SYNTHIA
+        *  more than 200,000 photo-realistic images rendered from virtual city environments with precise pixelwise depth maps and semantic annotations
+        *  Since the dataset is designed to facilitate autonomous driving research, all frames are acquired from a virtual car as it navigates in the virtual city. 
+        *  seven different scenarios in total, we select three ones scenarios.
+        * we randomly sample 8,000 frames as the training set and another 100 frames as the testing set.（第一感觉是测试集太小）
+    - Cityscapes
+        *  a large set of real street-view video sequences recorded in different cities
+        -  3,475 images with publicly available fine semantic annotations
+        -  the depth maps in Cityscapes are **highly noisy** because they are computed from stereo correspondences. 
+        - Therefore, to identify planar surfaces in the image, **we manually label** the boundary of each plane using polygons, and further leverage the semantic annotations to refine
+        - we randomly select 100 images for testing, and use the rest for training（第一感觉是测试集太小）
+
+2. 评价任务
+    * plane segmentation
+        - 指标：
+            * Rand Index(RI)
+            * Variation of Information(VOI)
+            * Segmentation Covering(SC)
+        - ![](../img/post/planerecover_tab1.png)
+
+    * depth prediction
+        - 指标
+            * RMSE；其他几项指标没明白什么意思
+        - ![](../img/post/planerecover_tab2.png)
