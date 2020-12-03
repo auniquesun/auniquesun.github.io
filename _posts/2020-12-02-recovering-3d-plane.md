@@ -62,11 +62,11 @@ comments: true
 2. 基于以上观测，假设图片 $I_i$ 有 $m$ 个平面，本文的目标是训练一个神经网络输出：
     1. 每个像素的概率图 $S_i$，$S_i(\textbf{q})$ 是个(m+1)维的向量，其中第$j$个元素 $S_i^j(\textbf{q})$ 表示像素 $\textbf{q}$ 属于第$j$个平面的概率
     2. 图片 $I_i$ 所有的平面参数 $$\Pi_i = \{\textbf{n}_i^j\}_{j=1}^{m}$$，最小化目标函数
-        - $$ \mathcal{L} = \sum_{i=1}^n \sum_{j=1}^m \left(  \right) + \alpha \sum_{i=1}^n \mathcal{L}_{reg}(S_i) $$
+        - $$ \mathcal{L} = \sum_{i=1}^n \sum_{j=1}^m \left( \sum_{\textbf{q}} S^j_i(\textbf{q}) \cdot | (\textbf{n}_i^j)^TQ - 1 | \right) + \alpha \sum_{i=1}^n \mathcal{L}_{reg}(S_i) $$
         - $\mathcal{L}_{reg}(S_i)$ 是正则化项，阻止网络生成平凡解 —— $S_i^0(\cdot) \equiv 1$，这样会把所有像素划分成 non-planar，$\alpha$ 是平衡因子
         - 上式把 plane segmentation 和 plane parameter estimation 统一考虑，与用两种监督信息分别训练网络的方法不同
 
-    3. 以上公式，$|(\textbf{n}_i^j)^TQ - 1|$ 衡量了图像$I_i$中第j个平面的3D点$Q$的偏差，又直到$Q$必在射线 $\lambda K^{-1} \textbf{q}$上，$\lambda$ 是$\textbf{q}$的深度值。若点$Q$又在第$j$个平面，则有
+    3. 以上公式，$ \|(\textbf{n}_i^j)^TQ - 1\| $ 衡量了图像$I_i$中第j个平面的3D点$Q$的偏差，又直到$Q$必在射线 $\lambda K^{-1} \textbf{q}$上，$\lambda$ 是$\textbf{q}$的深度值。若点$Q$又在第$j$个平面，则有
         - $$(\textbf{n}_i^j) \cdot K^{-1} \textbf{q} = 1 \Rightarrow \lambda = \frac{1}{(\textbf{n}_i^j) \cdot \lambda K^{-1} \textbf{q}}$$
         - 因此，$\lambda$ 可看作点$\textbf{q}$在平面$(\textbf{n}_i^j)$的深度值
 
@@ -76,7 +76,7 @@ comments: true
         - 因此，本文把 3D plane recovery 看成一个深度估计问题
 
 ### Incorporating Semantics for Planar/Non-Planar Classification
-1. 这部分主要考虑正则项 $\mathcal{L}_{reg}(S_i)$。出发点是希望预测的平面能尽可能反映场景的几何性质，因此 $\mathcal{L}_{reg}(S_i)$ 要鼓励 plane prediction——通过交叉熵损失函数
+1. 这部分主要考虑正则项 $\mathcal{L}_{reg}(S_i)$。出发点是希望预测的平面能尽可能反映场景的几何性质，因此 $$\mathcal{L}_{reg}(S_i)$$ 要鼓励 plane prediction——通过交叉熵损失函数
     - 令 $p_{plane}(\textbf{q}) = \sum_{j=1}^m S_i^j(\textbf{q})$
     - $$ \mathcal{L}_{reg}(S_i) = \sum_{\textbf{q}} -1 \cdot \log(p_{plane}(\textbf{q})) - 0 \cdot \log(1 - p_{plane}(\textbf{q}))$$
 
