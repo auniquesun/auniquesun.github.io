@@ -78,10 +78,10 @@ comments: true
 
     - 本文认为应该通过 local geometry 决定是否保留一个面。提出一种可调整的方法来修改基于 ground truth local density 的mesh
         * $\textbf{p}_i \in \mathbb{R}^{3}$ 是重建的mesh上的一点
-        * $\textbf{q}_i \in \mathbb{R}^{3}$ 是ground truth mesh上离$\textbf{p}_i$最近的一点
+        * $\textbf{q}_i \in \mathbb{R}^{3}$ 是ground truth mesh上离$\textbf{p}_i$最近的邻居点
         * 设计了一个二分类器 $f(*)$ 预测 $\textbf{p}_{i}$ 是否与 ground truth mesh 接近
             - ![](../img/post/t3du_eq2.png)
-            - $$N(\textbf{q}_{i})$$ 是 $$\textbf{p}_{i}$$ 在 ground truth mesh 的邻居
+            - $$N(\textbf{q}_{i})$$ 是 $$\textbf{q}_{i}$$ 在 ground truth mesh 的邻居
             - $$D(\textbf{q}_{i})$$ 是 $$\textbf{q}_{i}$$ 的 local density
         * 分类器的设计思路：
             - mesh 形状估计时，如果一个点属于 ground truth 的邻居 $N(*)$，模板上的这个点应该被保留，后续实验表明这种方法优于TMN单一阈值设置的方法
