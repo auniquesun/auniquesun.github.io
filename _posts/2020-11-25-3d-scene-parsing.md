@@ -103,7 +103,7 @@ comments: true
 
 4. HSG 从场景根节点出发，到终端节点结束。一个室内场景能表示成一张 parse graph($\textbf{pg}$)，如上图所示。
 
-    - 形式化定义：HSG表示为一个5元组<S, V, R, E, P>
+    - 形式化定义：HSG表示为一个5元组$\langle S, V, R, E, P \rangle$
         * S 是室内场景的根节点
         * V 是顶点集，包括非终端节点$V_f \in \mathbb{F}$和终端节点$V_g \in \mathbb{G} $
         * R 是生产规则
