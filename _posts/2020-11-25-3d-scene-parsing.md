@@ -108,7 +108,7 @@ comments: true
         * V 是顶点集，包括非终端节点$V_f \in \mathbb{F}$和终端节点$V_g \in \mathbb{G} $
         * R 是生产规则
         * E 是终端节点间的上下文关系，对应$\textbf{pg}$中的水平links（图中紫色、蓝色、绿色块间的水平连接）
-        * P 是定义在$\textbf{pg}的概率模型
+        * P 是定义在$\textbf{pg}$的概率模型
 
     - 功能空间$\mathbb{F}$：非终端节点 $$V_f = {V_f^c, V_f^a, V_f^o, V_f^l} \in \mathbb{F}$$
         * 场景类别节点$V_f^c$
