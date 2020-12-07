@@ -8,7 +8,7 @@ mathjax: true
 comments: true
 ---
 
-* 论文名称：[Recovering 3D Planes from a Single Image via](https://openaccess.thecvf.com/content_ECCV_2018/html/Fengting_Yang_Recovering_3D_Planes_ECCV_2018_paper.html)
+* 论文名称：[Recovering 3D Planes from a Single Image via Convolutional Neural Networks](https://openaccess.thecvf.com/content_ECCV_2018/html/Fengting_Yang_Recovering_3D_Planes_ECCV_2018_paper.html)
 
 * 论文作者：Fengting Yang and Zihan Zhou（Pennsylvania State University）
 
@@ -22,7 +22,7 @@ comments: true
     1. 检测图片中的直线段、角、结合点灯几何特征
     2. 通过对检测到的空间几何性质分组，找到planar regions
 
-3. 尽管这些方法很受欢迎，但是$ottom-up~approach$存在潜在的问题
+3. 尽管这些方法很受欢迎，但是$bottom-up~approach$存在潜在的问题
     1. man-made环境不能保证检测到可靠几何性质——纹理很差、特殊表面
     2. 检测到的几何特性，存在大量不相关单特征和异常值，使得基于几何特性的分组非常困难
 
