@@ -13,7 +13,7 @@ OpenCV 是在[BSD许可证](https://opensource.org/licenses/BSD-3-Clause)下开�
 
 1. 几组数字：
     * 2500+ 计算机视觉相关算法
-    * 47,000+ 用户组成的社区
+    * 47,000+ 开发者组成的社区
     * 1800+ 万下载量
 
 2. OpenCV能干什么？一些直观印象：
