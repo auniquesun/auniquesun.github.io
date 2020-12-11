@@ -29,7 +29,7 @@ OpenCV 是在[BSD许可证](https://opensource.org/licenses/BSD-3-Clause)下开�
 从最近的机器感知课程可以感觉到，很多视觉任务，用不着复杂的模型实现，OpenCV提供的实现效果就很好，而且计算经过许多优化，很多情况下是解决视觉任务首选。由于官方文档内容太多，一个人学起来太耗时，我们成立一个学习小组，每人负责学习几个模块，实践其中几个视觉算法，然后把自己学的内容讲给大家。下面的 `tutorial` 分为4部分，每部分由一个同学负责
 
 #### 版本
-OpenCV 有很多版本，我们统一使用 [3.4.10](https://docs.opencv.org/3.4.10/d9/df8/tutorial_root.html)，对应的文档和代码也是这个版本
+OpenCV 有很多版本，我们统一使用 [3.4.10](https://docs.opencv.org/3.4.10/d9/df8/tutorial_root.html)，它是一个稳定的发行版，经过了长期开发维护，对应的文档和代码都用这个版本
 
 #### Tutorial I
 * [Introduction to OpenCV](https://docs.opencv.org/3.4.10/df/d65/tutorial_table_of_content_introduction.html)
