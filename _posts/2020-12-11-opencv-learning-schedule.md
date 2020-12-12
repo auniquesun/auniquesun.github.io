@@ -9,7 +9,7 @@ comments: true
 ---
 
 ### 简介
-OpenCV 是在[BSD许可证](https://opensource.org/licenses/BSD-3-Clause)下开源的计算机视觉和机器学习软件，经过专业社区长期开发和维护，在Windows、macOS、Linux、iOS、Android各大平台都有对应的实现，源代码用C++编写，通过模板化接口与STL容器无缝衔接，并提供了Python、Java、MATLAB编程接口，具有生态完备、功能齐全的特点，在学术界、工业界、各个组织得到了广泛应用。OpenCV是计算机视觉理论学习和工程实践不可回避的工具。
+OpenCV 是在[BSD许可证](https://opensource.org/licenses/BSD-3-Clause)下开源的计算机视觉和机器学习软件，诞生于2000年，经过专业社区长期开发和维护，在Windows、macOS、Linux、iOS、Android各大平台都有对应的实现，源代码用C++编写，通过模板化接口与STL容器无缝衔接，并提供了Python、Java、MATLAB编程接口，具有生态完备、功能齐全的特点，在学术界、工业界、各个组织得到了广泛应用。OpenCV是计算机视觉理论学习和工程实践不可回避的工具。
 
 1. 几组数字：
     * 2500+ 计算机视觉相关算法
