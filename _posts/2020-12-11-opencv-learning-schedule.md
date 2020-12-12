@@ -28,9 +28,50 @@ OpenCV 是在[BSD许可证](https://opensource.org/licenses/BSD-3-Clause)下开�
 ### 学习计划
 从最近的机器感知课程可以感觉到，很多视觉任务，用不着复杂的模型实现，OpenCV提供的实现效果就很好，而且计算经过许多优化，很多情况下是解决视觉任务首选。由于官方文档内容太多，一个人学起来太耗时，我们成立一个学习小组，每人负责学习几个模块，实践其中几个视觉算法，然后把自己学的内容讲给大家。下面的 `tutorial` 分为4部分，每部分由一个同学负责
 
-#### 版本
-OpenCV 有很多版本，我们统一使用 [3.4.10](https://docs.opencv.org/3.4.10/d9/df8/tutorial_root.html)，它是一个稳定的发行版，经过了长期开发维护，对应的文档和代码都用这个版本
+#### 语言和版本
+为了省去编译步骤和一些依赖工具的安装（编译安装不是学习目的，而且比较繁琐），我们选用Python作为编程语言
 
+OpenCV 有很多版本，我们统一使用 [3.4.10](https://docs.opencv.org/3.4.10/d6/d00/tutorial_py_root.html)，它是一个稳定的发行版，经过了长期开发维护，对应的文档和代码都用这个版本
+
+#### Tutorial I
+* [Introduction to OpenCV](https://docs.opencv.org/3.4.10/da/df6/tutorial_py_table_of_contents_setup.html)
+Learn how to setup OpenCV-Python on your computer!
+
+* [Gui Features in OpenCV](https://docs.opencv.org/3.4.10/dc/d4d/tutorial_py_table_of_contents_gui.html)
+Here you will learn how to display and save images and videos, control mouse events and create trackbar.
+
+* [Core Operations](https://docs.opencv.org/3.4.10/d7/d16/tutorial_py_table_of_contents_core.html)
+In this section you will learn basic operations on image like pixel editing, geometric transformations, code optimization, some mathematical tools etc.
+
+#### Tutorial II
+* [Image Processing in OpenCV](https://docs.opencv.org/3.4.10/d2/d96/tutorial_py_table_of_contents_imgproc.html)
+In this section you will learn different image processing functions inside OpenCV.
+
+
+* [Video analysis (video module)](https://docs.opencv.org/3.4.10/da/dd0/tutorial_table_of_content_video.html)
+In this section you will learn different techniques to work with videos like object tracking etc.
+
+#### Tutorial III
+* [Camera Calibration and 3D Reconstruction](https://docs.opencv.org/3.4.10/d9/db7/tutorial_py_table_of_contents_calib3d.html)
+In this section we will learn about camera calibration, stereo imaging etc.
+
+* [Feature Detection and Description](https://docs.opencv.org/3.4.10/db/d27/tutorial_py_table_of_contents_feature2d.html)
+In this section you will learn about feature detectors and descriptors
+
+* [Computational Photography](https://docs.opencv.org/3.4.10/d0/d07/tutorial_py_table_of_contents_photo.html)
+In this section you will learn different computational photography techniques like image denoising etc.
+
+#### Tutorial IV
+* [Machine Learning](https://docs.opencv.org/3.4.10/d6/de2/tutorial_py_table_of_contents_ml.html)
+In this section you will learn different image processing functions inside OpenCV.
+
+* [Object Detection (objdetect module)](https://docs.opencv.org/3.4.10/d2/d64/tutorial_table_of_content_objdetect.html)
+In this section you will learn object detection techniques like face detection etc.
+
+* [OpenCV-Python Bindings](https://docs.opencv.org/3.4.10/df/da2/tutorial_py_table_of_contents_bindings.html)
+In this section, we will see how OpenCV-Python bindings are generated
+
+### C++
 #### Tutorial I
 * [Introduction to OpenCV](https://docs.opencv.org/3.4.10/df/d65/tutorial_table_of_content_introduction.html)
 * [The Core Functionality (core module)](https://docs.opencv.org/3.4.10/de/d7a/tutorial_table_of_content_core.html)
