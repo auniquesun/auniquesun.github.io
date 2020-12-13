@@ -49,6 +49,7 @@ comments: true
 {% endhighlight %}
 
 ### Getting Started with Videos
+
 {: .box-note}
 从摄像头获取视频输入
 
