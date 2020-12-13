@@ -137,7 +137,9 @@ comments: true
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
-        # 图片翻转，其实就是以图片宽度中轴，作镜像对称
+        # 图片翻转，第二个参数
+        #   0：以图片x中轴作镜像对称
+        #   1：以图片y中轴作镜像对称
         frame = cv.flip(frame, 0)
         # write the flipped frame
         out.write(frame)
