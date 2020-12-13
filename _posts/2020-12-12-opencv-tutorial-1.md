@@ -49,7 +49,9 @@ comments: true
 {% endhighlight %}
 
 ### Getting Started with Videos
-1. 从摄像头获取视频输入
+{: .box-note}
+从摄像头获取视频输入
+
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
@@ -86,7 +88,9 @@ comments: true
     cv.destroyAllWindows()
 {% endhighlight %}
 
-2. 从文件获得视频输入
+{: .box-note}
+从文件获得视频输入
+
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
@@ -109,7 +113,9 @@ comments: true
     cv.destroyAllWindows()
 {% endhighlight %}
 
-3.  保存视频
+{: .box-note}
+保存视频
+
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
@@ -150,4 +156,52 @@ comments: true
     cap.release()
     out.release()
     cv.destroyAllWindows()
+{% endhighlight %}
+
+{: .box-note}
+制作调色板
+
+{% highlight python lineos %}
+    import cv2 as cv
+    import numpy as np
+
+    # 回调函数
+    def nothing(x):
+        pass
+
+    img = np.zeros((300,512,3), np.uint8)
+    cv.namedWindow('platte')
+
+    """
+    cv.createTrackbar 的5个参数分别是：
+        trackbar name
+        window name
+        default value
+        maximum value
+        callback function: 默认参数是 trackbar position，这里什么都不做
+    """
+    cv.createTrackbar('R', 'platte', 0, 255, nothing)
+    cv.createTrackbar('G', 'platte', 0, 255, nothing)
+    cv.createTrackbar('B', 'platte', 0, 255, nothing)
+
+    switch = '0: OFF \n1: ON'
+    cv.createTrackbar(switch, 'platte', 0, 1, nothing)
+
+    while(1):
+        cv.imshow('platte', img)
+        k = cv.waitKey(5) & 0xFF
+        if k == ord('q'):
+            break
+
+        r = cv.getTrackbarPos('R', 'platte')
+        g = cv.getTrackbarPos('G', 'platte')
+        b = cv.getTrackbarPos('B', 'platte')
+        s = cv.getTrackbarPos(switch, 'platte')
+
+        if s==0:
+            img[:] = 0
+        else:
+            img[:] = [r,g,b]
+
+    cv.destroyWindow('platte')
 {% endhighlight %}
