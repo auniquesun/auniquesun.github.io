@@ -53,6 +53,14 @@ comments: true
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
+
+    """
+    cv.VideoCapture(0) 参数形式：
+        (1) 数字: 输入设备编号；这里0代表第一个设备，
+                  如果有第二个设备，传入1，以此类推；
+                  都是实时获取视频流输入
+        (2) 字符串：视频文件路径
+    """
     cap = cv.VideoCapture(0)
     if not cap.isOpened():
         print("Cannot open camera")
@@ -60,12 +68,15 @@ comments: true
     while True:
         # Capture frame-by-frame
         ret, frame = cap.read()
+        
+        # ret type: bool
         # if frame is read correctly ret is True
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
         gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
         # Display the resulting frame
         cv.imshow('frame', gray)
         if cv.waitKey(1) == ord('q'):
@@ -79,6 +90,8 @@ comments: true
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
+
+    # 传入视频路径
     cap = cv.VideoCapture('vtest.avi')
     while cap.isOpened():
         ret, frame = cap.read()
@@ -86,6 +99,8 @@ comments: true
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
+
+        # 把彩色图转成灰度图
         gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
         cv.imshow('frame', gray)
         if cv.waitKey(1) == ord('q'):
@@ -98,15 +113,31 @@ comments: true
 {% highlight python linenos %}
     import numpy as np
     import cv2 as cv
+
     cap = cv.VideoCapture(0)
-    # Define the codec and create VideoWriter object
+    """
+    Define the codec
+        有两种形式：
+            cv.VideoWriter_fourcc(*'XVID')
+            cv.VideoWriter_fourcc('X','V','I','D')
+    """
     fourcc = cv.VideoWriter_fourcc(*'XVID')
+
+    """
+    create VideoWriter object
+        cv.VideoWriter() 参数：
+            输出视频文件名 - 'output.avi'：string
+            视频编码格式   - 限定在几个不同关键字，linux系统常用 *'XVID'
+            视频速度 - fps：int
+            图片分辨率 - (width, height)：tuple
+    """
     out = cv.VideoWriter('output.avi', fourcc, 20.0, (640,  480))
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
+        # 图片翻转，其实就是以图片宽度中轴，作镜像对称
         frame = cv.flip(frame, 0)
         # write the flipped frame
         out.write(frame)
