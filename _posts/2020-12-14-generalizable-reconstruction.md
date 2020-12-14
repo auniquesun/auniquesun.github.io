@@ -16,6 +16,8 @@ comments: true
 
 * 收录情况：NeurIPS 2018
 
+![](../img/post/genre_fig2.png)
+
 ### 主要方法
 利用单张图片的重建算法，学习一个函数 $f_{2D \rightarrow 3D}$，把图片中的2D物体映射成3D形状。本文通过正则化 $f_{2D \rightarrow 3D}$ 解决扩展性的问题。使用的正则化方法是把 $f_{2D \rightarrow 3D}$ 分解成 $geometric~projections$ 和 $learnable~reconstruction$ 模块。
 
