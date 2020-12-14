@@ -8,7 +8,7 @@ mathjax: true
 comments: true
 ---
 
-这篇论文是在MarrNet基础上的工作，研究内容是物体3D形状重建，重点放在了可扩展性上，即从已知物体学习，结合一些先验知识，重建出训练集没见过的物体的3D形状，创新性比较大。
+这篇论文是在[MarrNet](https://auniquesun.com/2020-12-08-MarrNet/)基础上的工作，研究内容是物体3D形状重建，重点放在了可扩展性上，即从已知物体学习，结合一些先验知识，重建出训练集没见过的物体的3D形状，创新性比较大。
 
 * 论文名称：[Learning to Reconstruct Shapes from Unseen Classes](https://arxiv.org/abs/1812.11166)
 
@@ -34,3 +34,7 @@ comments: true
         * 一个是来自 $inpainted~spherical ~map$ 的体素图
         * 另一个是来自 $depth~map$ 的体素图
     - 输出最终的3D shape
+
+1. Single-View Depth Estimator
+    - 用带有干净背景的图片，预测物体深度。受MarrNet启发，把深度做为中间表示，能从图片蒸馏得到物体重要的几何信息
+    - 深度估计是类别无关的，不同形状的物体可能有共同的几何结构，比如衣柜和床都有垂直于地面的表面（这都是自成一说，怎么都能找到支持自己观点的例子）
