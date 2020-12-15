@@ -38,3 +38,58 @@ comments: true
 1. Single-View Depth Estimator
     - 用带有干净背景的图片，预测物体深度。受MarrNet启发，把深度做为中间表示，能从图片蒸馏得到物体重要的几何信息
     - 深度估计是类别无关的，不同形状的物体可能有共同的几何结构，比如衣柜和床都有垂直于地面的表面（这都是自成一说，怎么都能找到支持自己观点的例子）
+
+2. Spherical Map Inpainting Network
+    * 利用球面图，本文把3D表面补全问题转化成2D球面图修复问题（**其实本文困扰我的点是，spherical map到底在说什么**）
+    * 作者观察到：用来修复球面图训练好的网络，对未知形状类别具有好的扩展性，如下图所示(？？？从这幅图真的能看出什么吗)
+    ![](../img/post/genre_fig3.png)
+    * 与voxel map相比（一般是3D图），因为3D表面的稀疏特性，spherical map处理更高效
+    
+    * 因为球面图反映了单位球体的信息，设计网络结构时容易想到球卷积。但是本文的 shape reconstruction 不适合球卷积，因为球卷积是在光谱域进行操作。每次往返于频谱域的转换都需要对最大频率进行封顶，从而导致额外的混叠和信息丢失（完全不清楚这段在说什么）。
+    * 对于**识别任务**而言，与球卷积提供的卷转不变性的优势相比，信息损失可能能够忽略。但是对于**重建任务**，信息损失会导致带有低频组件模糊输出。
+    * 从经验上来看，标准卷积比球卷积更适合重建任务。
+
+3. Voxel Refinement Network
+    * 虽然修复的球形图提供了物体表面在单位球体的投影，但是当自遮挡发生时，表面信息就丢掉了。本文使用精修网络恢复丢失的信息，精修网络在voxel space进行操作，它的输入是两个voxielized shapes:
+        1. 从估计的depth map得到的shape
+        2. 从inpainted spherical map得到的map
+    * 输出最终重建的形状
+
+    * 因为恢复的思路是从遮挡区域的周围得到信息，所以精修网络需要捕获 local shape priors，并且不关心形状类别（class-agnostic）
+    * 这段是用来支撑上一段的表述：实验显示，当提供ground truth depth map和spherical map时，精修网络在重建训练数据和没有见过的类别形状时，表现都较好
+
+ ### 实验
+1. 3D形状表示方法
+    * voxels：在深度学习时代，体素非常适合表示3D形状，因为它的结构很适合做卷积。本文的模型使用了 $128^3$ 个[0, 1]占用的体素网格（这里[0,1]是个区间，不是0、1两个值）
+        - DRC、MarrNet 作为比较的方法
+    * Mesh & point clouds：比体素表示简单一些（？？？作者的一家之言，其实未必）
+        - AtlasNet 作为比较的方法（total3dunderstanding 这篇论文也见过这个方法）
+    * Multi-view maps：多视角深度图
+        - Daeyun Shin, Charless C Fowlkes, and Derek Hoiem. Pixels, voxels, and views: a study of shape representations for single view 3D object shape prediction. In CVPR, 2018 作为比较方法
+    * spherical maps：3D 形状能表示成球形图（我理解就是一个球形表面）
+        - GenRe-1step，从RGB图片直接预测球形图
+        - GenRe-2step，首先从RGB图片直接预测球形图，再修复球形图
+
+2. 数据
+    - ShapeNet，前人制作的数据集
+        - 合成的数据集
+        - 对于每个物体，选取20个视角对应的图，进行渲染
+        - 在cars/chairs/airplanes这几个类别进行训练，其他类别进行测试
+
+    - Pix3D
+        - 真实图像数据集，包含每个物体的真实形状信息
+        - 在cars/chairs/airplanes这几个类别进行训练
+        - 在beds, bookcases, desks, sofas, tables, and wardrobes进行测试
+
+3. 评价指标
+    - Chamfer distance(CD)
+        $$ CD(S_1, S_2) = \frac{1}{|S_1|} \sum_{x \in S_1} min_{y \in S2} \parallel x - y \parallel_2 + \frac{1}{|S_2|} \sum_{y \in S_2} min_{x \in S1} \parallel x - y \parallel_2 $$
+        - $S1$ 和 $S2$ 是一个点集对，取自3D shape surfaces；更准确的说，一个来自最终预测的3D shape，一个来自ground truth 3D shape
+
+4. 一些实验结果
+    * 由于本文重点是进行可扩展式的3D重建，所以我仅分析这部分结果，对于已知类别的形状，不进行赘述
+    ![](../img/post/genre_fig3.png)
+    ![](../img/post/genre_fig4.png)
+    ![](../img/post/genre_fig5.png)
+    ![](../img/post/genre_fig6.png)
+    ![](../img/post/genre_fig89.png)
