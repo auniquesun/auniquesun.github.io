@@ -81,9 +81,8 @@ comments: true
         - 在cars/chairs/airplanes这几个类别进行训练
         - 在beds, bookcases, desks, sofas, tables, and wardrobes进行测试
 
-3. 评价指标
-    - Chamfer distance(CD)
-        $$ CD(S_1, S_2) = \frac{1}{|S_1|} \sum_{x \in S_1} min_{y \in S2} \parallel x - y \parallel_2 + \frac{1}{|S_2|} \sum_{y \in S_2} min_{x \in S1} \parallel x - y \parallel_2 $$
+3. 评价指标：Chamfer distance(CD)
+    - $$ CD(S_1, S_2) = \frac{1}{|S_1|} \sum_{x \in S_1} min_{y \in S2} \parallel x - y \parallel_2 + \\ \frac{1}{|S_2|} \sum_{y \in S_2} min_{x \in S1} \parallel x - y \parallel_2 $$
         - $S1$ 和 $S2$ 是一个点集对，取自3D shape surfaces；更准确的说，一个来自最终预测的3D shape，一个来自ground truth 3D shape
 
 4. 一些实验结果
