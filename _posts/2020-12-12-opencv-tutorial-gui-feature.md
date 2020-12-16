@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenCV Tutorial I
+title: OpenCV GUI Feature
 tags: [Computer Vision, OpenCV]
 gh-repo: opencv/opencv
 gh-badge: [star, fork, follow]
