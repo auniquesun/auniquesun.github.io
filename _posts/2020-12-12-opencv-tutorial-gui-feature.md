@@ -8,6 +8,13 @@ mathjax: true
 comments: true
 ---
 
+### Table of Contents
+1. images  
+2. videos  
+3. drawing function  
+3. Mouse as Paint-Brush  
+4. Trackbar as color palette
+
 ### Getting Started with Images
 {% highlight python linenos %}
     import cv2 as cv
