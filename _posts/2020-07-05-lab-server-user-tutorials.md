@@ -57,12 +57,12 @@ comments: true
     ```
     * `NOTE:` 安装过程中，需要确认的地方输入 `y`；默认安装在了用户主目录下的这个位置 `~/.oh-my-zsh`
 
-4. 【这一步可做可不做】改变 ohmyzsh 主题元素，执行如下命令
+<!-- 4. 【这一步可做可不做】改变 ohmyzsh 主题元素，执行如下命令
     ```shell
     vim ~/.zshrc
     ```
     * 找到 `ZSH_THEME=` 所在行，替换 `robbyrussell` 为 `pygmalion`
-    ![](../img/zsh.png)
+    ![](../img/zsh.png) -->
 
 5. `Shell`里几乎都是用命令操作，命令补全功能为用户提供了便利。`zsh-autosuggestions`是一个命令补全plugin，安装方法如下
     * step 1：下载 `zsh-autosuggestions` 到指定目录
