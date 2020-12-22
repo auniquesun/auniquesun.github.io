@@ -10,7 +10,7 @@ comments: true
 
 * 论文名称：[Learning 3D Semantic Scene Graphs from 3D Indoor Reconstructions](https://jiajunwu.com/papers/marrnet_nips.pdf)
 
-* 论文作者：Johanna Wald, Helisa Dhamo, Nassir Navab, Federico Tombari（TUM、Google Docs）
+* 论文作者：Johanna Wald, Helisa Dhamo, Nassir Navab, Federico Tombari（TUM、Google）
 
 * 收录情况：CVPR 2020
 
@@ -27,3 +27,20 @@ comments: true
 * 对于场景和噪声的变化比较鲁棒  
 * 填补文本、图像数据类型差异带来的鸿沟，在2D-3D场景检索、VQA方面很有应用前景
 ![](../img/post/3dssg_fig1.png)
+
+本文认为生成场景图是3D场景理解的基础，提出一种深度学习方法预测3D semantic graph，该方法基于PointNet和GCN实现，并展示了场景图在 3D场景-2D图片 中的能力。总结起来有以下几个贡献：
+
+* 制作了3D场景数据集——3DSSG，该数据集扩展了3RScan，在上面加了场景语义标注、节点关系和属性、节点类别等信息  
+* 提出一种从3D point cloud生成语义场景图的方法  
+* 展示了3D 语义场景图在跨领域检索的能力——从2D图片检索3D场景
+
+### 3D Semantic Scene Graphs
+* Nodes
+
+* Attributes
+
+* Relationships
+
+### Graph Prediction
+
+### Scene Retrieval
