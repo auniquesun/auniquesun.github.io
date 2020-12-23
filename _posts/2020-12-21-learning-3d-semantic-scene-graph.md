@@ -148,17 +148,21 @@ comments: true
 1. 不去用**图编辑距离**直接计算它们的相似度，而是先把场景图变换成 multisets，每个set包含节点类别和对应的边（后半句是我的理解）。
     - 定义一个相似度分数 $\tau$，对应multisets $s(\mathcal{G})$（？？？一个图$\mathcal{G}$，怎么来的相似度分数）
     - 采用两种相似度计算方法
-        1. Jaccard similarity: $$\tau_{J}(A,B) = \frac{|A \cap B|} {|A \cup B|} $$
-        2. Szymkiewicz-Simpson coefficient: $$\tau_{S}(A,B) = \frac{|A \cap B|} {min(|A|, |B|)}$$
+        1. Jaccard similarity
+            - $$\tau_{J}(A,B) = \frac{|A \cap B|} {|A \cup B|} $$
+
+        2. Szymkiewicz-Simpson coefficient
+            - $$\tau_{S}(A,B) = \frac{|A \cap B|} {min(|A|, |B|)} $$
             - A、B是不同的set
             - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(|A|, |B|)小于|A \cup B|}，然后算出来的分数更大吗）
 
 2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}^{'}$时，组合 similarity metric of 
     - the object semantics
-    - generic node edges E
-    - semantic relationships R
+    - generic node edges $\mathcal{E}$
+    - semantic relationships $\mathcal{R}$
 
-    - 得到 $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}^{\:'}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{\:'(i)}))$$
+    - 得到
+        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}^{\:'}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{\:'(i)})) $$
         - $\hat{\mathcal{G}} = (\mathcal{G}, \mathcal{E}, \mathcal{R})$ 称为增强的图
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
