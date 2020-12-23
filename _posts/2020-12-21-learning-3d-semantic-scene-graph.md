@@ -87,7 +87,7 @@ comments: true
 2. SGPN 包含
     - 为每个节点$\phi_n$和每条边$\phi_r$抽取视觉特征，用了两个PointNet，第一个称为ObjPointNet，第二个称为RelPointNet
     - 对于场景$s$，用实例分割图$\mathcal{M}$作mask，抽取每个物体实例$i$的点集
-        - $$\mathcal{P}_i = {\delta_{m_k i} \odot p_k}_{k=1, |\mathcal{P}|}$$
+        - $$\mathcal{P}_i = \{\delta_{m_k i} \odot p_k\}_{k=1, |\mathcal{P}|}$$
         - $\delta$ 表示 Kronecker delta（$\delta_{ij} = 1 \Leftrightarrow i = j$）
         - $p, m$ 是$\mathcal{P}$，$\mathcal{M}$的实例
             - $m_k$ 是$\mathcal{M}$上**点的标号**，并不是真实的点
@@ -126,7 +126,7 @@ comments: true
         * GCN 的最后2层是MLP，预测node、predicate类别（其实都归结到了分类问题）
 
 * Losses
-    - object classification loss $\mathcal{L}_{obj}$ as well as a predicate classification loss $\mathcal{L}_{pred}$
+    - object classification loss $\mathcal{L}\_{obj}$ as well as a predicate classification loss $\mathcal{L}_{pred}$
     - $$ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $$
 
     - 真实情况中，一对物体可能有多种关系，比如一个椅子在另一个之前(in front of)，并且与相同的外观(same as)，所以把 $\mathcal{L}_{pred}$ 定义成每类二分类交叉熵，即判断是或不是这类关系
@@ -134,7 +134,7 @@ comments: true
         - (？？？交叉熵和focal loss到底用哪个) 我理解的是focal loss是交叉熵的变形，处理不平衡问题，这样就解释通了
         - $$ \mathcal{L} = -\alpha_t (1-p_t)^{\gamma} \log p_t $$
         - $p_t$ 是预测的概率，$\gamma$ 是超参数
-        - 对于$\mathcal{L}_{obj}$，$\alpha_t$是归一化的逆频率；对于$\mathcal{L}_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
+        - 对于$\mathcal{L}\_{obj}$，$\alpha\_t$是归一化的逆频率；对于$\mathcal{L}\_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
 
 ### Scene Retrieval
 ![](../img/post/3dssg_fig5.png)
@@ -146,8 +146,8 @@ comments: true
 1. 不去用**图编辑距离**直接计算它们的相似度，而是先把场景图变换成 multisets，每个set包含节点类别和对应的边（后半句是我的理解）。
     - 定义一个相似度分数 $\tau$，对应multisets $s(\mathcal{G})$（？？？一个图$\mathcal{G}$，怎么来的相似度分数）
     - 采用两种相似度计算方法
-        1. Jaccard similarity: $$\tau_{J}(A,B) = \frac{|A \cap B|}{|A \cup B|}$$
-        2. Szymkiewicz-Simpson coefficien: $\tau_{S}(A,B) = \frac{|A \cap B|}{min(|A|, |B|)}$
+        1. Jaccard similarity: $$\tau_{J}(A,B) = \frac{|A \cap B|} {|A \cup B|} $$
+        2. Szymkiewicz-Simpson coefficient: $$\tau_{S}(A,B) = \frac{|A \cap B|} {min(|A|, |B|)}$$
             - A、B是不同的set
             - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(|A|, |B|)小于|A \cup B|}，然后算出来的分数更大吗）
 
@@ -156,7 +156,7 @@ comments: true
     - generic node edges E
     - semantic relationships R
 
-    - 得到 $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}^') = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{'(i)}))$$
+    - 得到 $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}^{\:'}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{\:'(i)}))$$
         - $\hat{\mathcal{G}} = (\mathcal{G}, \mathcal{E}, \mathcal{R})$ 称为增强的图
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
