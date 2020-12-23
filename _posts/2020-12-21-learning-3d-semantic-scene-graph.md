@@ -109,4 +109,23 @@ comments: true
             - (subject, predicate, object)
             - $\phi_n$ 占据subject/object位置，$\phi_r$ 占据predicate位置
 
+    - 使用一个GCN处理上面的3元组，分为两个步骤
+        1. 信息传播
+            - $$ (\psi_{s, ij}^{(l)}, \phi_{p, ij}^{l+1}) = g_1(\phi_{s, ij}^{(l)}, \phi_{p, ij}^{(l)}, \phi_{o, ij}^{(l)}) $$
+            - $g_1$ 是MLP
+            - $\psi$ 表示处理后的特征，$s$ 表示subject，$o$ 表示object，$p$ 表示predicate
+        2. 信息聚合
+            - $$ \rho_i^{(l)} = \frac{1}{|\mathcal{R}_{i,s}| + |\mathcal{R}_{i,o}|} (\sum_{j \in \mathcal{R}_s} \psi_{s, ij}^{(l)} + \sum_{j \in \mathcal{R}_o} \psi_{o, ji}^{(l)}) $$
+            - $\mathcal{R}_{s}$ 是对应节点作为主体的连接结合、$\mathcal{R}_{o}$ 作为主体的连接结合
+
+        * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing，得到最终的节点特征
+            - $$ \phi_i^{l+1} = \phi_i^{l} + g_2(\rho_i^{(l)}) $$
+            - $\phi_i^(l+1)$ 再被传到下一层处理
+
+        * GCN 的最后2层是MLP，预测node、predicate类别（其实都归结到了分类问题）
+
+* Losses
+    - object classification loss $L_{obj}$ as well as a predicate classification loss $L_{pred}$
+    - $ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $
+
 ### Scene Retrieval
