@@ -81,13 +81,14 @@ comments: true
         - bigger than/ same shape as/ darker than/ cleaner than
 
 ### Graph Prediction
+![](../img/post/3dssg_fig4.png)
 1. 给定场景$s$的点集 $\mathcal{P}$ 和类别无关的实例分割 $\mathcal{M}$（我理解就是带标签的点集），Scene Graph Prediction Network（SGPN）的目标是生成一幅图 $\mathcal{G} = (\mathcal{N}, \mathcal{R})$。
 
 2. SGPN 包含
     - 为每个节点$\phi_n$和每条边$\phi_r$抽取视觉特征，用了两个PointNet，第一个称为ObjPointNet，第二个称为RelPointNet
     - 对于场景$s$，用实例分割图$\mathcal{M}$作mask，抽取每个物体实例$i$的点集
         - $$\mathcal{P}_i = {\delta_{m_k i} \odot p_k}_{k=1, |\mathcal{P}|}$$
-        - $\detla$ 表示Kronecker delta（$\delta_{ij} \Leftrightarrow i = j$）
+        - $\detla$ 表示Kronecker delta（$\delta_{ij} = 1 \Leftrightarrow i = j$）
         - $p, m$ 是$\mathcal{P}$，$\mathcal{M}$的实例
             - **m_k** 是$\mathcal{M}$上点的标号，并不是真实的点
 
@@ -127,5 +128,12 @@ comments: true
 * Losses
     - object classification loss $L_{obj}$ as well as a predicate classification loss $L_{pred}$
     - $ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $
+
+    - 真实情况中，一对物体可能有多种关系，比如一个椅子在另一个之前(in front of)，并且与相同的外观(same as)，所以把 $\mathcal{L}_{pred}$ 定义成每类二分类交叉熵，即判断是或不是这类关系
+    - 为了处理类别不平衡问题，每个损失项用到了 focal loss
+        - (？？？交叉熵和focal loss到底用哪个) 我理解的是focal loss是交叉熵的变形，处理不平衡问题，这样就解释通了
+        - $$ \mathcal{L} = -\alpha_t (1-p_t)^{gamma} \log p_t $$
+        - $p_t$ 是预测的概率，$\gamma$ 是超参数
+        - 对于$L_{obj}$，$\alpha_t$是归一化的逆频率；对于$L_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
 
 ### Scene Retrieval
