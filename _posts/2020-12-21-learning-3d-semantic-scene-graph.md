@@ -35,12 +35,51 @@ comments: true
 * 展示了3D 语义场景图在跨领域检索的能力——从2D图片检索3D场景
 
 ### 3D Semantic Scene Graphs
+本文同时发布了3D语义场景图的数据集——3DSSG，包含478个室内环境，1482个3D重建场景，48K 物体。3DSSG中的语义图用 $(\mathcal{N}, \mathcal{R})$ 这样的元组集合表示，$\mathcal{N}$ 表示节点——3D物体实例，$\mathcal{R}$ 表示边。
+
+比较特别的地方是，每个节点不只属于单个类别，而是属于分层次的类别 $c = (c_1, \dots, c_d)$；每个节点还有一个属性集合$A$，描述了物体实例的外观和物理性质；其中一个属性子集叫作 $affordances$，它描述了物体间的交互性质，比如 $bottles stand on the chairs$
+
+![](../img/post/3dssg_tab1.png)
+
 * Nodes
+    - 图中的节点就是3D物体实例，每个实例属于一个3D场景，类别标签记为 $c_1$，后续的类标签是通过使用WordNet递归解析 $c_1$ 的超名词的词法定义获得的
+        - 例如，通过定义"chair with a support on each side for arms"知：$c_{n+1} = chair$ 是 $c_n = armchair$ 的超名词
+    - ![](../img/post/3dssg_fig3.png)
+    - 1482个3D重建场，包含534个不同类别，对应534个文法描述
 
 * Attributes
+    - Static Properties. 
+        * 视觉特征：物体颜色、大小、形状、纹理
+        * 物理性状：是否刚性
+        * 从文法描述抽取属性：a ball is spherical
+
+    - Dynamic Properties
+        * 随时间变化
+        * 描述物体状态：定义了和物体类别相关的状态类别（这个是很自然的）
+            - open/closed, empty/full, on/off
+
+    - Affordances
+        * 描述特定物体的功能或与环境的交互
+            - $seat$ is for $sitting$
+            - only a $closed~door$ can be $opened$
 
 * Relationships
+    - Support Relationships. 描述一个场景的支撑结构
+        - walls are by default supported by the floor
+        - floor does not have any support
 
+        - 自动抽取support relationships是非常具有挑战性的，对于场景中的每个物体，仅考虑半径5cm内的相邻物体，之后抽取过程分为两步
+            1. 消除错误的supports
+            2. 补全丢失的candidates
+
+    - Proximity Relationships. 这里指的是相对于参考场景的空间位置邻近关系，**我感觉和support relationships有重复的说辞**
+        - next to/ in front of
+        - 只计算有共同 support parent 的两个物体实例的 Proximity Relationships
+        - 作者也说了，Proximity Relationships能从support parent导出
+
+    - Comparative Relationships. 
+        - bigger than/ same shape as/ darker than/ cleaner than
+        
 ### Graph Prediction
 
 ### Scene Retrieval
