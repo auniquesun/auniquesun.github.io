@@ -88,11 +88,11 @@ comments: true
     - 为每个节点$\phi_n$和每条边$\phi_r$抽取视觉特征，用了两个PointNet，第一个称为ObjPointNet，第二个称为RelPointNet
     - 对于场景$s$，用实例分割图$\mathcal{M}$作mask，抽取每个物体实例$i$的点集
         - $$\mathcal{P}_i = {\delta_{m_k i} \odot p_k}_{k=1, |\mathcal{P}|}$$
-        - $\detla$ 表示Kronecker delta（$\delta_{ij} = 1 \Leftrightarrow i = j$）
+        - $\delta$ 表示 Kronecker delta（$\delta_{ij} = 1 \Leftrightarrow i = j$）
         - $p, m$ 是$\mathcal{P}$，$\mathcal{M}$的实例
-            - **m_k** 是$\mathcal{M}$上点的标号，并不是真实的点
+            - $m_k$ 是$\mathcal{M}$上**点的标号**，并不是真实的点
 
-        - $|\mathcal{P}|$ 是$\mathcal{P}$包含的点数
+        - $\|\mathcal{P}\|$ 是$\mathcal{P}$包含的点数
         - 这个公式，前面的 $\delta_{m_k i}$ 和 运算$\odot$是用来作mask的，看取不取$p_k$是真正的点。
             - 整体含义：遍历$\mathcal{P}$中的点$k$，如果$m_k$属于实例$i$，就取点 $p_k$
             - 相当于通过实例分割图$\mathcal{M}$ + $\mathcal{M}$和$\mathcal{P}$的对应关系，取$\mathcal{M}$中的点
@@ -102,7 +102,7 @@ comments: true
         - 同时为每对物体实例 $i,j$ 抽取一个点集 $\mathcal{P}_{ij}$
             - $$ \mathcal{P}_{ij} = {p_k | p_k \in (\mathcal{B}^i \cup \mathcal{B}^j)}_{k=1, |\mathcal{P}|} $$
             - $\mathcal{B}$ 表示对应物体实例的3D bbox
-            - $\mathcal{P}_{ij}$ 输入到 RelPointNet，与$\mathcal{M}_{ij}$拼接（当$\mathcal{P}_{ij}$和物体$i$对应时，$\mathcal{M}_{ij}$为1，当$\mathcal{P}_{ij}$和物体$j$对应时，$\mathcal{M}_{ij}$为0）。从上面的描述看出，$ \mathcal{P}_{ij} $ 包含了方向信息，这种方向信息（$left~/~right$）对于推断 proximity relationships 很重要。
+            - $\mathcal{P}\_{ij}$ 输入到 RelPointNet，与$\mathcal{M}\_{ij}$拼接（当$\mathcal{P}\_{ij}$和物体$i$对应时，$\mathcal{M}\_{ij}$为1，当$\mathcal{P}\_{ij}$和物体$j$对应时，$\mathcal{M}\_{ij}$为0）。从上面的描述看出，$ \mathcal{P}_{ij} $ 包含了方向信息，这种方向信息（$left/right$）对于推断 proximity relationships 很重要。
 
         - 在物体中心点集和边点集输入OjbPointNet、RelPointNet前，进行归一化操作
 
@@ -121,19 +121,19 @@ comments: true
 
         * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing，得到最终的节点特征
             - $$ \phi_i^{l+1} = \phi_i^{l} + g_2(\rho_i^{(l)}) $$
-            - $\phi_i^(l+1)$ 再被传到下一层处理
+            - $\phi_i^{(l+1)}$ 再被传到下一层处理
 
         * GCN 的最后2层是MLP，预测node、predicate类别（其实都归结到了分类问题）
 
 * Losses
-    - object classification loss $L_{obj}$ as well as a predicate classification loss $L_{pred}$
-    - $ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $
+    - object classification loss $\mathcal{L}_{obj}$ as well as a predicate classification loss $\mathcal{L}_{pred}$
+    - $$ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $$
 
     - 真实情况中，一对物体可能有多种关系，比如一个椅子在另一个之前(in front of)，并且与相同的外观(same as)，所以把 $\mathcal{L}_{pred}$ 定义成每类二分类交叉熵，即判断是或不是这类关系
     - 为了处理类别不平衡问题，每个损失项用到了 focal loss
         - (？？？交叉熵和focal loss到底用哪个) 我理解的是focal loss是交叉熵的变形，处理不平衡问题，这样就解释通了
-        - $$ \mathcal{L} = -\alpha_t (1-p_t)^{gamma} \log p_t $$
+        - $$ \mathcal{L} = -\alpha_t (1-p_t)^{\gamma} \log p_t $$
         - $p_t$ 是预测的概率，$\gamma$ 是超参数
-        - 对于$L_{obj}$，$\alpha_t$是归一化的逆频率；对于$L_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
+        - 对于$\mathcal{L}_{obj}$，$\alpha_t$是归一化的逆频率；对于$\mathcal{{L}_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
 
 ### Scene Retrieval
