@@ -134,7 +134,7 @@ comments: true
         - (？？？交叉熵和focal loss到底用哪个) 我理解的是focal loss是交叉熵的变形，处理不平衡问题，这样就解释通了
         - $$ \mathcal{L} = -\alpha_t (1-p_t)^{\gamma} \log p_t $$
         - $p_t$ 是预测的概率，$\gamma$ 是超参数
-        - 对于$\mathcal{L}_{obj}$，$\alpha_t$是归一化的逆频率；对于$\mathcal{{L}_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
+        - 对于$\mathcal{L}_{obj}$，$\alpha_t$是归一化的逆频率；对于$\mathcal{L}_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
 
 ### Scene Retrieval
 ![](../img/post/3dssg_fig5.png)
