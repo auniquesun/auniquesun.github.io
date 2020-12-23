@@ -35,6 +35,8 @@ comments: true
 * 展示了3D 语义场景图在跨领域检索的能力——从2D图片检索3D场景
 
 ### 3D Semantic Scene Graphs
+![](../img/post/3dssg_fig2.png)
+
 本文同时发布了3D语义场景图的数据集——3DSSG，包含478个室内环境，1482个3D重建场景，48K 物体。3DSSG中的语义图用 $(\mathcal{N}, \mathcal{R})$ 这样的元组集合表示，$\mathcal{N}$ 表示节点——3D物体实例，$\mathcal{R}$ 表示边。
 
 比较特别的地方是，每个节点不只属于单个类别，而是属于分层次的类别 $c = (c_1, \dots, c_d)$；每个节点还有一个属性集合$A$，描述了物体实例的外观和物理性质；其中一个属性子集叫作 $affordances$，它描述了物体间的交互性质，比如 $bottles stand on the chairs$
@@ -161,3 +163,13 @@ comments: true
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
 ### 实验        
+1. Semantic Scene Graph Prediction
+    - 评价指标是 Recal@top-n
+![](../img/post/3dssg_tab2.png)
+
+![](../img/post/3dssg_fig6.png)
+
+2. Scene Retrieval
+![](../img/post/3dssg_tab3.png)
+
+![](../img/post/3dssg_tab4.png)
