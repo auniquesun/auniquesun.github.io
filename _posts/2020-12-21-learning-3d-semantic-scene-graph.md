@@ -79,7 +79,34 @@ comments: true
 
     - Comparative Relationships. 
         - bigger than/ same shape as/ darker than/ cleaner than
-        
+
 ### Graph Prediction
+1. 给定场景$s$的点集 $\mathcal{P}$ 和类别无关的实例分割 $\mathcal{M}$（我理解就是带标签的点集），Scene Graph Prediction Network（SGPN）的目标是生成一幅图 $\mathcal{G} = (\mathcal{N}, \mathcal{R})$。
+
+2. SGPN 包含
+    - 为每个节点$\phi_n$和每条边$\phi_r$抽取视觉特征，用了两个PointNet，第一个称为ObjPointNet，第二个称为RelPointNet
+    - 对于场景$s$，用实例分割图$\mathcal{M}$作mask，抽取每个物体实例$i$的点集
+        - $$\mathcal{P}_i = {\delta_{m_k i} \odot p_k}_{k=1, |\mathcal{P}|}$$
+        - $\detla$ 表示Kronecker delta（$\delta_{ij} \Leftrightarrow i = j$）
+        - $p, m$ 是$\mathcal{P}$，$\mathcal{M}$的实例
+            - **m_k** 是$\mathcal{M}$上点的标号，并不是真实的点
+
+        - $|\mathcal{P}|$ 是$\mathcal{P}$包含的点数
+        - 这个公式，前面的 $\delta_{m_k i}$ 和 运算$\odot$是用来作mask的，看取不取$p_k$是真正的点。
+            - 整体含义：遍历$\mathcal{P}$中的点$k$，如果$m_k$属于实例$i$，就取点 $p_k$
+            - 相当于通过实例分割图$\mathcal{M}$ + $\mathcal{M}$和$\mathcal{P}$的对应关系，取$\mathcal{M}$中的点
+
+        - 每个$\mathcal{P}_i$ 会输入到 ObjPointNet
+
+        - 同时为每对物体实例 $i,j$ 抽取一个点集 $\mathcal{P}_{ij}$
+            - $$ \mathcal{P}_{ij} = {p_k | p_k \in (\mathcal{B}^i \cup \mathcal{B}^j)}_{k=1, |\mathcal{P}|} $$
+            - $\mathcal{B}$ 表示对应物体实例的3D bbox
+            - $\mathcal{P}_{ij}$ 输入到 RelPointNet，与$\mathcal{M}_{ij}$拼接（当$\mathcal{P}_{ij}$和物体$i$对应时，$\mathcal{M}_{ij}$为1，当$\mathcal{P}_{ij}$和物体$j$对应时，$\mathcal{M}_{ij}$为0）。从上面的描述看出，$ \mathcal{P}_{ij} $ 包含了方向信息，这种方向信息（$left~/~right$）对于推断 proximity relationships 很重要。
+
+        - 在物体中心点集和边点集输入OjbPointNet、RelPointNet前，进行归一化操作
+
+        - 以三元组的形式，在图结构中排列抽取的特征
+            - (subject, predicate, object)
+            - $\phi_n$ 占据subject/object位置，$\phi_r$ 占据predicate位置
 
 ### Scene Retrieval
