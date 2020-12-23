@@ -167,14 +167,14 @@ comments: true
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
 ### 实验        
-1. Semantic Scene Graph Prediction
+* Semantic Scene Graph Prediction
     - 评价指标是 Recall@top-n
 
 ![](../img/post/3dssg_tab2.png)
 
 ![](../img/post/3dssg_fig6.png)
 
-2. Scene Retrieval
+* Scene Retrieval
 
 ![](../img/post/3dssg_tab3.png)
 
