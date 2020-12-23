@@ -119,7 +119,7 @@ comments: true
             - $\psi$ 表示处理后的特征，$s$ 表示subject，$o$ 表示object，$p$ 表示predicate
         2. 信息聚合
             - $$ \rho_i^{(l)} = \frac{1}{|\mathcal{R}_{i,s}| + |\mathcal{R}_{i,o}|} (\sum_{j \in \mathcal{R}_s} \psi_{s, ij}^{(l)} + \sum_{j \in \mathcal{R}_o} \psi_{o, ji}^{(l)}) $$
-            - $\mathcal{R}_{s}$ 是对应节点作为主体的连接结合、$\mathcal{R}_{o}$ 作为主体的连接结合
+            - $\mathcal{R}\_{s}$ 是对应节点作为主体的连接结合、$\mathcal{R}\_{o}$ 作为主体的连接结合
 
         * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing，得到最终的节点特征
             - $$ \phi_i^{l+1} = \phi_i^{l} + g_2(\rho_i^{(l)}) $$
@@ -154,7 +154,7 @@ comments: true
         2. Szymkiewicz-Simpson coefficient
             - $$\tau_{S}(A,B) = \frac{|A \cap B|} {min(|A|, |B|)} $$
             - A、B是不同的set
-            - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(|A|, |B|)小于|A \cup B|}，然后算出来的分数更大吗）
+            - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(\|A\|, \|B\|)小于\|A \cup B\|}，然后算出来的分数更大吗）
 
 2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}^{'}$时，组合 similarity metric of 
     - the object semantics
@@ -168,12 +168,14 @@ comments: true
 
 ### 实验        
 1. Semantic Scene Graph Prediction
-    - 评价指标是 Recal@top-n
+    - 评价指标是 Recall@top-n
+
 ![](../img/post/3dssg_tab2.png)
 
 ![](../img/post/3dssg_fig6.png)
 
 2. Scene Retrieval
+
 ![](../img/post/3dssg_tab3.png)
 
 ![](../img/post/3dssg_tab4.png)
