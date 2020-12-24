@@ -114,7 +114,7 @@ comments: true
 
     - 使用一个GCN处理上面的3元组，分为两个步骤
         1. 信息传播
-            - $$ (\psi_{s, ij}^{(l)}, \phi_{p, ij}^{l+1}) = g_1(\phi_{s, ij}^{(l)}, \phi_{p, ij}^{(l)}, \phi_{o, ij}^{(l)}) $$
+            - $$ (\psi_{s, ij}^{(l)}, \phi_{p, ij}^{(l+1)}, \psi_{o, ij}^{(l)}) = g_1(\phi_{s, ij}^{(l)}, \phi_{p, ij}^{(l)}, \phi_{o, ij}^{(l)}) $$
             - $g_1$ 是MLP
             - $\psi$ 表示处理后的特征，$s$ 表示subject，$o$ 表示object，$p$ 表示predicate
         2. 信息聚合
@@ -122,7 +122,7 @@ comments: true
             - $\mathcal{R}\_{s}$ 是对应节点作为主体的连接结合、$\mathcal{R}\_{o}$ 作为主体的连接结合
 
         * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing，得到最终的节点特征
-            - $$ \phi_i^{l+1} = \phi_i^{l} + g_2(\rho_i^{(l)}) $$
+            - $$ \phi_i^{(l+1)} = \phi_i^{(l)} + g_2(\rho_i^{(l)}) $$
             - $\phi_i^{(l+1)}$ 再被传到下一层处理
 
         * GCN 的最后2层是MLP，预测node、predicate类别（其实都归结到了分类问题）
@@ -154,15 +154,15 @@ comments: true
         2. Szymkiewicz-Simpson coefficient
             - $$\tau_{S}(A,B) = \frac{|A \cap B|} {min(|A|, |B|)} $$
             - A、B是不同的set
-            - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(\|A\|, \|B\|)小于\|A \cup B\|}，然后算出来的分数更大吗）
+            - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(\|A\|, \|B\|)小于\|A $\cup$ B\|}，然后算出来的分数更大吗）
 
-2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}^{'}$时，组合 similarity metric of 
+2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}^{\:'}$时，组合 similarity metric of 
     - the object semantics
     - generic node edges $\mathcal{E}$
     - semantic relationships $\mathcal{R}$
 
     - 得到
-        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}^{\:'}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{\:'(i)})) $$
+        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}^{\:'}}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}^{\:'(i)}})) $$
         - $\hat{\mathcal{G}} = (\mathcal{G}, \mathcal{E}, \mathcal{R})$ 称为增强的图
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
