@@ -166,7 +166,7 @@ comments: true
     - semantic relationships $\mathcal{R}$
 
     - 得到
-        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}{}^{\'}) = \frac{1}{ |\hat{\mathcal{G}}| } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}{}^{\'(i)})) $$
+        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}{}^{\:'}) = \frac{1}{ |\hat{\mathcal{G}}| } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}{}^{\:'(i)})) $$
         - $\hat{\mathcal{G}} = (\mathcal{G}, \mathcal{E}, \mathcal{R})$ 称为增强的图
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
