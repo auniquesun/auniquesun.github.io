@@ -70,7 +70,7 @@ comments: true
         - walls are by default supported by the floor
         - floor does not have any support
 
-        - 自动抽取support relationships是非常具有挑战性的，对于场景中的每个物体，仅考虑半径5cm内的相邻物体，之后抽取过程分为两步
+        - 自动抽取support relationships是非常具有挑战性的，对于场景中的每个物体，仅考虑小半径范围内的相邻物体，之后抽取过程分为两步
             1. 消除错误的supports
             2. 补全丢失的candidates
 
@@ -95,14 +95,14 @@ comments: true
             - $m_k$ 是$\mathcal{M}$上**点的标号**，并不是真实的点
 
         - $\|\mathcal{P}\|$ 是$\mathcal{P}$包含的点数
-        - 这个公式，前面的 $\delta_{m_k i}$ 和 运算$\odot$是用来作mask的，看取不取$p_k$是真正的点。
+        - 这个公式，前面的 $\delta_{m_k i}$ 和 运算$\odot$是用来作mask的，看取不取$p_k$。
             - 整体含义：遍历$\mathcal{P}$中的点$k$，如果$m_k$属于实例$i$，就取点 $p_k$
-            - 相当于通过实例分割图$\mathcal{M}$ + $\mathcal{M}$和$\mathcal{P}$的对应关系，取$\mathcal{M}$中的点
+            - 相当于通过实例分割图$\mathcal{M}$ + $\mathcal{M}$和$\mathcal{P}$的对应关系，取$\mathcal{P}$中的点
 
         - 每个$\mathcal{P}_i$ 会输入到 ObjPointNet
 
         - 同时为每对物体实例 $i,j$ 抽取一个点集 $\mathcal{P}_{ij}$
-            - $$ \mathcal{P}_{ij} = {p_k | p_k \in (\mathcal{B}^i \cup \mathcal{B}^j)}_{k=1, |\mathcal{P}|} $$
+            - $$ \mathcal{P}_{ij} = \{p_k | p_k \in (\mathcal{B}^i \cup \mathcal{B}^j)\}_{k=1, |\mathcal{P}|} $$
             - $\mathcal{B}$ 表示对应物体实例的3D bbox
             - $\mathcal{P}\_{ij}$ 输入到 RelPointNet，与$\mathcal{M}\_{ij}$拼接（当$\mathcal{P}\_{ij}$和物体$i$对应时，$\mathcal{M}\_{ij}$为1，当$\mathcal{P}\_{ij}$和物体$j$对应时，$\mathcal{M}\_{ij}$为0）。从上面的描述看出，$ \mathcal{P}_{ij} $ 包含了方向信息，这种方向信息（$left/right$）对于推断 proximity relationships 很重要。
 
@@ -119,9 +119,9 @@ comments: true
             - $\psi$ 表示处理后的特征，$s$ 表示subject，$o$ 表示object，$p$ 表示predicate
         2. 信息聚合
             - $$ \rho_i^{(l)} = \frac{1}{|\mathcal{R}_{i,s}| + |\mathcal{R}_{i,o}|} (\sum_{j \in \mathcal{R}_s} \psi_{s, ij}^{(l)} + \sum_{j \in \mathcal{R}_o} \psi_{o, ji}^{(l)}) $$
-            - $\mathcal{R}\_{s}$ 是对应节点作为主体的连接结合、$\mathcal{R}\_{o}$ 作为主体的连接结合
+            - $\mathcal{R}\_{s}$ 是对应节点作为主体的连接集合、$\mathcal{R}\_{o}$ 作为客体的连接集合
 
-        * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing，得到最终的节点特征
+        * 聚合后的物体节点特征输入另一个MLP，并且采用残差连接克服潜在的Laplacian smoothing（？？？这是在说啥），得到最终的节点特征
             - $$ \phi_i^{(l+1)} = \phi_i^{(l)} + g_2(\rho_i^{(l)}) $$
             - $\phi_i^{(l+1)}$ 再被传到下一层处理
 
@@ -131,12 +131,16 @@ comments: true
     - object classification loss $\mathcal{L}\_{obj}$ as well as a predicate classification loss $\mathcal{L}_{pred}$
     - $$ \mathcal{L}_{total} = \lambda_{obj}\mathcal{L}_{obj} + \mathcal{L}_{pred} $$
 
-    - 真实情况中，一对物体可能有多种关系，比如一个椅子在另一个之前(in front of)，并且与相同的外观(same as)，所以把 $\mathcal{L}_{pred}$ 定义成每类二分类交叉熵，即判断是或不是这类关系
+    - 真实情况中，一对物体可能有多种关系，比如一个椅子在另一个之前(in front of)，并且与相同的外观(same as)，所以把 $\mathcal{L}_{pred}$ 定义成多个二分类交叉熵损失的组合，即对于每个类别，判断是不是这类关系
     - 为了处理类别不平衡问题，每个损失项用到了 focal loss
-        - (？？？交叉熵和focal loss到底用哪个) 我理解的是focal loss是交叉熵的变形，处理不平衡问题，这样就解释通了
+        - 我理解的是focal loss是对交叉熵损失的变形，处理类别不平衡问题
         - $$ \mathcal{L} = -\alpha_t (1-p_t)^{\gamma} \log p_t $$
-        - $p_t$ 是预测的概率，$\gamma$ 是超参数
-        - 对于$\mathcal{L}\_{obj}$，$\alpha\_t$是归一化的逆频率；对于$\mathcal{L}\_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
+            - $p_t$ 是预测的概率，$\gamma$ 是超参数
+            - 对于$\mathcal{L}\_{obj}$，$\alpha\_t$是归一化的逆频率；对于$\mathcal{L}\_{pred}$，$\alpha_t$是固定的 edge/no-edge 因子
+        - 说明，这里只考虑了正样本（？？？为什么）：
+            - 当输入是容易正确分类的**正样本**，$\alpha_t (1-p_t)^{\gamma}$ **降低**了它对损失函数的贡献
+            - 当输入是较难正确分类的**正样本**，$\alpha_t (1-p_t)^{\gamma}$ **增加**了它对损失函数的贡献
+            - ![](../img/post/focal_loss.png)
 
 ### Scene Retrieval
 ![](../img/post/3dssg_fig5.png)
@@ -156,13 +160,13 @@ comments: true
             - A、B是不同的set
             - 当A、B大小差异较明显时，更能筛选出有意义的匹配（？？？是说min(\|A\|, \|B\|)小于\|A $\cup$ B\|}，然后算出来的分数更大吗）
 
-2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}^{\'}$时，组合 similarity metric of 
+2. 匹配 $\mathcal{G}$ 和 $\mathcal{G}{}^{\'}$时，组合 similarity metric of 
     - the object semantics
     - generic node edges $\mathcal{E}$
     - semantic relationships $\mathcal{R}$
 
     - 得到
-        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}^{\:'}}) = \frac{1}{ \hat{\mathcal{G}} } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}^{\:'(i)})) $$
+        - $$ f(\hat{\mathcal{G}}, \hat{\mathcal{G}}{}^{\'}) = \frac{1}{ |\hat{\mathcal{G}}| } \sum_{i=1}^{|\hat{\mathcal{G}}|} \tau(s(\hat{\mathcal{G}}^{(i)}), s(\hat{\mathcal{G}}{}^{\'(i)})) $$
         - $\hat{\mathcal{G}} = (\mathcal{G}, \mathcal{E}, \mathcal{R})$ 称为增强的图
         - 我理解这里 $f(\cdot)$ 是算最终的相似度得分的吧，$s(\cdot)$ 是一个multiset
 
