@@ -8,7 +8,7 @@ mathjax: true
 comments: true
 ---
 
-* 论文名称：[Learning 3D Semantic Scene Graphs from 3D Indoor Reconstructions](https://jiajunwu.com/papers/marrnet_nips.pdf)
+* 论文名称：[Learning 3D Semantic Scene Graphs from 3D Indoor Reconstructions](https://arxiv.org/abs/2004.03967)
 
 * 论文作者：Johanna Wald, Helisa Dhamo, Nassir Navab, Federico Tombari（TUM、Google）
 
