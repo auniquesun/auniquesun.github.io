@@ -154,6 +154,7 @@ comments: true
 ### 已安装软件列表
 1. CUDA Toolkit
     * 包含使用GPU的一套工具
+    * 现有版本：10.2
 2. shell
     * zsh
 2. 终端分屏/后台运行
