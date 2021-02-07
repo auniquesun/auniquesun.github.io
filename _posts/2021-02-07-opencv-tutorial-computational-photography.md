@@ -14,7 +14,7 @@ comments: true
 * High Dynamic Range (HDR)
 
 ### Image Denoising
-![](../img/post/image_inpainting.png) 
+![](../img/post/image_denoising.png) 
 - Gaussian Blurring, Median Blurring etc are good to some extent in removing small quantities of noise
 - Non-local Means Denoising algorithm
     - 原理：在噪点附近取一个像素，再取一个窗口。在整幅图片滑动这个窗口，对所有搜索到的窗口包含像素取平均，代替噪点窗口。
