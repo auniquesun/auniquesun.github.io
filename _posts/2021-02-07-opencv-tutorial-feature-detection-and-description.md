@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Feature Detection and Description
+title: Feature Detection & Description
 tags: [Computer Vision, OpenCV]
 gh-repo: opencv/opencv
 gh-badge: [star, fork, follow]
@@ -12,7 +12,7 @@ comments: true
 * 为什么角是好的特征？  
 ![](../img/post/good_feature_explanation.png)
 * 如何描述特征？
-    - 描述可看作对特征的进一步抽象
+    - 描述不同于特征本身，可看作对特征的进一步抽象
 
 * 如何检测到好的特征？
 * 不同图像，如何匹配特征？基于此能做什么事情？
