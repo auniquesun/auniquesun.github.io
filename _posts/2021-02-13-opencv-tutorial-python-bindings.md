@@ -20,10 +20,10 @@ opencv/
                                    |-- hdr_parser.py
                                    |-- cv2.cpp
 ```
-CMakeFiles.txt : 检测可以由C++扩展到Python的模块，抓取C++头文件  
-gen2.py : 主要的python bindings生成脚本，CMakeFiles.txt抓取的头文件作为输入  
-hdr_parser.py : 头文件解析脚本（但不能解析所有），生成函数、类等解析细节（如函数名、输入参数类型、输入参数、返回类型），以Python列表形式返回  
-cv2.cpp : 一些比较复杂，需要手动提供wrapper的函数放在这个文件
+* CMakeFiles.txt : 检测可以由C++扩展到Python的模块，抓取C++头文件  
+* gen2.py : 主要的python bindings生成脚本，CMakeFiles.txt抓取的头文件作为输入  
+* hdr_parser.py : 头文件解析脚本（但不能解析所有），生成函数、类等解析细节（如函数名、输入参数类型、输入参数、返回类型），以Python列表形式返回  
+* cv2.cpp : 一些比较复杂，需要手动提供wrapper的函数放在这个文件
 
 ### 最终效果
 > So now only thing left is the compilation of these wrapper files which gives us cv2 module. So when you call a function, say res = equalizeHist(img1,img2) in Python, you pass two numpy arrays and you expect another numpy array as the output. So **these numpy arrays are converted to cv::Mat and then calls the equalizeHist() function in C++**. Final result, **res will be converted back into a Numpy array**. So in short, almost all operations are done in C++ which **gives us almost same speed as that of C++**.
