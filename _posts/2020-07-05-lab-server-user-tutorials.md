@@ -155,13 +155,14 @@ comments: true
 ### 已安装软件列表
 1. CUDA Toolkit
     * 包含使用GPU的一套工具
-    * 现有版本：10.2
+    * 现有版本：10.0、10.2
 2. shell
     * zsh
 2. 终端分屏/后台运行
     * tmux、screen
-2. SLAM学习
-    * eigen、sophus、g2o
+2. ROS、SLAM学习
+    * ros、eigen、sophus、g2o、ceres
+
 
 ### 相关文档
 * 上一篇：[视觉项目研发环境配置](https://auniquesun.com/2020-06-26-basic-developing-environments-for-vision-project-and-research/)
