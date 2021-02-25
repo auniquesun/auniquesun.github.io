@@ -168,7 +168,7 @@ date_format: "%B %-d, %Y"
 timezone: "Asia/Shanghai"
 markdown: kramdown
 highlighter: rouge
-permalink: /:year-:month-:day-:title/
+permalink: /blog/:year-:month-:day-:title/
 paginate_path: "/blog/page:num/"
 paginate: 5
 
@@ -179,7 +179,7 @@ kramdown:
 defaults:
   -
     scope:
-      path: "blog"
+      path: ""
       type: "posts"
     values:
       layout: "post"
