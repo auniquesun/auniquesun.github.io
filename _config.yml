@@ -179,7 +179,7 @@ kramdown:
 defaults:
   -
     scope:
-      path: ""
+      path: "blog"
       type: "posts"
     values:
       layout: "post"
