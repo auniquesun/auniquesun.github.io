@@ -66,7 +66,7 @@ comments: true
         - $$ \textbf{s}_i^k = g(\hat{\textbf{f}}_i^k, \textbf{W}) $$
             - $g(\cdot)$ 是多层感知机
             - $\textbf{W}$是权重
-        - $\hat{\textbf{f}}_i^k$ 与 $\hat{\textbf{s}}_i^k$ 做点积，求和，特征进一步集成
+        - $\hat{\textbf{f}}_i^k$ 与 $\textbf{s}_i^k$ 做点积，求和，特征进一步集成
             - $$\tilde{\textbf{f}}_i = \sum_{k=1}^{K} (\hat{\textbf{f}}_i^k, \textbf{s}_i^k)$$
 
     * dilated residual block
