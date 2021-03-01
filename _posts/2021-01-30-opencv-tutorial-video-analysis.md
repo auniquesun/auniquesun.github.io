@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenCV Video Processing
+title: OpenCV Video Analysis
 tags: [Computer Vision, OpenCV]
 gh-repo: opencv/opencv
 gh-badge: [star, fork, follow]
