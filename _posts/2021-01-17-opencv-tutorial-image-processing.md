@@ -926,12 +926,6 @@ plt.title('Result in JET'), plt.xticks([]), plt.yticks([])
 plt.show()
 ```
 
-![img](https://img2020.cnblogs.com/blog/1226410/202006/1226410-20200612181929913-1951575037.png)
-
-![img](https://img2020.cnblogs.com/blog/1226410/202006/1226410-20200613091757607-2010349776.png)
-
-[^高通滤波]: 左边图为lena的灰度图，右边图为高通滤波器提取的边缘轮廓图像，它通过傅里叶变换转换为频谱图像，再将中心的低频部分设置为0，再通过傅里叶逆变换转换为最终输出图像
-
 ```python
 # OpenCV中的傅里叶变换
 img = cv.imread('messi5.jpg',0)
@@ -957,12 +951,6 @@ plt.subplot(122),plt.imshow(img_back, cmap = 'gray')
 plt.title('Magnitude Spectrum'), plt.xticks([]), plt.yticks([])
 plt.show()
 ```
-
-![img](https://img2020.cnblogs.com/blog/1226410/202006/1226410-20200613094122239-191732934.png)
-
-[^低通滤波器]: 下图展示了lena图对应的频谱图像，其中心区域为低频部分。如果构造低通滤波器，则将频谱图像中心低频部分保留，其他部分替换为黑色0，其处理过程如图所示，最终得到的效果图为模糊图像
-
-[OpenCV傅里叶变换原理及应用详解]: https://www.cnblogs.com/wj-1314/p/11983496.html
 
 ##### 12 模板匹配 (在较大图像中搜索和查找模板图像位置的方法)
 
