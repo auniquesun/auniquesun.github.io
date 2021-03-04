@@ -341,12 +341,14 @@ array([[0, 0, 1, 0, 0],
 ##### 6. 图像渐变
 
 ###### 6.1 边缘检测
+* 高通滤波器检测边缘 $\rightarrow$ cv.Sobel()/cv.Scharr()/cv.Laplacian
+* 低通滤波器检测区域
 
 ```python
 img = cv.imread('dave.jpg',0)
 # cv.Laplacian(输入图像，输出图像，输出图像深度，核大小)，求二阶导数
 laplacian = cv.Laplacian(img,cv.CV_64F)
-# cv.soble(输入图像，输出图像，x方向差分阶数，y方向差分阶数，Soble核大小)
+# cv.sobel(输入图像，输出图像，x方向差分阶数，y方向差分阶数，Soble核大小)
 # 利用图像边缘灰度值变化率检测图像边缘，soble开启一个3*3的窗口对x和y方向进行分别求导，若对x求导，则某点导数为(第三列之和)-(第一列的之和)
 sobelx = cv.Sobel(img,cv.CV_64F,1,0,ksize=5)
 sobely = cv.Sobel(img,cv.CV_64F,0,1,ksize=5)
