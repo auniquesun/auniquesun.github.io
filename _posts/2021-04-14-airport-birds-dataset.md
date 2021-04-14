@@ -30,14 +30,14 @@ comments: true
          classes.txt
     ```
 
-4. 把`labels`目录下的所有文件、`classes.txt`文件拷入`images`目录，从`labelImg`图形界面选择`images`打开
+4. 把`labels`目录下的所有文件、`classes.txt`文件拷入`images`目录
 
 1. 人工检查标注信息时，使用 [labelImg](https://github.com/tzutalin/labelImg) 软件，打开链接根据指南安装（推荐 miniconda3 方式安装）
     * step 1：打开软件图形界面时，进入`labelImg`目录，运行如下命令
         ```
         python labelImg.py
         ```
-    * step 2：人工检查
+    * step 2：人工检查，从`labelImg`图形界面选择`images`目录打开
         1. 修正已有矩形框
         2. 新建矩形框
         3. 删除矩形框
