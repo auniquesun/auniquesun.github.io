@@ -25,10 +25,11 @@ comments: true
 3. 解压数据后，进入`data`目录，结构如下所示
     ```
     data/
-         images/
-         labels/
-         classes.txt
+         sub_dir_1/
+         sub_dir_2/
+         ...
     ```
+    每个`sub_dir`包含3类文件：png图片、txt标签、classes.txt。其中一张png图片对应一个txt标签文件，classes.txt包含物体类别，本数据集只有bird类
 
 4. 把`labels`目录下的所有文件、`classes.txt`文件拷入`images`目录
 
