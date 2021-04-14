@@ -37,7 +37,7 @@ comments: true
         ```
         python labelImg.py
         ```
-    * 开始人工检查
+    * step 2：人工检查
         1. 修正已有矩形框
         2. 新建矩形框
         3. 删除矩形框
