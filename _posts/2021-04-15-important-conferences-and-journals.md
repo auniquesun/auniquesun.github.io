@@ -17,6 +17,9 @@ comments: true
 | :---- | :---- | :----- |
 | UbiComp | 2/5/8/11 | A |
 | IJCAI	| January | A |
+| ICIP | January | C |
+| ICML | February | A |
+| UAI | February | B |
 | ICCV | March | A |
 | ECCV | March | B | 
 | IROS | March | C |
@@ -24,5 +27,6 @@ comments: true
 | NIPS | May | A |
 | BMVC | May | C |
 | ACCV | July | C |
+| ICPR | July | C |
 | AAAI | September | A |
 | ICRA | October | B |
