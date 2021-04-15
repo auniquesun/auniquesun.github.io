@@ -26,7 +26,7 @@ comments: true
 | MM | $\color{gray}{April}$ | A |
 | NIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
-| ACCV | $\color{yellow}{July}$ | C |
-| ICPR | $\color{yellow}{July}$ | C |
+| ACCV | $\color{green}{July}$ | C |
+| ICPR | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICRA | $\color{brown}{October}$ | B |
