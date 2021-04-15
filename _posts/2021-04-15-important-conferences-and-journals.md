@@ -15,7 +15,7 @@ comments: true
 {: .center-block :}
 | Name | Submission | CCF |
 | :---- | :---- | :----- |
-| UbiComp | 2/5/8/11 | A |
+| UbiComp | $\color{red}{2/5/8/11}$ | A |
 | IJCAI	| January | A |
 | ICIP | January | C |
 | ICML | February | A |
