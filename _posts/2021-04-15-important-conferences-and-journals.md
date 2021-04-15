@@ -30,3 +30,4 @@ comments: true
 | ICPR | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICRA | $\color{brown}{October}$ | B |
+| CVPR | $\color{tan}{November}$ | B |
