@@ -34,9 +34,9 @@ comments: true
         - classes.txt格式
             * class_id class_name
 
-        - txt标签文件格式：每行1个物体，用5元组表示
+        - txt标签文件格式（**同YOLO**）：每行1个物体，用5元组表示
             ```
-            class_id xmin/img_width ymin/img_height obj_width/img_width obj_height/img_height
+            class_id obj_xmin/img_width obj_ymin/img_height obj_width/img_width obj_height/img_height
             ```
 
 1. 人工检查标注信息时，使用 [labelImg](https://github.com/tzutalin/labelImg) 软件，打开链接根据指南安装（推荐 miniconda3 方式安装）
