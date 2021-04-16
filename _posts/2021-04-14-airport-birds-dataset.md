@@ -57,6 +57,8 @@ comments: true
             * del $\rightarrow$ delete the selected rectangle box
 
 1. **设置检查点**：图片量比较大，不可能一次性标完，每标一批设置一个检查点，例如
+
+{: .center-block :}
 | 第几次 | 文件夹 | 结束图片 |
 | :---- | :---- | :----- |
 | 1 | sw_yin4 | 0000123.png |
