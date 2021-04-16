@@ -30,8 +30,14 @@ comments: true
              sub_dir_2/
              ...
     ```
-    每个`sub_dir`包含3类文件：png图片、txt标签、classes.txt。其中一张png图片对应一个txt标签文件，classes.txt包含物体类别，本数据集只有bird类
-<!-- 4. 把`labels`目录下的所有文件、`classes.txt`文件拷入`images`目录 -->
+    * 每个`sub_dir`包含3类文件：png图片、txt标签、classes.txt。其中一张png图片对应一个txt标签文件，classes.txt包含物体类别，本数据集只有bird类
+        - classes.txt格式
+            * class_id class_name
+
+        - txt标签文件格式：每行1个物体，用5元组表示
+            ```
+            class_id xmin/img_width ymin/img_height obj_width/img_width obj_height/img_height
+            ```
 
 1. 人工检查标注信息时，使用 [labelImg](https://github.com/tzutalin/labelImg) 软件，打开链接根据指南安装（推荐 miniconda3 方式安装）
     * step 1：打开软件图形界面时，进入`labelImg`目录，运行如下命令
