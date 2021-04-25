@@ -40,11 +40,12 @@ comments: true
             ```
 
 1. 人工检查标注信息时，使用 [labelImg](https://github.com/tzutalin/labelImg) 软件，打开链接根据指南安装（推荐 miniconda3 方式安装）
-    * step 1：打开软件图形界面时，进入`labelImg`目录，运行如下命令
+    * step 1：预设物体类别，本数据集只有一类物体——bird，进入`labelImg`目录，修改`data/predefined_classes.txt`内容为：bird，同时在拷给大家的数据文件目录下，建立`classes.txt`文件，内容为：bird。
+    * step 2：打开软件图形界面时，在`labelImg`目录，运行如下命令
         ```
         python labelImg.py
         ```
-    * step 2：人工检查，从`labelImg`图形界面选择`images`目录打开
+    * step 3：人工检查，从`labelImg`图形界面选择`images`目录打开
         1. 修正已有矩形框
         2. 新建矩形框
         3. 删除矩形框
