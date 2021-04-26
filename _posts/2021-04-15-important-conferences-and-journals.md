@@ -31,3 +31,8 @@ comments: true
 | AAAI | $\color{peach}{September}$ | A |
 | ICRA | $\color{brown}{October}$ | B |
 | CVPR | $\color{tan}{November}$ | A |
+
+### 网站
+1. [AI conference deadline countdown](aideadlin.es)
+
+2. [AI conference](https://jackietseng.github.io/conference_call_for_paper/conferences.html)
