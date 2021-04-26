@@ -33,6 +33,6 @@ comments: true
 | CVPR | $\color{tan}{November}$ | A |
 
 ### 参考
-1. [AI conference deadline countdown](aideadlin.es)
+Source One: [AI conference deadline](https://aideadlin.es)
 
-2. [AI conference](https://jackietseng.github.io/conference_call_for_paper/conferences.html)
+Source Two: [AI conference deadline](https://jackietseng.github.io/conference_call_for_paper/conferences.html)
