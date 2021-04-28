@@ -56,6 +56,7 @@ comments: true
             * a $\rightarrow$ prev
             * w $\rightarrow$ create a rectangle box
             * del $\rightarrow$ delete the selected rectangle box
+            * ctrl + 'mouse wheel' $\rightarrow$ zoom in/out
 
 1. **设置检查点**：图片量比较大，不可能一次性标完，每标一批设置一个检查点，例如
 
