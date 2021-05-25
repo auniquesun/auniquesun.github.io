@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Airport Birds Dataset
+title: Part 1 - Airport Bird Dataset
 tags: [Dataset, Object Detection, Computer Vision]
 gh-repo: tzutalin/labelImg
 gh-badge: [star, fork, follow]
