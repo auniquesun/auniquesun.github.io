@@ -8,7 +8,7 @@ mathjax: true
 comments: true
 ---
 
-### 双目视差图：可视化化参数调优
+### 双目视差图：可视化参数调优
 
 ```python
 import cv2 as cv
@@ -93,4 +93,6 @@ while True:
         break
 ```
 
-遇到的问题：$\textcolor{red}{为什么Trackbar会占据那么长一段？为什么下面图片大小显示不完整呢？}$
+* Windows环境，遇到的问题：
+    - Trackbar前面文字显示不完整
+    - 图片大小显示不完整，看不清楚视差图到底是什么
