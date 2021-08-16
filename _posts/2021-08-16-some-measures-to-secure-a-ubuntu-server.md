@@ -47,7 +47,6 @@ comments: true
     > findtime=1800  
     > [sshd]  
     > maxretry=4  
-
     ```shell
     sudo systemctl restart fail2ban
     ```
