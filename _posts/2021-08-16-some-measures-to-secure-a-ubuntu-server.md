@@ -63,13 +63,13 @@ comments: true
 
 5. 对于已创建的用户，启用`公钥-私钥`对免密登录模式，而非手动输入密码
     - `公钥-私钥`非对称加密机制，是密码学中提出的一种安全可靠的加密模式，它们成对产生，`公钥`负责加密，对外公开，私钥负责解密，由用户保管
-    - 解决方法：生成`公钥-私钥`对；公钥放到服务器指定目录，对外公开；私钥放到用户主机指定目录，自己保存
+    - 解决方法：生成`公钥-私钥`对；公钥放到服务器指定目录，对外公开；私钥放到用户主机指定目录，自己保存  
     ```shell
-    ssh-keygen  # 生成`公钥-私钥`对
-    ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件
+    ssh-keygen  # 生成`公钥-私钥`对  
+    ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件  
 
     sudo vim /etc/ssh/sshd_config
-    ```
+    ```  
     > PasswordAuthentication no  
     > UsePAM no  
     ```shell
