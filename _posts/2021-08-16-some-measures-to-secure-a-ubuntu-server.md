@@ -26,83 +26,82 @@ comments: true
 2. 禁用`root`通过ssh远程登录
     - 互联网上的攻击程序很多，有的程序专门暴力破解`root`账号(用户名已知)，一旦被破解，服务器就归攻击者所有了
     - 解决方法：服务器创建好其他管理员，应当尽快禁用`root`的ssh登录模式，这样攻击程序破解`root`账号这条路就走不通了
-    ```
+    ```shell
     sudo vim /etc/ssh/sshd_config
-
-    > PermitRootLogin no
-
+    ```
+    > PermitRootLogin no  
+    ```shell
     sudo systemctl restart sshd
     ```
 
 3. 安装`fail2ban`，封禁多次登录失败的ip地址
     - 攻击程序可能对`非root`账号进行暴力破解
     - 解决方法：用`fail2ban`监控用户登录过程，通过修改`iptables`，封禁登录失败次数超过`maxretry`的ip地址
-    ```
+    ```shell
     sudo apt install fail2ban
     sudo vim /etc/fail2ban/jail.local
+    ```
+    > [DEFAULT]  
+    > ignoreip=127.0.0.1  
+    > bantime=43200  
+    > findtime=1800  
+    > [sshd]  
+    > maxretry=4  
 
-    > [DEFAULT]
-    > ignoreip=127.0.0.1
-    > bantime=43200
-    > findtime=1800
-
-    > [sshd]
-    > maxretry=4
-
+    ```shell
     sudo systemctl restart fail2ban
     ```
 
 4. 安装`pwquaility`，提升用户密码设置强度
     - 管理员创建密码时为方便，经常设得很简单或者有固定模式可循，这样被破解的风险骤增
     - 解决方法：用`pwquaility`设定，创建新用户时密码需满足的要求
-    ```
+    ```shell
     sudo vim /etc/security/pwquality.conf
-
-    > minlen = 12   # 密码最少12位
-    > minclass = 4  # 至少包含：数字、大写、小写、其他符号这四类字符
     ```
+    > minlen = 12   # 密码最少12位  
+    > minclass = 4  # 至少包含：数字、大写、小写、其他符号这四类字符
 
 5. 对于已创建的用户，启用`公钥-私钥`对免密登录模式，而非手动输入密码
     - `公钥-私钥`非对称加密机制，是密码学中提出的一种安全可靠的加密模式，它们成对产生，`公钥`负责加密，对外公开，私钥负责解密，由用户保管
     - 解决方法：生成`公钥-私钥`对；公钥放到服务器指定目录，对外公开；私钥放到用户主机指定目录，自己保存
-    ```
+    ```shell
     ssh-keygen  # 生成`公钥-私钥`对
     ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件
 
     sudo vim /etc/ssh/sshd_config
-
-    > PasswordAuthentication no
-    > UsePAM no
-
+    ```
+    > PasswordAuthentication no  
+    > UsePAM no  
+    ```shell
     sudo systemctl restart sshd
     ```
 
 6. 修改ssh默认端口
     - ssh默认端口为22，攻击程序首先会扫描这个端口，
     - 解决方法：在条件允许的情况下修改为其他端口
-    ```
+    ```shell
     sudo vim /etc/ssh/sshd_config
-
-    > Port 23456    # ssh指定为连接23456端口
-
+    ```
+    > Port 23456    # ssh指定为连接23456端口  
+    ```shell
     sudo systemctl restart sshd
     ```
 
 7. 禁用`ipv6`，在系统用不到该功能的情况下
     - `ipv6`是下一代网络地址模式，实验室很多机器其实用不到这个功能，默认开启的状态会带来很多安全风险
     - 解决方法：在系统层面，禁用`ipv6`能力
-    ```
+    ```shell
     sudo vim /etc/ssh/sshd_config
-
-    > AddressFamily inet    # 设为inet，表示禁用ipv6
-
+    ```
+    > AddressFamily inet    # 设为inet，表示禁用ipv6  
+    ```shell
     sudo systemctl restart sshd
     ```
 
 8. 定期主动更新系统软件
     - 系统软件都在不断更新迭代：修补漏洞，增强功能。这需要用户主动更新软件，才能应用这些更新
     - 解决方法：设定一个时间周期，到了时间主动更新软件
-    ```
+    ```shell
     sudo apt update
     sudo apt upgrade
     ```
