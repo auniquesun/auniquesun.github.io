@@ -30,7 +30,6 @@ comments: true
     sudo vim /etc/ssh/sshd_config
     ```
     > PermitRootLogin no  
-
     ```shell
     sudo systemctl restart sshd
     ```
@@ -48,7 +47,6 @@ comments: true
     > findtime=1800  
     > [sshd]  
     > maxretry=4  
-
     ```shell
     sudo systemctl restart fail2ban
     ```
@@ -65,7 +63,6 @@ comments: true
 5. 对于已创建的用户，启用`公钥-私钥`对免密登录模式，而非手动输入密码
     - `公钥-私钥`非对称加密机制，是密码学中提出的一种安全可靠的加密模式，它们成对产生，`公钥`负责加密，对外公开，私钥负责解密，由用户保管
     - 解决方法：生成`公钥-私钥`对；公钥放到服务器指定目录，对外公开；私钥放到用户主机指定目录，自己保存  
-
     ```shell
     ssh-keygen  # 生成`公钥-私钥`对  
     ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件  
@@ -82,24 +79,22 @@ comments: true
 
 6. 修改ssh默认端口
     - ssh默认端口为22，攻击程序首先会扫描这个端口，
-    - 解决方法：在条件允许的情况下修改为其他端口
+    - 解决方法：在条件允许的情况下修改为其他端口  
     ```shell
     sudo vim /etc/ssh/sshd_config
     ```
     > Port 23456    # ssh指定为连接23456端口  
-
     ```shell
     sudo systemctl restart sshd
     ```
 
 7. 禁用`ipv6`，在系统用不到该功能的情况下
     - `ipv6`是下一代网络地址模式，实验室很多机器其实用不到这个功能，默认开启的状态会带来很多安全风险
-    - 解决方法：在系统层面，禁用`ipv6`能力
+    - 解决方法：在系统层面，禁用`ipv6`能力  
     ```shell
     sudo vim /etc/ssh/sshd_config
     ```
     > AddressFamily inet    # 设为inet，表示禁用ipv6  
-
     ```shell
     sudo systemctl restart sshd
     ```
