@@ -55,6 +55,7 @@ comments: true
     - 管理员创建密码时为方便，经常设得很简单或者有固定模式可循，这样被破解的风险骤增
     - 解决方法：用`pwquaility`设定，创建新用户时密码需满足的要求
     ```shell
+    sudo apt install libpam-pwquality
     sudo vim /etc/security/pwquality.conf
     ```
     > minlen = 12   # 密码最少12位  
