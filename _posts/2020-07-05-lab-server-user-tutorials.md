@@ -137,7 +137,7 @@ comments: true
 
 1. 用户层面
     - 提升密码强度：至少**12**位，包含**数字、大写、小写、特殊符号**四类字符
-    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2020-07-05-lab-server-user-tutorials/)，这样每次登录既方便又安全
+    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-ubuntu-server/)，这样每次登录既方便又安全
 
 2. 系统层面
     - 【已由管理员完成】，详细操作参见 [some measures to secure a linux server](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-ubuntu-server/)
