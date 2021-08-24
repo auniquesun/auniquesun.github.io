@@ -88,6 +88,8 @@ comments: true
     ```shell
     sh Miniconda3-latest-Linux-x86_64.sh
     ```
+8. **修改自身账户初始密码**。管理员为用户设置了初始密码，用户登录后需自行修改
+    - 修改方法见 [账户安全](#账户安全) 第`1`条
 
 <!-- 4. 【这一步可做可不做】改变 ohmyzsh 主题元素，执行如下命令
     ```shell
@@ -136,7 +138,11 @@ comments: true
 ![](../img/post/illegal_server_log.png)  
 
 1. 用户层面
-    - 提升密码强度：至少**12**位，包含**数字、大写、小写、特殊符号**四类字符
+    - \color{red}{修改密码，提升强度}：至少**12**位，包含**数字、大写、小写、特殊符号**四类字符。命令行输入
+        ```shell
+        passwd
+        ```
+        - 之后根据提示完成修改密码操作
     - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-ubuntu-server/)，这样每次登录既方便又安全
 
 2. 系统层面
