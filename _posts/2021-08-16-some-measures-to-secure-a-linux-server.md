@@ -108,3 +108,7 @@ comments: true
     sudo apt update
     sudo apt upgrade
     ```
+
+### 参考
+* [Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page)
+* [保护Ubuntu服务器的几种措施](https://tonyteaches.tech/secure-ubuntu-server/)
