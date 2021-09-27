@@ -181,6 +181,10 @@ comments: true
     * tmux、screen
 2. ROS、SLAM学习
     * ros、eigen、sophus、g2o、ceres
+2. 容器/独立环境
+    * docker
+2. 编程工具
+    * MATLAB、C++ 开发工具套件
 
 
 ### 相关文档
