@@ -143,10 +143,10 @@ comments: true
         passwd
         ```
         - 之后根据提示完成修改密码操作
-    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-ubuntu-server/)，这样每次登录既方便又安全
+    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-linux-server/)，这样每次登录既方便又安全
 
 2. 系统层面
-    - 【已由管理员完成】，详细操作参见 [some measures to secure a linux server](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-ubuntu-server/)
+    - 【已由管理员完成】，详细操作参见 [some measures to secure a linux server](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-linux-server/)
 
 ### 公共帐户
 > 为了满足用户临时（短期）使用服务器的需求，管理员建立了 `test` 公共用户，该用户与其他用户的唯一区别是：可由多个不同人员同时登陆并使用。
