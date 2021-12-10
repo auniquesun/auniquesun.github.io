@@ -18,6 +18,7 @@ comments: true
 | UbiComp | $\color{red}{2/5/8/11}$ | A |
 | IJCAI	| $\color{cyan}{January}$ | A |
 | ICIP | $\color{cyan}{January}$ | C |
+| ICPR | $\color{green}{January}$ | C |
 | ICML | $\color{orange}{February}$ | A |
 | UAI | $\color{orange}{February}$ | B |
 | ICCV | $\color{blue}{March}$ | A |
@@ -27,7 +28,6 @@ comments: true
 | NIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
 | ACCV | $\color{green}{July}$ | C |
-| ICPR | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICRA | $\color{brown}{October}$ | B |
 | CVPR | $\color{tan}{November}$ | A |
