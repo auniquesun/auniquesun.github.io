@@ -112,6 +112,13 @@ comments: true
 
 2. 事先确认要存放的文件是常用的、**_有必要共享_**的，再放入对应的文件夹
 
+2. 视觉领域常用数据集已经下载好（**用户下载大的数据集前首先应查看此目录**），存放于 `/mnt/sdb/public/data/common-datasets`，例如
+    - COCO
+    - ImageNet
+    - KITTI
+    - MondelNet / SUN RGBD / S3DIS
+    - $\cdots$
+
 3. 对于**用户自己的大数据文件**
 * 每个用户主目录下不要存放 _大数据文件_，因为“根目录/”只剩400G+空间，这部分要留给一些重要的程序和软件用
 * 大的数据文件存放于 `/mnt/sdb/public/data/<username>/` 目录下，将 `<username>` 替换成自己的用户名，建立目录
@@ -184,7 +191,7 @@ comments: true
 2. 容器/独立环境
     * docker
 2. 编程工具
-    * MATLAB、C++ 开发工具套件
+    * MATLAB、C++ suites (CMake/GCC/g++)
 
 
 ### 相关文档
