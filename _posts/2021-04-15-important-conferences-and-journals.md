@@ -30,7 +30,8 @@ comments: true
 | ACCV | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICLR | $\color{peach}{September}$ | NaN |
-| ICRA | $\color{brown}{October}$ | B |
+| ICRA | $\color{peach}{October}$ | B |
+| ICASSP | $\color{brown}{October}$ | C |
 | CVPR | $\color{tan}{November}$ | A |
 
 ### 参考
