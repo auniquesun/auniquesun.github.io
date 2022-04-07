@@ -19,7 +19,8 @@ comments: true
 | IJCAI	| $\color{cyan}{January}$ | A |
 | ICMR | $\color{cyan}{January}$ | B |
 | ICIP | $\color{cyan}{January}$ | C |
-| ICPR | $\color{green}{January}$ | C |
+| ICPR | $\color{cyan}{January}$ | C |
+| IJCNN | $\color{cyan}{January}$ | C |
 | ICML | $\color{orange}{February}$ | A |
 | UAI | $\color{orange}{February}$ | B |
 | ICCV | $\color{blue}{March}$ | A |
@@ -29,8 +30,10 @@ comments: true
 | NIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
 | ACCV | $\color{green}{July}$ | C |
+| 3DV | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICLR | $\color{peach}{September}$ | NaN |
+| MMM | $\color{peach}{September}$ | C |
 | ICRA | $\color{peach}{October}$ | B |
 | ICASSP | $\color{brown}{October}$ | C |
 | CVPR | $\color{tan}{November}$ | A |
