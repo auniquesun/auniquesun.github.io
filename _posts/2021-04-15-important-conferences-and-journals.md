@@ -17,6 +17,7 @@ comments: true
 | :---- | :---- | :----- |
 | UbiComp | $\color{red}{2/5/8/11}$ | A |
 | IJCAI	| $\color{cyan}{January}$ | A |
+| ICMR | $\color{cyan}{January}$ | B |
 | ICIP | $\color{cyan}{January}$ | C |
 | ICPR | $\color{green}{January}$ | C |
 | ICML | $\color{orange}{February}$ | A |
