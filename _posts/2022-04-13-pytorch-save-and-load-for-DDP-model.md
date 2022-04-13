@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PyTorch load and save DDP model
+title: PyTorch save and load DDP model
 tags: [PyTorch, DistributedDataParallel, DDP, Model save & load]
 gh-repo: MohamedAfham/CrossPoint
 gh-badge: [star, fork, follow]
@@ -35,7 +35,7 @@ model.load_state_dict(pretrained_model)
 然而很多时候为了缩短实验周期，往往会用**多个GPU**加速训练过程，此时模型权重保存与加载会有些$\color{red}{注意事项}$，
 否则很可能得不到正确的预测/调优结果。以PyTorch为例，多卡训练模型后，保存步骤如下
 
-{: .box-warning}
+{: .box-note}
 方式一
 
 ```python
@@ -60,7 +60,8 @@ torch.save(model_ddp.state_dict(), 'best_model.pth')
 此时，如果想要加载多卡训练得到的 `best_model.pth`，不同情况加载方法不同，否则某些权重**不能正常加载**
 (此时也无异常提示，而当事人以为一切正常，最终模型效果不好而又找不到问题)或报错
 
-情况一：多卡加载（比如进行调优/下游任务）。因为**方式一**中模型是在DDP下模式保存的，所以加载时也要包裹在DDP下
+#### 情况一
+多卡加载（比如进行调优/下游任务）。因为**方式一**中模型是在DDP下模式保存的，所以加载时也要包裹在DDP下
 
 ```python
 import torch
@@ -82,7 +83,8 @@ pretrained_model = torch.load('best_model.pth')
 model_ddp.load_state_dict(pretrained_model)
 ```
 
-情况二：单卡加载（比如进行测试/推理）。因为**方式一**中模型是在DDP模式下模式保存的，而**单卡测试无法使用DDP模式**，此时就要对原来保存的
+#### 情况二
+单卡加载（比如进行测试/推理）。因为**方式一**中模型是在DDP模式下模式保存的，而**单卡测试无法使用DDP模式**，此时就要对原来保存的
 `best_model.pth` 的key作些更改，以适应单卡需求
 
 ```python
@@ -115,7 +117,7 @@ model.load_state_dict(pretrained_model)
 
 当然，多卡训练完模型，保存时还有另一种方式，如下
 
-{: .box-warning}
+{: .box-note}
 方式二
 
 ```python
@@ -142,7 +144,8 @@ torch.save(model_ddp.module.state_dict(), 'best_model.pth')
 
 因为保存机制作出了改变，加载机制也应作出改变，分不同情况
 
-情况一：多卡加载（比如进行调优/下游任务）。因为**方式二**中模型相当于在单卡模式下保存，而多卡训练要用到DDP，所以就是
+#### 情况一
+多卡加载（比如进行调优/下游任务）。因为**方式二**中模型相当于在单卡模式下保存，而多卡训练要用到DDP，所以就是
 把模型权重加载出来再用DDP封装
 
 ```python
@@ -166,7 +169,8 @@ model.load_state_dict(pretrained_model)
 model_ddp = DDP(model, device_ids=[rank])
 ```
 
-情况二：单卡加载（比如进行测试/推理）。因为**方式二**中模型相当于在单卡模式下保存，单卡直接加载即可
+#### 情况二
+单卡加载（比如进行测试/推理）。因为**方式二**中模型相当于在单卡模式下保存，单卡直接加载即可
 
 ```python
 import torch
@@ -183,7 +187,9 @@ pretrained_model = torch.load('best_model.pth')
 model.load_state_dict(pretrained_model)
 ```
 
-## 总结
+{: .box-note}
+总结
+
 很多人有这样的经历，复现模型时经常达不到论文报告的效果，有时差了好几个点又找不到问题，靠调参不可能补上这么大gap，
 更离奇这是论文作者公开的代码。
 这样的问题我也遇到过，比如复现 [CrossPoint](https://github.com/MohamedAfham/CrossPoint/)，加载预训练模型key不匹配，
