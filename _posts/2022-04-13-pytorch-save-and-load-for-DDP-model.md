@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PyTorch save and load DDP model
+title: PyTorch load and save DDP model
 tags: [PyTorch, DistributedDataParallel, DDP, Model save & load]
 gh-repo: MohamedAfham/CrossPoint
 gh-badge: [star, fork, follow]
@@ -32,10 +32,12 @@ pretrained_model = torch.load('best_model.pth')
 model.load_state_dict(pretrained_model)
 ```
 
-然而很多时候为了缩短实验周期，往往会用**多个GPU**加速训练过程，此时模型权重保存与加载会有些$\color{red}{注意事项}，
+然而很多时候为了缩短实验周期，往往会用**多个GPU**加速训练过程，此时模型权重保存与加载会有些$\color{red}{注意事项}$，
 否则很可能得不到正确的预测/调优结果。以PyTorch为例，多卡训练模型后，保存步骤如下
 
-方式一：
+{: .box-warning}
+方式一
+
 ```python
 import torch
 from torch.utils.data import DistributedDataParallel as DDP
@@ -113,7 +115,9 @@ model.load_state_dict(pretrained_model)
 
 当然，多卡训练完模型，保存时还有另一种方式，如下
 
-方式二：
+{: .box-warning}
+方式二
+
 ```python
 import torch
 from torch.utils.data import DistributedDataParallel as DDP
@@ -139,7 +143,7 @@ torch.save(model_ddp.module.state_dict(), 'best_model.pth')
 因为保存机制作出了改变，加载机制也应作出改变，分不同情况
 
 情况一：多卡加载（比如进行调优/下游任务）。因为**方式二**中模型相当于在单卡模式下保存，而多卡训练要用到DDP，所以就是
-把模型加载出来再用DDP封装
+把模型权重加载出来再用DDP封装
 
 ```python
 import torch
@@ -186,5 +190,5 @@ model.load_state_dict(pretrained_model)
 导致最终效果里论文结果相差甚远，
 主要原因就是上面讲的 `保存-加载` 不匹配（我把代码改成了分布式训练，原代码是单卡训练，但忽略了加载模型也要随之改变）
 经过一番研究终于搞明白了这个问题，模型效果显著提升，某些数据集上的指标达到了与论文可比的结果。
-总而言之，`单卡保存-单卡加载`，`多卡保存-多卡加载`一般不会有意外，而 `单卡保存-多卡加载`，`多卡保存-单卡加载` 就要
+总而言之，**单卡保存-单卡加载**，**多卡保存-多卡加载**一般不会有意外，而 `单卡保存-多卡加载`，`多卡保存-单卡加载` 就要
 灵活应对了。
