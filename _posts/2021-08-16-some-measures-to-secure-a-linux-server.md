@@ -65,15 +65,16 @@ comments: true
     - `公钥-私钥`非对称加密机制，是密码学中提出的一种安全可靠的加密模式，它们成对产生，`公钥`负责加密，对外公开，私钥负责解密，由用户保管
     - 解决方法：生成`公钥-私钥`对；公钥放到服务器指定目录，对外公开；私钥放到用户主机指定目录，自己保存  
     
-    ssh 密钥登录，\color{red}{在用户电脑上操作}
+    ssh 密钥登录，$\color{red}{在用户电脑上操作}$
 
     ```shell
     ssh-keygen  # 生成`公钥-私钥`对  
     ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件  
+    ```
 
     禁用密码登录，在服务器上操作
-    
-    ```
+
+    ```shell
     sudo vim /etc/ssh/sshd_config  
     ```  
 
