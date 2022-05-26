@@ -29,8 +29,8 @@ comments: true
 | MM | $\color{gray}{April}$ | A |
 | NIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
+| 3DV | $\color{green}{June}$ | C |
 | ACCV | $\color{green}{July}$ | C |
-| 3DV | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICLR | $\color{peach}{September}$ | NaN |
 | MMM | $\color{peach}{September}$ | C |
