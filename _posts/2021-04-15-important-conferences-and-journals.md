@@ -29,12 +29,12 @@ comments: true
 | MM | $\color{gray}{April}$ | A |
 | NIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
-| 3DV | $\color{green}{June}$ | C |
+| 3DV | $\color{yellow}{June}$ | C |
 | ACCV | $\color{green}{July}$ | C |
 | AAAI | $\color{peach}{September}$ | A |
 | ICLR | $\color{peach}{September}$ | NaN |
 | MMM | $\color{peach}{September}$ | C |
-| ICRA | $\color{peach}{October}$ | B |
+| ICRA | $\color{peach}{September}$ | B |
 | ICASSP | $\color{brown}{October}$ | C |
 | CVPR | $\color{tan}{November}$ | A |
 
