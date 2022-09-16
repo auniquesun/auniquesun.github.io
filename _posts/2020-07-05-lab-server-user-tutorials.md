@@ -47,9 +47,9 @@ comments: true
     chsh -s $(which zsh)
     ```
 
-2. 进入目录 `/mnt/sdb/public/software`，执行如下命令
+2. 进入目录 `/mnt/sdc/public/software`，执行如下命令
     ```shell
-    cd /mnt/sdb/public/software
+    cd /mnt/sdc/public/software
     ```
 
 3. 用 `zsh` 安装 `ohmyzsh`，执行如下命令
@@ -82,7 +82,7 @@ comments: true
 7. 若使用 `Python` 开发，请安装 `miniconda` 环境（不推荐安装`Anaconda`：`miniconda`即轻量又能实现同样的功能）
     * step 1：切换到共享软件目录
     ```shell
-    cd /mnt/sdb/public/software
+    cd /mnt/sdc/public/software
     ```
     * step 2：安装 `miniconda` 环境 —— 配置均为默认
     ```shell
@@ -100,7 +100,7 @@ comments: true
 
 ### 数据和软件共享
 0. `/mnt/sdb` 目录挂载的是一块 4TB 的机械硬盘，磁盘空间较为充足；其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
-* **注意：** **用户主目录 `/home/<username>` 下不要存放大文件**，大的数据文件存放于 `/mnt/sdb/public/data/<username>` 下，`/home/<username>` **占用空间超过20G会被定期清除**
+* **注意：** **用户主目录 `/home/<username>` 下不要存放大文件**，大的数据文件存放于 `/mnt/sdc/public/data/<username>` 下，`/home/<username>` **占用空间超过20G会被定期清除**
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 
@@ -112,7 +112,7 @@ comments: true
 
 2. 事先确认要存放的文件是常用的、**_有必要共享_**的，再放入对应的文件夹
 
-2. 视觉领域常用数据集已经下载好（**用户下载大的数据集前首先应查看此目录**），存放于 `/mnt/sdb/public/data/common-datasets`，例如
+2. 视觉领域常用数据集已经下载好（**用户下载大的数据集前首先应查看此目录**），存放于 `/mnt/sdc/public/data/common-datasets`，例如
     - COCO
     - ImageNet
     - KITTI
@@ -121,16 +121,16 @@ comments: true
 
 3. 对于**用户自己的大数据文件**
 * 每个用户主目录下不要存放 _大数据文件_，因为“根目录/”只剩400G+空间，这部分要留给一些重要的程序和软件用
-* 大的数据文件存放于 `/mnt/sdb/public/data/<username>/` 目录下，将 `<username>` 替换成自己的用户名，建立目录
+* 大的数据文件存放于 `/mnt/sdc/public/data/<username>/` 目录下，将 `<username>` 替换成自己的用户名，建立目录
     ```shell
-    mkdir /mnt/sdb/public/data/hs
+    mkdir /mnt/sdc/public/data/hs
     ```
 * 修改刚才建立的文件夹的权限，共享给其他用户
    ```shell
-    chmod o+rx /mnt/sdb/public/data/hs
+    chmod o+rx /mnt/sdc/public/data/hs
     ```
 
-4. 用户将文件拷贝到 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/` 或者 `/mnt/sdb/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
+4. 用户将文件拷贝到 `/mnt/sdc/public/data/`、`/mnt/sdc/public/software/` 或者 `/mnt/sdc/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
     ```shell
     chmod o+rx <filename>
     ```
@@ -168,14 +168,14 @@ comments: true
         ```shell
         cd zhangsan
         ```
-2. `test` 用户同样能够查看和使用公共数据区 `/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`，更多说明见上文[数据和软件共享](#数据和软件共享)
+2. `test` 用户同样能够查看和使用公共数据区 `/mnt/sdc/public/data/`、`/mnt/sdc/public/software/`，更多说明见上文[数据和软件共享](#数据和软件共享)
 3. `test` 用户短期内使用完服务器，备份好数据资料后，务必清除创建的文件夹
     * 例如，**张三**清除自己的工作区，执行
         ```shell
         cd ~/home/test
         rm -rf ~/home/test/zhangsan
         ```
-    * 如果`/mnt/sdb/public/data/`、`/mnt/sdb/public/software/`存放有自己的数据，进行类似的清除操作
+    * 如果`/mnt/sdc/public/data/`、`/mnt/sdc/public/software/`存放有自己的数据，进行类似的清除操作
     * 使用完毕服务器，如果用户不自行清除数据资料，**系统会定期清除，丢失不负责**
 
 ### 已安装软件列表
