@@ -37,6 +37,7 @@ comments: true
 | ICRA | $\color{peach}{September}$ | B |
 | ICASSP | $\color{brown}{October}$ | C |
 | CVPR | $\color{tan}{November}$ | A |
+| ICME | $\color{purple}{December}$ | B |
 
 ### 参考
 Source One: [AI conference deadline](https://aideadlin.es)
