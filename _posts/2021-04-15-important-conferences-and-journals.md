@@ -38,9 +38,10 @@ comments: true
 | ICLR | $\color{peach}{September}$ | NaN |
 | MMM | $\color{peach}{September}$ | C |
 | ICRA | $\color{peach}{September}$ | B |
-| ICASSP | $\color{brown}{October}$ | C |
+| ICASSP | $\color{brown}{October}$ | B |
 | CVPR | $\color{tan}{November}$ | A |
 | ICME | $\color{purple}{December}$ | B |
+
 
 #### Journal
 
@@ -50,6 +51,7 @@ comments: true
 | [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) | IEEE | $prepared$ | A |
 | [TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) | IEEE | $prepared$ | A |
 | [TIP](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83) | IEEE | $prepared$ | A |
+| [TMM](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046) | IEEE | $prepared$ | B |
 | [IJCV](https://www.springer.com/journal/11263) | Springer | $prepared$ | A |
 | [JMLR](https://www.jmlr.org/) | MIT | $prepared$ | A |
 | [TOG](https://dl.acm.org/journal/tog) | ACM | $prepared$ | A |
@@ -57,6 +59,5 @@ comments: true
 | [IMWUT](https://dl.acm.org/journal/imwut) | ACM | $\color{red}{2/5/8/11}$ | A |
 
 ### 参考
-1. [AI Conference Deadline](https://aideadlin.es)
-
+1. [AI Conference Deadline](https://aideadlin.es)  
 2. [CCF Deadline](https://ccfddl.github.io/)
