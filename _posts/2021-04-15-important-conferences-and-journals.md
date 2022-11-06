@@ -30,7 +30,7 @@ comments: true
 | ECCV | $\color{blue}{March}$ | B | 
 | IROS | $\color{blue}{March}$ | C |
 | MM | $\color{gray}{April}$ | A |
-| NIPS | $\color{salmon}{May}$ | A |
+| NeurIPS | $\color{salmon}{May}$ | A |
 | BMVC | $\color{salmon}{May}$ | C |
 | 3DV | $\color{yellow}{June}$ | C |
 | ACCV | $\color{green}{July}$ | C |
