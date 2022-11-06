@@ -52,8 +52,9 @@ comments: true
 | [TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) | IEEE | $prepared$ | A |
 | [TIP](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83) | IEEE | $prepared$ | A |
 | [TMM](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046) | IEEE | $prepared$ | B |
-| [IJCV](https://www.springer.com/journal/11263) | Springer | $prepared$ | A |
 | [JMLR](https://www.jmlr.org/) | MIT | $prepared$ | A |
+| [AI](https://www.journals.elsevier.com/artificial-intelligence) | Elsevier | $prepared$ | A |
+| [IJCV](https://www.springer.com/journal/11263) | Springer | $prepared$ | A |
 | [TOG](https://dl.acm.org/journal/tog) | ACM | $prepared$ | A |
 | [SIGGRAPH](https://www.siggraph.org/) | ACM | $\color{cyan}{January}$ | A |
 | [IMWUT](https://dl.acm.org/journal/imwut) | ACM | $\color{red}{2/5/8/11}$ | A |
