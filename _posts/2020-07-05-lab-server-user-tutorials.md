@@ -25,7 +25,7 @@ comments: true
 
 * 运维服务器的人员可能牺牲了他的休息时间、写论文时间、思考问题时间无偿为同学们提供服务，请大家遵循 “**便利自己也便利他人**” 原则，严格按照要求操作：
     * 若使用 `Python` 开发，详见 [新用户指南](#新用户指南) 第`8`条 安装 `miniconda`，**杜绝使用系统自带** `Python`  
-    * 请阅读[数据和软件共享](#数据和软件共享)部分 —— 用户主目录下不要存放大文件，**主目录占用磁盘空间超过20G会被定期清除**
+    * 请阅读[数据和软件共享](#数据和软件共享)部分 —— 用户主目录下不要存放大文件，**主目录占用磁盘空间超过15G会被定期清除**
 
 * 新用户默认是普通用户，没有管理员权限，如果有机器使用问题：
     * 请在“服务器”群**说明问题和需求**，由管理员处理；`不要单独私信管理员`，“服务器”群就是让大家都了解服务器相关信息，提高沟通覆盖面，避免相同的问题重复回答
@@ -100,7 +100,7 @@ comments: true
 
 ### 数据和软件共享
 0. `/mnt/sdc` 目录挂载的是一块 4TB 的机械硬盘，磁盘空间较为充足；其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
-* **注意：** **用户主目录 `/home/<username>` 下不要存放大文件**，大的数据文件存放于 `/mnt/sdc/public/data/<username>` 下，`/home/<username>` **占用空间超过20G会被定期清除**
+* **注意：** **用户主目录 `/home/<username>` 下不要存放大文件**，大的数据文件存放于 `/mnt/sdc/public/data/<username>` 下，`/home/<username>` **占用空间超过15G会被定期清除**
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 
@@ -150,7 +150,7 @@ comments: true
         passwd
         ```
         - 之后根据提示完成修改密码操作
-    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh免密登录，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-linux-server/)，这样每次登录既方便又安全
+    - 在自己笔记本电脑上生成`公钥-私钥`对，配置ssh密钥登录，优点在于每次登录时无需手动输密码，操作参见[第5条](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-linux-server/)，这样每次登录既方便又安全
 
 2. 系统层面
     - 【已由管理员完成】，详细操作参见 [some measures to secure a linux server](https://auniquesun.github.io/2021-08-16-some-measures-to-secure-a-linux-server/)
@@ -181,7 +181,8 @@ comments: true
 ### 已安装软件列表
 1. CUDA Toolkit
     * 包含使用GPU的一套工具
-    * 现有版本：10.0、10.2
+    * 现有版本：10.0、10.2、11.6
+    * GPU配置的CUDA 11.6
 2. shell
     * zsh
 2. 终端分屏/后台运行
@@ -189,7 +190,7 @@ comments: true
 2. ROS、SLAM学习
     * ros、eigen、sophus、g2o、ceres
 2. 容器/独立环境
-    * docker
+    * docker, nvidia-docker
 2. 编程工具
     * MATLAB、C++ suites (CMake/GCC/g++)
 
