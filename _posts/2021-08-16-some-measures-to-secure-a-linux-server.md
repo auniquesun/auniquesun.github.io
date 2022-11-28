@@ -69,10 +69,10 @@ comments: true
 
     ```shell
     ssh-keygen  # 生成`公钥-私钥`对  
-    ssh-copy-id -i id_rsa.pub user@hostname   # 公钥写入服务器~/.ssh/authorized_keys文件  
+    ssh-copy-id -i id_rsa.pub <username>@<hostname>   # 公钥写入服务器~/.ssh/authorized_keys文件，<username> 替换成本人用户名，<hostname> 替换成服务器ip
     ```
 
-    禁用密码登录，在服务器上操作
+    【由管理员完成，用户不必操作】禁用密码登录，在服务器上操作
 
     ```shell
     sudo vim /etc/ssh/sshd_config  
