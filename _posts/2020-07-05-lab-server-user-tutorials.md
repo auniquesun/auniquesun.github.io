@@ -79,7 +79,13 @@ comments: true
     source ~/.zshrc
     ```
 
-7. 若使用 `Python` 开发，请安装 `miniconda` 环境（不推荐安装`Anaconda`：`miniconda`即轻量又能实现同样的功能）
+7. 【$\color{red}{必要操作}】配置密钥登录。配置好后，用户每次登录服务器无需手动输入密码，解除多次输入密码被封IP的风险，可谓既方便又安全。配置方式如下，用户需要首先在**自己电脑**安装 [Git](https://git-scm.com/downloads)（如已安装请忽略），然后打开**自己电脑**安装好的 Git Bash，输入如下命令
+    ```shell
+    ssh-keygen  # 生成`公钥-私钥`对  
+    ssh-copy-id -i id_rsa.pub <username>@<hostname>   # <username> 替换成本人用户名，<hostname> 替换成服务器ip地址，这条命令是将公钥写入服务器~/.ssh/authorized_keys文件
+    ```
+
+8. 若使用 `Python` 开发，请安装 `miniconda` 环境（不推荐安装`Anaconda`：`miniconda`即轻量又能实现同样的功能）
     * step 1：切换到共享软件目录
     ```shell
     cd /mnt/sdc/public/software
@@ -88,7 +94,7 @@ comments: true
     ```shell
     sh Miniconda3-latest-Linux-x86_64.sh
     ```
-8. **修改自身账户初始密码**。管理员为用户设置了初始密码，用户登录后需自行修改
+9. **修改自身账户初始密码**。管理员为用户设置了初始密码，用户登录后需自行修改
     - 修改方法见 [账户安全](#账户安全) 第`1`条
 
 <!-- 4. 【这一步可做可不做】改变 ohmyzsh 主题元素，执行如下命令
