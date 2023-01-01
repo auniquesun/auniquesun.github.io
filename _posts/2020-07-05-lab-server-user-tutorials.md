@@ -130,8 +130,7 @@ comments: true
     - KITTI
     - MondelNet / SUN RGBD / S3DIS
     - $\cdots$
-
-    - $\color{red}{用户应下载数据集前应查看各块硬盘下的 common-datasets 目录，若目标已存在不要重复下载}$
+    - $\color{red}{NOTE}$ 用户应下载数据集前应查看各块硬盘下的 `common-datasets` 目录，若目标已存在**不要重复下载**
 
 3. 对于**用户自己的大数据文件**
 * 每个用户主目录下不要存放 _大数据文件_，因为“根目录/”只剩400G+空间，这部分要留给一些重要的程序和软件用
