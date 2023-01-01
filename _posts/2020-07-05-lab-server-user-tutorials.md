@@ -105,10 +105,16 @@ comments: true
     ![](../img/zsh.png) -->
 
 ### 数据和软件共享
-0. `/mnt/sdc` 目录挂载的是一块 4TB 的机械硬盘，磁盘空间较为充足；其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
-* **注意：** **用户主目录 `/home/<username>` 下不要存放大文件**，大的数据文件存放于 `/mnt/sdc/public/data/<username>` 下，`/home/<username>` **占用空间超过15G会被定期清除**
-* 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
+0. 服务器单独配备多块数据硬盘，每块容量为4T，专用于存放用户数据(代码/文档/数据集等)，挂载到 `/mnt` 目录，如
+    - `/mnt/sdb`
+    - `/mnt/sdc` 
+    - `/mnt/sdd` 
+    - `/mnt/sde` 
+    - $\cdots$
 
+* 其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
+* **注意：** **用户主目录 `/home/<username>` 下不要存放文件**，`/home/<username>` **占用空间超过15G会被定期清除**，数据文件存放于数据盘下，如 `/mnt/sdc/public/data/<username>`
+* 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 1. 共享文件夹目录结构：
     > `public/`
@@ -118,12 +124,14 @@ comments: true
 
 2. 事先确认要存放的文件是常用的、**_有必要共享_**的，再放入对应的文件夹
 
-2. 视觉领域常用数据集已经下载好（**用户下载大的数据集前首先应查看此目录**），存放于 `/mnt/sdc/public/data/common-datasets`，例如
+2. 常用数据集已经下载好，例如
     - COCO
     - ImageNet
     - KITTI
     - MondelNet / SUN RGBD / S3DIS
     - $\cdots$
+
+    - $\color{red}{用户应下载数据集前应查看各块硬盘下的 common-datasets 目录，若目标已存在不要重复下载}$
 
 3. 对于**用户自己的大数据文件**
 * 每个用户主目录下不要存放 _大数据文件_，因为“根目录/”只剩400G+空间，这部分要留给一些重要的程序和软件用
