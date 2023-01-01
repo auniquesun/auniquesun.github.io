@@ -9,6 +9,13 @@ use-site-title: true
 <br/>
 
 ### 2022
+- Eric Sim 沈文才 —— 《讲好你的故事》
+    - 从2015年认识沈老师，一直在关注他的演讲，给我很多启示，也有很多正向改变，于是买了这本书
+    - 66个小行动，非常简单实用，不仅有助于职业生涯发展，也有助于快乐有趣地生活
+    - 每年学习一项新技能
+- William S. Vincent —— 《Django for Beginners》《Django for Professionals》
+    - easy to understand & practice
+    - introduce many basic but important notations to build a professional website
 - 吴军博士 —— 《元智慧》《软能力》
 - 范毅然译 ——《巴菲特给女儿一生的忠告》
     - 读完这本书，对两个事情有了新的理解：一是专注做喜欢的事情，二是做事的品格与定力
