@@ -2,8 +2,6 @@
 layout: post
 title: The Process of Attending an International Conference
 tags: [International Conference, Visa Application, Flight and Hotel Reservations]
-gh-repo: MohamedAfham/CrossPoint
-gh-badge: [star, fork, follow]
 mathjax: true
 comments: true
 ---
