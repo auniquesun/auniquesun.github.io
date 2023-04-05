@@ -79,7 +79,7 @@ comments: true
     source ~/.zshrc
     ```
 
-7. 【$\color{red}{必要操作}】配置密钥登录。配置好后，用户每次登录服务器无需手动输入密码，解除多次输入密码被封IP的风险，可谓既方便又安全。配置方式如下，用户需要首先在**自己电脑**安装 [Git](https://git-scm.com/downloads)（如已安装请忽略），然后打开**自己电脑**安装好的 Git Bash，输入如下命令
+7. 【$\color{red}{必要操作}$】配置密钥登录。配置好后，用户每次登录服务器无需手动输入密码，解除多次输入密码被封IP的风险，可谓既方便又安全。配置方式如下，用户需要首先在**自己电脑**安装 [Git](https://git-scm.com/downloads)（如已安装请忽略），然后打开**自己电脑**安装好的 Git Bash，输入如下命令
     ```shell
     ssh-keygen  # 生成`公钥-私钥`对  
     ssh-copy-id -i id_rsa.pub <username>@<hostname>   # <username> 替换成本人用户名，<hostname> 替换成服务器ip地址，这条命令是将公钥写入服务器~/.ssh/authorized_keys文件
