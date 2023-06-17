@@ -55,22 +55,23 @@ comments: true
             - VCG Reconstruction
 
     3. 在 MeshLab 导入一个想渲染的点云，把上一步中重建表面的Filter应用一下，生成它的表面
-        - 这一步操作有2个目的
+        - 这一步操作有3个目的
             1. 确认点云放到 MeshLab 显示正常，格式没有问题，能够重建出表面
             2. 无误后，将重建表面的Filter **转换成script**，这是$\color{red}{更重要的目标}$
                 - 通常来说渲染的点云不可能是一个，会是很多个，用手工处理不是解决方案，正确的做法是用脚本批量处理
                 - 操作如下
                     - 点击菜单栏**Filters -> Show current filter script**，会出现一个对话框
                     - 仅保留刚才选择的重建方法，将其他script删去，如下图所示
-                        - ![](../img/post/meshlab_filter_script.png)
+                    ![](../img/post/meshlab_filter_script.png)
                     - 保存重建脚本，例如 `poisson_surface_reconstruct.mlx`，注意文件后缀为 `.mlx`
+            3. 如果 _重建表面前_ 需要用 Filter 计算法向量 Normals，按照上述步骤操作，保存 `.mlx` 即可
 
     4. 准备数据和保存结果的文件夹
         - 准备所有点云文件，放到统一目录下，如 `ScanObjectNN_plyn_files` （`plyn` 命名代表带有法向量的点云）
         - 准备存放点云表面重建结果的文件夹，如 `ScanObjectNN_plyn_files_recon`
         - 准备存放最终mesh的文件夹，如 `ScanObjectNN_obj_files`
 
-    5. 准备批量处理点云的脚本，命名为 `convert_ply_to_obj.sh`，参考 [批量处理脚本](#脚本)章节
+    5. 准备批量处理点云的脚本，命名为 `convert_ply_to_obj.sh`，参考 [批量处理脚本](#批量处理脚本)章节
 
     6. 运行上述脚本
         ```bash
