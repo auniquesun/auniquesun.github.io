@@ -66,22 +66,115 @@ comments: true
                     - 保存重建脚本，例如 `poisson_surface_reconstruct.mlx`，注意文件后缀为 `.mlx`
             3. 如果 _重建表面前_ 需要用 Filter 计算法向量 Normals，按照上述步骤操作，保存 `.mlx` 即可
 
-    4. 准备数据和保存结果的文件夹
-        - 准备所有点云文件，放到统一目录下，如 `ScanObjectNN_plyn_files` （`plyn` 命名代表带有法向量的点云）
+    4. 准备 `.ply` 点云数据
+        - 以 `ScanObjectNN` 数据集为例，原始数据存储与 `.bin` 文件，不能直接被 MeshLab 处理，这里将它转换为点云常用文件格式 `.ply`
+            - 转换脚本命名为 `convert_bin_to_ply.py`，具体实现参考 [批量处理脚本](#批量处理脚本)章节
+        - 将转换成的 .ply 点云文件放到统一目录下，如 `ScanObjectNN_plyn_files` （`plyn` 命名代表带有法向量的点云）
+
+        - 运行上述脚本
+            ```bash
+            conda activate mv_render
+            chmod +x convert_bin_to_ply.py
+            python convert_bin_to_ply.py
+            ```
+    
+    5. 准备保存中间/最终结果的文件夹
         - 准备存放点云表面重建结果的文件夹，如 `ScanObjectNN_plyn_files_recon`
         - 准备存放最终mesh的文件夹，如 `ScanObjectNN_obj_files`
 
-    5. 准备批量处理点云的脚本，命名为 `convert_ply_to_obj.sh`，参考 [批量处理脚本](#批量处理脚本)章节
+    5. 准备批量处理点云的脚本
+        - 脚本命名为 `convert_ply_to_obj.sh`，具体实现参考 [批量处理脚本](#批量处理脚本)章节
 
-    6. 运行上述脚本
-        ```bash
-        conda activate mv_render
-        chmod +x convert_ply_to_obj.sh
-        ./convert_ply_to_obj.sh
-        ```
+        - 运行上述脚本
+            ```bash
+            conda activate mv_render
+            chmod +x convert_ply_to_obj.sh
+            ./convert_ply_to_obj.sh
+            ```
 
 ### 批量处理脚本
-{% highlight bash linenos %}
+{: .box-note}
+将 .bin 原始数据转换为 .ply 点云格式 -> `convert_bin_to_ply.py`
+
+    {% highlight bash linenos %}
+    # 把 .bin 文件转换成 .ply，除了点坐标，点云坐标带法向量
+
+    import os
+    import struct
+    import numpy as np
+    from plyfile import PlyData, PlyElement
+
+    def convert_bin_to_ply(bin_file, ply_file):
+        count = 0
+        with open(bin_file, 'rb') as f:
+            while True:
+                if count == 0:
+                    # NOTE please refer to the github repository of scanobjectnn to check the format of .bin file 
+                    # according to the scanobjectnn, the first number in .bin is `the number of points` in `float32` format, which has 4 bytes
+                    data = f.read(4)
+                    npoints = struct.unpack('f', data)  # `npoints` is a tuple, which has one element
+
+                    vertex = np.zeros(int(npoints[0]), dtype=[('x', 'f4'), ('y', 'f4'), ('z', 'f4')])
+                    x_coors, y_coors, z_coors = [], [], []
+                    nx, ny, nz = [], [], []
+                    count = 1
+                    continue
+
+                else:
+                    # according to the scanobjectnn, the following numbers in .bin are 11 `float32` numbers, which has 44 bytes
+                    data = f.read(44)
+
+                    if len(data) != 44:
+                        break
+                    point = struct.unpack('fffffffffff', data)
+                    x_coors.append(point[0])
+                    y_coors.append(point[1])
+                    z_coors.append(point[2])
+                    nx.append(point[3])
+                    ny.append(point[4])
+                    nz.append(point[5])
+
+        x = np.array(x_coors)
+        y = np.array(y_coors)
+        z = np.array(z_coors)
+        nx = np.array(nx)
+        ny = np.array(ny)
+        nz = np.array(nz)
+
+        vertex = np.core.records.fromarrays([x, y, z, nx, ny, nz],
+                                            names='x, y, z, nx, ny, nz',
+                                            formats='f4, f4, f4, f4, f4, f4')
+
+        vertex_element = PlyElement.describe(vertex, 'vertex')
+
+        # Create the PlyData object with the vertex element
+        plydata = PlyData([vertex_element])
+
+        # Write the PlyData to the .ply file
+        plydata.write(ply_file)
+
+        print(f'Conversion complete. {bin_file} converted to {ply_file}.')
+
+    if '__main__' == __name__:
+        data_dir  = '/mnt/sdb/public/data/common-datasets/ScanObjectNN_3_variants'
+        ply_dir = '/mnt/sdb/public/data/common-datasets/ScanObjectNN_plyn_files'
+
+        for cls in os.listdir(data_dir):
+            cls_dir = os.path.join(data_dir, cls)
+            if os.path.isdir(cls_dir):
+                for f in os.listdir(cls_dir):
+                    if f.endswith('.bin') and '_part' not in f and '_indices' not in f:
+                        bin_file = os.path.join(cls_dir, f)
+                        fname = f.split('.')[0]
+                        ply_file = os.path.join(ply_dir, f'{fname}.ply')
+                        
+                        convert_bin_to_ply(bin_file, ply_file)
+    {% endhighlight %}
+
+{: .box-note}
+将 .ply 点云转化为 .obj 格式的 mesh -> `convert_ply_to_obj.sh`
+
+    {% highlight bash linenos %}
     #!/bin/bash
 
     # Input directory containing PLY files
@@ -109,4 +202,4 @@ comments: true
 
         echo "Converted: $ply_file -> $obj_file"
     done
-{% endhighlight %}
+    {% endhighlight %}
