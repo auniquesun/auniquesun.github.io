@@ -58,15 +58,17 @@ comments: true
     ```
     * `NOTE:` 安装过程中，需要确认的地方输入 `y`；默认安装在了用户主目录下的这个位置 `~/.oh-my-zsh`
 
-5. `Shell`里几乎都是用命令操作，命令补全功能为用户提供了便利。`zsh-autosuggestions`是一个命令补全plugin，安装方法如下
+5. `Shell`里几乎都是用命令操作，命令补全/高亮功能为用户提供了便利。`zsh-autosuggestions`是一个命令补全plugin，安装方法如下
     * step 1：下载 `zsh-autosuggestions` 到指定目录
     ```shell
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
     * step 2：打开文件 `~/.zshrc`，把 `zsh-autosuggestions` 添加到 plugins 列表
     ```shell
-    plugins=(zsh-autosuggestions)
+    plugins=(zsh-autosuggestions zsh-syntax-highlighting)
     ```
+    - **NOTE**：这里 `zsh-syntax-highlighting` 要放在 plugins 列表的最后一项，引用自它的官方文档
 
 5. **为了使用GPU**，需要设置`cuda`环境变量，在`~/.zshrc`文件末尾添加如下两行代码
     ```shell
