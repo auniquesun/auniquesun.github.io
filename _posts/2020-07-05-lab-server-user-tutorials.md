@@ -69,6 +69,7 @@ comments: true
     plugins=(zsh-autosuggestions zsh-syntax-highlighting)
     ```
     - **NOTE**：这里 `zsh-syntax-highlighting` 要放在 plugins 列表的最后一项，引用自它的官方文档
+    - [这篇文章](https://safjan.com/top-popular-zsh-plugins-on-github-2023/)总结了一些实用的 `zsh` 插件，建议根据需要安装
 
 5. **为了使用GPU**，需要设置`cuda`环境变量，在`~/.zshrc`文件末尾添加如下两行代码
     ```shell
