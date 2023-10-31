@@ -43,21 +43,31 @@ comments: true
 | ICME | $\color{purple}{December}$ | B |
 
 
-#### Journal
+#### CCF Journal
 
 {: .center-block :}
-| Name | Organization | Submission | CCF |
-| :---- | :---- | :---- | :----- |
-| [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) | IEEE | $prepared$ | A |
-| [TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) | IEEE | $prepared$ | A |
-| [TIP](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83) | IEEE | $prepared$ | A |
-| [TMM](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046) | IEEE | $prepared$ | B |
-| [JMLR](https://www.jmlr.org/) | MIT | $prepared$ | A |
-| [AI](https://www.journals.elsevier.com/artificial-intelligence) | Elsevier | $prepared$ | A |
-| [IJCV](https://www.springer.com/journal/11263) | Springer | $prepared$ | A |
-| [TOG](https://dl.acm.org/journal/tog) | ACM | $prepared$ | A |
-| [SIGGRAPH](https://www.siggraph.org/) | ACM | $\color{cyan}{January}$ | A |
-| [IMWUT](https://dl.acm.org/journal/imwut) | ACM | $\color{red}{2/5/8/11}$ | A |
+| Name | Organization | Submission | CCF | Quarter |
+| :---- | :---- | :---- | :----- | :----- |
+| [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) | IEEE | $prepared$ | A | Q1 |
+| [TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) | IEEE | $prepared$ | A | Q1 |
+| [TIP](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83) | IEEE | $prepared$ | A | Q1 |
+| [TMM](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046) | IEEE | $prepared$ | B | Q1 |
+| [JMLR](https://www.jmlr.org/) | MIT | $prepared$ | A | Q3 |
+| [AI](https://www.journals.elsevier.com/artificial-intelligence) | Elsevier | $prepared$ | A | Q2 |
+| [IJCV](https://www.springer.com/journal/11263) | Springer | $prepared$ | A | Q2 |
+| [TOG](https://dl.acm.org/journal/tog) | ACM | $prepared$ | A | Q1 |
+| [SIGGRAPH](https://www.siggraph.org/) | ACM | $\color{cyan}{January}$ | A | Q1 |
+| [IMWUT](https://dl.acm.org/journal/imwut) | ACM | $\color{red}{2/5/8/11}$ | A | Q1 |
+
+NOTE: 有的CCF A 类期刊，在中科院分区中甚至只能排到 Q2/Q3，这样不太合理，以 CCF A 类期刊为标准。
+#### CAS Journal
+| Name | Abbr. | Organization | Quarter | CCF | 
+| :---- | :---- | :---- | :---- | :----- |
+| [Information Sciences](https://www.sciencedirect.com/journal/information-sciences) | | Elsevier | Q1 | B |
+| [Information Processing and Mangement](https://www.sciencedirect.com/journal/information-processing-and-management) | IPM | Elsevier | Q1 | B |
+| [Advanced Engineering Informatics](https://www.sciencedirect.com/journal/advanced-engineering-informatics) | AEI | Elsevier | Q1 | B|
+
+NOTE: 像 IPM, AEI 其实不是很有名，但是在中科院期刊分区中位于 Q1，以这个高排名为准。
 
 ### 参考
 1. [AI Conference Deadline](https://aideadlin.es)  
