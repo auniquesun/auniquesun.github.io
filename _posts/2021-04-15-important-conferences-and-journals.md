@@ -63,7 +63,7 @@ NOTE: 有的CCF A 类期刊，在中科院分区中甚至只能排到 Q2/Q3，�
 #### CAS Journal
 | Name | Abbr. | Organization | Quarter | CCF | 
 | :---- | :---- | :---- | :---- | :----- |
-| [Information Sciences](https://www.sciencedirect.com/journal/information-sciences) | | Elsevier | Q1 | B |
+| [Information Sciences](https://www.sciencedirect.com/journal/information-sciences) | None | Elsevier | Q1 | B |
 | [Information Processing and Mangement](https://www.sciencedirect.com/journal/information-processing-and-management) | IPM | Elsevier | Q1 | B |
 | [Advanced Engineering Informatics](https://www.sciencedirect.com/journal/advanced-engineering-informatics) | AEI | Elsevier | Q1 | B|
 
