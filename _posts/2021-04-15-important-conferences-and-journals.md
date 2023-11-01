@@ -42,6 +42,7 @@ comments: true
 | CVPR | $\color{tan}{November}$ | A |
 | ICME | $\color{purple}{December}$ | B |
 
+NOTE: 投稿时间是根据 2021/2022 年的时间记录的，这个时间可能发生变化，特别是原来在月初投稿的会议提早到前一个月末，这是有可能的，还得根据自身情况及早关注和规划进度。
 
 #### CCF Journal
 
