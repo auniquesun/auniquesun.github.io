@@ -47,7 +47,7 @@ comments: true
 
 {: .center-block :}
 | Name | Organization | Submission | CCF | Quarter |
-| :---- | :---- | :---- | :----- | :----- |
+| :---- | :----: | :----: | :-----: | :-----: |
 | [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) | IEEE | $prepared$ | A | Q1 |
 | [TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) | IEEE | $prepared$ | A | Q1 |
 | [TIP](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83) | IEEE | $prepared$ | A | Q1 |
@@ -60,9 +60,12 @@ comments: true
 | [IMWUT](https://dl.acm.org/journal/imwut) | ACM | $\color{red}{2/5/8/11}$ | A | Q1 |
 
 NOTE: 有的CCF A 类期刊，在中科院分区中甚至只能排到 Q2/Q3，这样不太合理，以 CCF A 类期刊为标准。
+
 #### CAS Journal
+
+{: .center-block :}
 | Name | Abbr. | Organization | Quarter | CCF | 
-| :---- | :---- | :---- | :---- | :----- |
+| :---- | :---- | :----: | :----: | :-----: |
 | [Information Sciences](https://www.sciencedirect.com/journal/information-sciences) | None | Elsevier | Q1 | B |
 | [Information Processing and Mangement](https://www.sciencedirect.com/journal/information-processing-and-management) | IPM | Elsevier | Q1 | B |
 | [Advanced Engineering Informatics](https://www.sciencedirect.com/journal/advanced-engineering-informatics) | AEI | Elsevier | Q1 | B|
