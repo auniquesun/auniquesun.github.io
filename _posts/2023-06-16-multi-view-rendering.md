@@ -17,12 +17,12 @@ comments: true
 由于该数据集在3D领域比较知名，也具有一定挑战性，对于 multi-view 3D shape analysis 方向的文章，
 领域顶会/顶刊审稿人希望看到作者在这样的数据集进行评测。现实问题是很难获取 ScanObjectNN 多视图数据集，
 至今也没有公开的数据可供下载，想做这部分实验只能自己从头渲染，要了解点云到多视的生成原理，
-要学习3D软件的使用，要写批量处理的脚本，要调很多bug，难度和门槛是不小的。
+要学习3D软件的使用，要写批量处理的脚本，要调很多bug，难度和门槛还是有的。
 
 为了解决这一痛点，笔者花了一段时间将**渲染点云生成多视图**的原理和过程搞清楚了，并成功生成了 [ScanObjectNN多视数据集](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)（提取码：7kjc），
 这篇博客将其中关键点和操作步骤记录下来，供大家学习使用。若要得到其他点云的多视图，按照这个流程操作即可。
 
-### ScanObject 多视数据集
+### ScanObjectNN 多视数据集
 1. 把最重要的放前面，渲染好的 ScanObjectNN 多视数据集在了[百度网盘](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)，提取码：7kjc
 
 ### 环境配置
