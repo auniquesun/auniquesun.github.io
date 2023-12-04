@@ -23,7 +23,7 @@ comments: true
 这篇博客将其中关键点和操作步骤记录下来，供大家学习使用。若要得到其他点云的多视图，按照这个流程操作即可。
 
 ### ScanObjectNN 多视数据集
-1. 把最重要的放前面，渲染好的 ScanObjectNN 多视数据集在了[百度网盘](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)，提取码：7kjc
+1. 把最重要的放前面，渲染好的 ScanObjectNN 多视数据集传到了[百度网盘](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)，提取码：7kjc
 
 ### 环境配置
 1. Windows 10
