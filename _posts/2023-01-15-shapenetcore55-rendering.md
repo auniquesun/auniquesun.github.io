@@ -89,47 +89,47 @@ SHREC17 是评测三维物体检索方法性能的基准数据集，这个数据
 {: .box-note}
 1. 将 mesh 文件拷贝到它所属的类别目录，`shrec17` 共有55个类别
 2. 切换到 `SHREC2017_track3` 目录运行下列脚本，脚本名为 `divide_mesh_category.py`
-    ```shell
-    cd SHREC2017_track3
-    # train_normal 可替换为其他 <split>_<version>
-    python divide_mesh_category.py train_normal
-    ```
+```shell
+cd SHREC2017_track3
+# train_normal 可替换为其他 <split>_<version>
+python divide_mesh_category.py train_normal
+```
 
-        {% highlight bash linenos %}
-        # filename: divide_mesh_category.py
-        import os
-        import sys
-        import numpy as np
-        import shutil
+    {% highlight bash linenos %}
+    # filename: divide_mesh_category.py
+    import os
+    import sys
+    import numpy as np
+    import shutil
 
-        data_dir = 'data'
-        label_dir = 'TXT'
-        # eg. train_normal
-        version = sys.argv[1]
-        mesh_dir = os.path.join(data_dir, version)
-        num_classes = 55
+    data_dir = 'data'
+    label_dir = 'TXT'
+    # eg. train_normal
+    version = sys.argv[1]
+    mesh_dir = os.path.join(data_dir, version)
+    num_classes = 55
 
-        for clsId in range(num_classes):
-            target_dir = os.path.join(data_dir, f'{version}_{clsId}')
-            if not os.path.exists(target_dir):
-                os.mkdir(target_dir)
+    for clsId in range(num_classes):
+        target_dir = os.path.join(data_dir, f'{version}_{clsId}')
+        if not os.path.exists(target_dir):
+            os.mkdir(target_dir)
 
-            label_file = os.path.join(label_dir, f'{version}_{clsId}.txt')
-            with open(label_file) as fin:
-                lines = sorted([line.strip() for line in fin.readlines() if len(line.strip()) != 0]) # remove empty line
-                lines = np.array(lines)[::20]   # take one every 20 lines
+        label_file = os.path.join(label_dir, f'{version}_{clsId}.txt')
+        with open(label_file) as fin:
+            lines = sorted([line.strip() for line in fin.readlines() if len(line.strip()) != 0]) # remove empty line
+            lines = np.array(lines)[::20]   # take one every 20 lines
 
-                meshes = []
-                for line in lines:
-                    labels = line.split(' ')
-                    if len(labels) == 2:
-                        basename = os.path.basename(labels[0])
-                        mesh_filename = basename[:6]
-                        meshes.append(mesh_filename)
+            meshes = []
+            for line in lines:
+                labels = line.split(' ')
+                if len(labels) == 2:
+                    basename = os.path.basename(labels[0])
+                    mesh_filename = basename[:6]
+                    meshes.append(mesh_filename)
 
-                for mesh in meshes:
-                    src_file = os.path.join(mesh_dir, f'{mesh}.obj')
-                    shutil.copy(src_file, target_dir)
+            for mesh in meshes:
+                src_file = os.path.join(mesh_dir, f'{mesh}.obj')
+                shutil.copy(src_file, target_dir)
 
-            print(f'>>> class {clsId} done')
-        {% endhighlight %}
+        print(f'>>> class {clsId} done')
+    {% endhighlight %}
