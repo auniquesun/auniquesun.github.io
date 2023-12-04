@@ -19,11 +19,11 @@ comments: true
 至今也没有公开的数据可供下载，想做这部分实验只能自己从头渲染，要了解点云到多视的生成原理，
 要学习3D软件的使用，要写批量处理的脚本，要调很多bug，难度和门槛还是有的。
 
-为了解决这一痛点，笔者花了一段时间将**渲染点云生成多视图**的原理和过程搞清楚了，并成功生成了 [ScanObjectNN多视数据集](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)（提取码：7kjc），
+为了解决这一痛点，笔者花了一段时间将**渲染点云生成多视图**的原理和过程搞清楚了，并成功生成了ScanObjectNN多视数据集，
 这篇博客将其中关键点和操作步骤记录下来，供大家学习使用。若要得到其他点云的多视图，按照这个流程操作即可。
 
 ### ScanObjectNN 多视数据集
-1. 把最重要的放前面，渲染好的 ScanObjectNN 多视数据集传到了[百度网盘](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)，提取码：7kjc
+1. 把最重要的放前面，渲染好的 ScanObjectNN 多视数据集传到了[百度网盘](https://pan.baidu.com/s/1fQLeSDgCsvWUc7dBiEco2Q?pwd=y1fj )，提取码：y1fj
 
 ### 环境配置
 1. Windows 10

@@ -16,11 +16,11 @@ SHREC17 是评测三维物体检索方法性能的基准数据集，这个数据
 因此为了在这样的多视数据集评测方法效果，只能根据 SHREC17 原始数据从头渲染，这个过程会遇到较多困难和问题。
 
 为了解决这一痛点，笔者决定把自身从头成功渲染 shrec17 多视图数据的过程记录下来，便于相关人员学习借鉴，同时我们也公开了自己渲染好的
-[SHREC17 多视数据集](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)（提取码：7kjc），供大家直接使用。
+SHREC17 多视数据集，供大家直接使用。
 这个方法具有通用性，若要得到其他 mesh 的多视图，按照这个流程操作即可。
 
 ### ShapeNet Core55 多视数据集
-1. 把最重要的放前面，渲染好的 ShapeNet Core55 多视数据集传到了[百度网盘](https://pan.baidu.com/s/1vzEiNR2TAWo80oh0A6_Sig?pwd=7kjc)，提取码：7kjc
+1. 把最重要的放前面，渲染好的 ShapeNet Core55 多视数据集传到了[百度网盘](https://pan.baidu.com/s/1MVBAybo5UC9Qpg-J5Gyv6w?pwd=72jx)，提取码：72jx
 
 ### 环境配置
 1. Windows 10 或者 Ubuntu 18.04
