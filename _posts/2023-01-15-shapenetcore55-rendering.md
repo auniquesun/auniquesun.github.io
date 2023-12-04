@@ -87,7 +87,13 @@ SHREC17 是评测三维物体检索方法性能的基准数据集，这个数据
 
 ### mesh分类脚本
 {: .box-note}
-将 mesh 文件拷贝到它所属的类别目录，`shrec17` 共有55个类别。切换到 `SHREC2017_track3` 目录运行下列脚本，脚本名为 `divide_mesh_category.py`
+1. 将 mesh 文件拷贝到它所属的类别目录，`shrec17` 共有55个类别
+2. 切换到 `SHREC2017_track3` 目录运行下列脚本，脚本名为 `divide_mesh_category.py`
+    ```shell
+    cd SHREC2017_track3
+    # train_normal 可替换为其他 <split>_<version>
+    python divide_mesh_category.py train_normal
+    ```
 
     {% highlight bash linenos %}
     import os
