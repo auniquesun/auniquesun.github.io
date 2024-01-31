@@ -12,3 +12,5 @@ use-site-title: true
 - **Hongyu Sun**, Yongcai Wang, Xudong Cai, Peng Wang, Deying Li, Yu Shao, and Shuo Wang. AirBirds: A Large-scale Challenging Dataset for Bird Strike Prevetion in Real-world Airports. In ACCV, pages 2440-2456, 2022.
 
 - **Hongyu Sun**, Yongcai Wang, Xudong Cai, Xuewei Bai, Deying Li. ViPFormer: Efficient Vision-and-Pointcloud Transformer for Unsupervised Pointcloud Understanding. In ICRA, 2023
+
+- **Hongyu Sun**, Yongcai Wang, Wang Chen, Haoran Deng, Deying Li. Parameter-efficient Prompt Learning for 3D Point Cloud Understanding. In ICRA, 2024
