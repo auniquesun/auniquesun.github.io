@@ -61,15 +61,16 @@ comments: true
 5. `Shell`里几乎都是用命令操作，zsh 提供了一些插件方便命令行操作，以下插件建议安装，你会发现这能大大**提高工作效率**。
     1. plugins: `git`, `tmux`, `autojump`, `fzf`, `zsh-autosuggestions`, `zsh-syntax-highlighting`
 
-    2. 以 `zsh-autosuggestions`, `zsh-syntax-highlighting` 为例介绍安装过程
+    2. 以 `zsh-autosuggestions`, `zsh-syntax-highlighting`, `fzf-zsh-plugin` 为例介绍安装过程
         * step 1：下载 `zsh-autosuggestions` 到指定目录
         ```shell
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        git clone https://github.com/unixorn/fzf-zsh-plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
         ```
-        * step 2：打开文件 `~/.zshrc`，把 `zsh-autosuggestions` 添加到 plugins 列表
+        * step 2：打开文件 `~/.zshrc`，把 `zsh-autosuggestions` 等添加到 plugins 列表
         ```shell
-        plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+        plugins=(fzf-zsh-plugin zsh-autosuggestions zsh-syntax-highlighting)
         ```
         - **NOTE**：这里 `zsh-syntax-highlighting` 要放在 plugins 列表的最后一项，引用自它的官方文档
 
