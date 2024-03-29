@@ -15,4 +15,4 @@ use-site-title: true
 
 - **Hongyu Sun**, Yongcai Wang, Wang Chen, Haoran Deng, Deying Li. Parameter-efficient Prompt Learning for 3D Point Cloud Understanding. In ICRA, 2024
 
-- **Hongyu Sun**, Yongcai Wang, Peng Wang, Haoran Deng, Xudong Cai, Deying Li. VSFormer: Mining Correlations in Flexible View Set for Multi-view 3D Shape Understanding. IEEE Trans Vis Comput Graph, 2024
+- **Hongyu Sun**, Yongcai Wang, Peng Wang, Haoran Deng, Xudong Cai, Deying Li. VSFormer: Mining Correlations in Flexible View Set for Multi-view 3D Shape Understanding. IEEE TVCG, 2024
