@@ -19,7 +19,7 @@ comments: true
 
 2. 安装软件下载工具，`curl`，需要用户在 Ubuntu 系统有管理员权限，没有权限找管理员代为操作，在 **terminal** 运行以下命令
     ```
-    sudo apt-get install
+    sudo apt-get install curl
     ```
 
 ### 软件安装
