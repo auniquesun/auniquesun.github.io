@@ -46,6 +46,7 @@ comments: true
     sudo zerotier-cli join <network-id>
     ```
     - 将上条命令中 <network-id> 替换为自己创建网络的 `NETWORK ID`
+    - 执行该命令需要有管理员权限，没有的话寻求管理员帮忙操作
     - 命令执行成功后，ZeroTier 显示诸如 "200 OK" 的信息表示添加主机成功
 
 5. 用这样的方式添加多台设备到同一个ZeroTier网络，翻到同一页面的 **Members** 选项卡，勾选第一列 `Auth?` 不同主机对应的蓝色方框，它们就会处于同一个ZeroTier 提供的VPN下，如下图所示
