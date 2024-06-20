@@ -26,7 +26,8 @@ PowerPoint (PPT) 是科研从业者画图的常用工具，比如要画复杂的
 4. [GhostScript](http://www.ghostscript.com/download/gsdnld.html)。如果安装最新版过程中报错，或者在 PPT 插入符号和公式报错（要确认输入的公式和其他配置没问题），尝试该软件 `gs2.16` 版本
     - 一般情况下安装最新版没问题，本人安装了 Ghostscript `10.03.1` for Windows (64 bit)，一切正常
 
-5. [ImageMagick](https://www.imagemagick.org/script/download.php#windows)
+5. [ImageMagick](https://www.imagemagick.org/script/download.php#windows)，根据官方网站导引下载安装包：安装 Windows 对应的最新版即可。
+    - 本人当时安装的是 `ImageMagick-7.1.1-33-Q16-HDRI-x64-dll.exe`
 
 ### 配置环境变量
 1. 为安装的 `LaTeX`，`GhostScript`，`ImageMagick` 配置环境变量，以便其他程序调用 
@@ -58,10 +59,19 @@ PowerPoint (PPT) 是科研从业者画图的常用工具，比如要画复杂的
     - 操作完成后如下图所示
         - ![](../img/post/ppt_latex_fig4.png)
 
+4. 设置临时目录，该目录用于存放 IguanaTeX 插件编译好的 $\LaTex$ 中间文件
+    1. 该目录默认为 `C:\Temp`，如果没有，用户需要自行创建，并确保有 $\color{red}{读写权限}$
+        - 右键该文件夹，选择 “属性”，在出现的对话框将 **只读** 选项去掉，“应用” -> “确定”
+            - ![](../img/post/ppt_latex_fig5.png)
+
+    2. 如果用户对 `C:\Temp` 目录没有写权限，需在其他地方建立一个有写权的文件夹，并在 PowerPoint 的IguanaTeX插件中设置，如下图
+        - ![](../img/post/ppt_latex_fig6.png)
+
 ### 插入 LaTeX 符号和公式
 1. 在 PowerPoint 菜单栏，点击 `IguanaTeX` 选项卡，会出现对应的很多功能，如下图所示
     - 点击 `New LaTeX display` 开始编辑
-        - ![](../img/post/ppt_latex_fig5.png)
+        - ![](../img/post/ppt_latex_fig7.png)
+        - 生成符号/公式前，用户可在窗口选项**定制**编译引擎、字体大小等**参数**
 
-    - 公式确认无误 + 添加必要 latex package 后，点击 **generate** 就能插入到 PPT 了
-        - ![](../img/post/ppt_latex_fig6.png)
+    - 公式确认无误 + 添加必要 latex package 后，点击 **Generate** 就能插入到 PPT 了
+        - ![](../img/post/ppt_latex_fig8.png)
