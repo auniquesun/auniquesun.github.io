@@ -23,6 +23,7 @@ navbar-links:
   Home: "https://auniquesun.github.io"
   Blog: "blog"
   Paper: "paper"
+  Project: "project"
   About: "aboutme"
 nav-search: "search"
   # Search: "search"
@@ -222,6 +223,42 @@ prose:
     - /js
   metadata:
     _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Post title"
+          placeholder: "Title"
+          alterable: true
+      - name: "subtitle"
+        field:
+          element: "textarea"
+          label: "Subtitle"
+          placeholder: "A description of your post."
+          alterable: true
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
+          help: "Enter date of post."
+          placeholder: "yyyy-mm-dd"
+          alterable: true
+      - name: "image"
+        field:
+          element: "text"
+          label: "Image"
+          help: "Add a thumbnail image to your post."
+          placeholder: "Thumbnail"
+          alterable: true
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "Publish"
+          help: "Check to publish post, uncheck to hide."
+    _projects:
       - name: "layout"
         field:
           element: "hidden"
