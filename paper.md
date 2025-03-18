@@ -15,9 +15,11 @@ use-site-title: true
 
 - **Hongyu Sun**, Yongcai Wang, Wang Chen, Haoran Deng and Deying Li, ``Parameter-efficient Prompt Learning for 3D Point Cloud Understanding,'' 2024 IEEE International Conference on Robotics and Automation (*ICRA*), Yokohama, Japan, 2024, pp. 9478-9486, doi: 10.1109/ICRA57147.2024.10610093. [[PDF]](https://arxiv.org/abs/2402.15823) [[Code]](https://github.com/auniquesun/PPT)
 
-- **Hongyu Sun**, Yongcai Wang, Peng Wang, Haoran Deng, Xudong Cai and Deying Li, ``VSFormer: Mining Correlations in Flexible View Set for Multi-view 3D Shape Understanding,'' in IEEE Transactions on Visualization and Computer Graphics (*TVCG*), 2024, doi: 10.1109/TVCG.2024.3381152. [[PDF]]() [[Code]](https://github.com/auniquesun/VSFormer)
+- **Hongyu Sun**, Yongcai Wang, Peng Wang, Haoran Deng, Xudong Cai and Deying Li, ``VSFormer: Mining Correlations in Flexible View Set for Multi-view 3D Shape Understanding,'' in IEEE Transactions on Visualization and Computer Graphics (*TVCG*), 2024, doi: 10.1109/TVCG.2024.3381152. [[PDF]](https://www.arxiv.org/abs/2409.09254) [[Code]](https://github.com/auniquesun/VSFormer)
 
 - **Hongyu Sun**, Qiuhong Ke, Yongcai Wang, Wang Chen, Kang Yang, Deying Li and Jianfei Cai, ``Point-PRC: A Prompt Learning Based Regulation Framework for Generalizable Point Cloud Analysis,'' In Advances in Neural Information Processing Systems (*NeurIPS*), Vancouver, Canada, 2024. [[PDF]](https://arxiv.org/abs/2410.20406) [[Code]](https://github.com/auniquesun/Point-PRC)
+
+- **Hongyu Sun**, Qiuhong Ke, Ming Cheng, Yongcai Wang, Deying Li, Chenhui Gou, and Jianfei Cai, ``Point-Cache: Test-time Dynamic and Hierarchical Cache for Robust and Generalizable Point Cloud Analysis,'' 2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (*CVPR*), Nashville, USA, 2025, pp. 1-13. [[PDF]](http://arxiv.org/abs/2503.12150) [[Code]](https://github.com/auniquesun/Point-Cache)
 
 - Zhe Huang, Yongcai Wang, Xingui Tang and **Hongyu Sun**, ``Boundary-Aware Set Abstraction for 3D Object Detection," 2023 International Joint Conference on Neural Networks (*IJCNN*), Gold Coast, Australia, 2023, pp. 01-07, doi: 10.1109/IJCNN54540.2023.10191728. [[PDF]](https://ieeexplore.ieee.org/document/10191728) [[Code]](https://github.com/HuangZhe885/Boundary-Aware-SA)
 
