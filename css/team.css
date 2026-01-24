@@ -1,0 +1,363 @@
+/* Team Page Styles */
+
+#team-section {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* PI Section Styles */
+.pi-section {
+  margin-bottom: 60px;
+  padding: 40px 0;
+  border-bottom: 2px solid #eee;
+}
+
+.pi-profile {
+  padding: 20px;
+}
+
+.pi-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.pi-profile h3 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #404040;
+  margin: 15px 0 10px 0;
+}
+
+.pi-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #008AFF;
+  margin-bottom: 10px;
+}
+
+.pi-affiliation {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.pi-contact {
+  margin-top: 20px;
+}
+
+.btn-contact {
+  background-color: #008AFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-contact:hover {
+  background-color: #0085A1;
+  color: white;
+  text-decoration: none;
+}
+
+/* PI Bio Styles */
+.pi-bio h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #404040;
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+.pi-highlights {
+  margin-bottom: 30px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #008AFF;
+}
+
+.highlight-item i {
+  font-size: 24px;
+  color: #008AFF;
+  margin-right: 15px;
+  margin-top: 2px;
+  min-width: 24px;
+}
+
+.highlight-item div {
+  flex: 1;
+}
+
+.highlight-item strong {
+  color: #404040;
+}
+
+.pi-description {
+  margin-top: 30px;
+}
+
+.pi-description p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Team Members Section */
+.team-members-section {
+  margin-bottom: 60px;
+  padding: 40px 0;
+}
+
+.section-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #404040;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 36px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Team Member Cards */
+.team-member-placeholder {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member-placeholder:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.member-photo {
+  margin-bottom: 20px;
+}
+
+.photo-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 3px solid #e9ecef;
+}
+
+.photo-placeholder i {
+  font-size: 48px;
+  color: #adb5bd;
+}
+
+.team-member-placeholder h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #404040;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.member-role {
+  color: #008AFF;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.member-interests {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.member-status {
+  margin-top: 15px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.open-position {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Join Us Section */
+.join-us-section {
+  background-color: #f8f9fa;
+  padding: 60px 40px;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+.join-us-section h2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #404040;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.join-us-section p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 18px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.join-us-actions {
+  margin-top: 30px;
+}
+
+.join-us-actions .btn {
+  margin: 0 10px;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #008AFF;
+  border: 2px solid #008AFF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #008AFF;
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pi-section .row {
+    flex-direction: column;
+  }
+  
+  .pi-section .col-md-4,
+  .pi-section .col-md-8 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .pi-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+  }
+  
+  .pi-bio h2 {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .highlight-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .highlight-item i {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .join-us-actions .btn {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pi-section,
+  .team-members-section {
+    padding: 20px 0;
+  }
+  
+  .join-us-section {
+    padding: 40px 20px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .pi-bio h2 {
+    font-size: 28px;
+  }
+  
+  .join-us-section h2 {
+    font-size: 24px;
+  }
+}
+
+/* Animation for page load */
+.team-member-placeholder {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.team-member-placeholder:nth-child(1) { animation-delay: 0.1s; }
+.team-member-placeholder:nth-child(2) { animation-delay: 0.2s; }
+.team-member-placeholder:nth-child(3) { animation-delay: 0.3s; }
+.team-member-placeholder:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
