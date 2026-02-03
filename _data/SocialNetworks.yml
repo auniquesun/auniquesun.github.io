@@ -95,3 +95,8 @@ zhihu:
   name: "Zhihu"
   baseURL: "https://www.zhihu.com/"
   icon: "fa-zhihu"
+
+orcid:
+  name: "ORCID"
+  baseURL: "https://orcid.org/"
+  icon: "fa-orcid"
