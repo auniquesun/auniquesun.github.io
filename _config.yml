@@ -1,7 +1,7 @@
 # --- General options --- #
 
 # Name of website
-title: Hongyu Sun
+title: Spatial AI Lab @ Inner Mongolia University
 
 # Short description of your site
 description: Tell You a Story about Me!
@@ -36,7 +36,7 @@ nav-search: "search"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/shy.jpg"
+avatar: "/img/lab/spatial_ai_lab_logo.png"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
