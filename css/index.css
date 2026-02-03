@@ -258,6 +258,69 @@
   margin-right: 5px;
 }
 
+.pub-link.bibtex-link {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.pub-link.bibtex-link:hover {
+  background-color: #5a6268;
+  color: white;
+  text-decoration: none;
+}
+
+.pub-link.bibtex-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.bibtex-content {
+  margin-top: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.bibtex-content pre {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 0 0 10px 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #333;
+}
+
+.btn-copy {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
+.btn-copy:hover {
+  background-color: #218838;
+  color: white;
+  border-color: #1e7e34;
+}
+
+.btn-copy:active,
+.btn-copy:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .publications-more {
   text-align: center;
   margin-top: 20px;
