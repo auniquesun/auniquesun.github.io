@@ -198,47 +198,27 @@
   text-decoration: none;
 }
 
-/* PI Social Links */
-.pi-social-links {
+/* Quick Links */
+.quick-links {
   margin-top: 15px;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 20px;
 }
 
-.social-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.2s, opacity 0.2s;
-  font-size: 16px;
+.quick-links .btn {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: opacity 0.2s;
 }
 
-.social-icon:hover {
-  transform: translateY(-2px);
+.quick-links .btn:hover {
   opacity: 0.9;
-  color: white;
-}
-
-.social-icon.github {
-  background-color: #333;
-}
-
-.social-icon.orcid {
-  background-color: #A6CE39;
-}
-
-.social-icon.scholar {
-  background-color: #4285F4;
-}
-
-.social-icon.linkedin {
-  background-color: #0077b5;
+  text-decoration: none;
 }
 
 /* PI Bio */
@@ -472,6 +452,14 @@
   margin-bottom: 8px;
   font-size: 16px;
   line-height: 1.3;
+}
+
+.member-year {
+  color: #008AFF;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  margin-top: 0;
 }
 
 .member-interests {
