@@ -189,7 +189,9 @@
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.3s;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .btn-contact:hover {
@@ -200,38 +202,38 @@
 
 /* Social Contact */
 .social-contact {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-.btn-contact.github {
+.social-contact .btn-contact.github {
   background-color: #333;
 }
 
-.btn-contact.github:hover {
+.social-contact .btn-contact.github:hover {
   background-color: #24292e;
 }
 
-.btn-contact.orcid {
+.social-contact .btn-contact.orcid {
   background-color: #A6CE39;
 }
 
-.btn-contact.orcid:hover {
+.social-contact .btn-contact.orcid:hover {
   background-color: #8cb82b;
 }
 
-.btn-contact.scholar {
+.social-contact .btn-contact.scholar {
   background-color: #4285F4;
 }
 
-.btn-contact.scholar:hover {
+.social-contact .btn-contact.scholar:hover {
   background-color: #3367d6;
 }
 
-.btn-contact.linkedin {
+.social-contact .btn-contact.linkedin {
   background-color: #0077b5;
 }
 
-.btn-contact.linkedin:hover {
+.social-contact .btn-contact.linkedin:hover {
   background-color: #005f8d;
 }
 
