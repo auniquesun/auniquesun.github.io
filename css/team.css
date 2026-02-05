@@ -365,6 +365,19 @@
   color: #008AFF;
 }
 
+.photo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e9ecef;
+  transition: border-color 0.3s;
+}
+
+.member-card:hover .photo-img {
+  border-color: #008AFF;
+}
+
 .alumni-photo {
   background-color: #f0f0f0;
   border-color: #ccc;
