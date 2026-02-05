@@ -1,19 +1,88 @@
 ---
 layout: page
-title: Our Team
-subtitle: Spatial AI Lab
+title: Team
+subtitle: Meet Our Research Team
+use-site-title: true
 css: "/css/team.css"
 ---
 
 <div id="team-section">
-  <!-- Researcher Section -->
-  <div class="pi-section">
+  
+  <!-- Section 1: Team Introduction -->
+  <section class="team-intro-section">
+    <div class="section-header">
+      <h2><i class="fa fa-flask"></i> About Spatial AI Lab</h2>
+    </div>
+    <div class="intro-content">
+      <div class="intro-description">
+        <p class="lead-text">
+          The Spatial AI Lab at Inner Mongolia University focuses on cutting-edge research in 3D Computer Vision, 
+          Spatial Intelligence, and Large Multi-modal Models. Our mission is to develop innovative algorithms 
+          and systems that enable machines to understand and interact with the 3D world.
+        </p>
+      </div>
+      
+      <div class="research-areas">
+        <h3><i class="fa fa-crosshairs"></i> Research Topics</h3>
+        <div class="topics-grid">
+          <div class="topic-item">
+            <i class="fa fa-cube"></i>
+            <span>3D Point Cloud Understanding</span>
+          </div>
+          <div class="topic-item">
+            <i class="fa fa-eye"></i>
+            <span>3D Perception & Scene Understanding</span>
+          </div>
+          <div class="topic-item">
+            <i class="fa fa-brain"></i>
+            <span>Large Multi-modal Models</span>
+          </div>
+          <div class="topic-item">
+            <i class="fa fa-globe"></i>
+            <span>Open-world Learning</span>
+          </div>
+          <div class="topic-item">
+            <i class="fa fa-project-diagram"></i>
+            <span>View-based 3D Recognition</span>
+          </div>
+          <div class="topic-item">
+            <i class="fa fa-robot"></i>
+            <span>Practical AI Applications</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="current-projects">
+        <h3><i class="fa fa-tasks"></i> Current Projects</h3>
+        <div class="projects-list">
+          <div class="project-card">
+            <h4>Project Placeholder 1</h4>
+            <p>Description of current research project. Brief overview of objectives and methodologies.</p>
+          </div>
+          <div class="project-card">
+            <h4>Project Placeholder 2</h4>
+            <p>Description of current research project. Brief overview of objectives and methodologies.</p>
+          </div>
+          <div class="project-card">
+            <h4>Project Placeholder 3</h4>
+            <p>Description of current research project. Brief overview of objectives and methodologies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Principal Investigator -->
+  <section class="pi-section">
+    <div class="section-header">
+      <h2><i class="fa fa-user-circle"></i> Principal Investigator</h2>
+    </div>
     <div class="row">
       <div class="col-md-4 text-center">
         <div class="pi-profile">
-          <img src="/img/team/wx_touxiang.jpg" alt="Hongyu Sun" class="pi-photo img-circle">
-          <h3>Hongyu Sun, Ph.D.</h3>
-          <p class="pi-title">Researcher</p>
+          <img src="/img/bio/shy.jpg" alt="Hongyu Sun" class="pi-photo img-circle">
+          <h3>Hongyu Sun</h3>
+          <p class="pi-title">Researcher & Team Leader</p>
           <p class="pi-affiliation">College of Computer Science<br>Inner Mongolia University</p>
           <div class="pi-contact">
             <a href="mailto:hongyu.sun@imu.edu.cn" class="btn btn-contact">
@@ -24,7 +93,6 @@ css: "/css/team.css"
       </div>
       <div class="col-md-8">
         <div class="pi-bio">
-          <h2>Researcher</h2>
           <div class="pi-highlights">
             <div class="highlight-item">
               <i class="fa fa-graduation-cap"></i>
@@ -35,7 +103,7 @@ css: "/css/team.css"
             <div class="highlight-item">
               <i class="fa fa-search"></i>
               <div>
-                <strong>Research Focus:</strong> 3D Computer Vision, Point Cloud Understanding
+                <strong>Research Focus:</strong> 3D Computer Vision, Point Cloud Understanding, Vision Transformers
               </div>
             </div>
             <div class="highlight-item">
@@ -47,92 +115,267 @@ css: "/css/team.css"
             <div class="highlight-item">
               <i class="fa fa-trophy"></i>
               <div>
-                <strong>Achievements:</strong> Published papers in top conferences, Algorithm Engineer expertise
+                <strong>Achievements:</strong> Publications in CVPR, NeurIPS, TVCG, ICRA; Algorithm Engineer expertise
               </div>
             </div>
           </div>
           <div class="pi-description">
-            <p>Dr. Hongyu Sun leads the Spatial AI Lab, focusing on cutting-edge research in 3D computer vision and machine learning. With extensive experience in algorithm engineering and a strong academic background, Dr. Sun guides the team in developing innovative solutions for complex computer vision challenges.</p>
-            <p>The laboratory welcomes motivated students and researchers interested in advancing the field of computer vision through collaborative research and practical applications.</p>
+            <p>
+              Dr. Hongyu Sun leads the Spatial AI Lab, focusing on cutting-edge research in 3D computer vision 
+              and machine learning. With extensive experience in algorithm engineering and a strong academic 
+              background from Renmin University of China, Dr. Sun guides the team in developing innovative 
+              solutions for complex computer vision challenges.
+            </p>
+            <p>
+              His research has been published in top-tier venues including CVPR, NeurIPS, IEEE TVCG, and ICRA, 
+              with a focus on point cloud analysis, multi-view 3D understanding, and parameter-efficient learning 
+              methods. The laboratory welcomes motivated students and researchers interested in advancing the 
+              field of computer vision through collaborative research and practical applications.
+            </p>
+          </div>
+          <div class="pi-links">
+            <a href="https://scholar.google.com/citations?user=j2eWl30AAAAJ" target="_blank" class="btn btn-sm btn-outline">
+              <i class="fa fa-graduation-cap"></i> Google Scholar
+            </a>
+            <a href="https://github.com/auniquesun" target="_blank" class="btn btn-sm btn-outline">
+              <i class="fa fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/auniquesun/" target="_blank" class="btn btn-sm btn-outline">
+              <i class="fa fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://orcid.org/0000-0003-1991-6476" target="_blank" class="btn btn-sm btn-outline">
+              <i class="fa fa-id-badge"></i> ORCID
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Team Members Section -->
-  <div class="team-members-section">
-    <h2 class="section-title">Research Team</h2>
-    <p class="section-subtitle">We are looking for passionate researchers to join our team!</p>
+  <!-- Section 3: Current Team Members -->
+  <section class="team-members-section">
+    <div class="section-header">
+      <h2><i class="fa fa-users"></i> Current Team Members</h2>
+    </div>
     
-    <div class="team-grid">
-      <!-- Placeholder for Ph.D. Students -->
-      <div class="team-member-placeholder">
+    <div class="members-row">
+      <!-- Member 1 -->
+      <div class="member-card">
         <div class="member-photo">
           <div class="photo-placeholder">
             <i class="fa fa-user"></i>
           </div>
         </div>
-        <h4>Ph.D. Student</h4>
-        <p class="member-role">Doctoral Researcher</p>
-        <p class="member-interests">Research Interests: Computer Vision, Machine Learning</p>
-        <p class="member-status">
-          <span class="status-badge open-position">Open Position</span>
+        <h4 class="member-name">Member Name 1</h4>
+        <p class="member-role">Ph.D. Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> 3D Point Cloud Analysis, Deep Learning
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
         </p>
       </div>
 
-      <!-- Placeholder for Master Students -->
-      <div class="team-member-placeholder">
+      <!-- Member 2 -->
+      <div class="member-card">
         <div class="member-photo">
           <div class="photo-placeholder">
             <i class="fa fa-user"></i>
           </div>
         </div>
-        <h4>Master's Student</h4>
-        <p class="member-role">Graduate Researcher</p>
-        <p class="member-interests">Research Interests: Image Processing, Algorithm Design</p>
-        <p class="member-status">
-          <span class="status-badge open-position">Open Position</span>
+        <h4 class="member-name">Member Name 2</h4>
+        <p class="member-role">Master's Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Multi-view 3D Recognition, Transformers
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
         </p>
       </div>
 
-      <!-- Placeholder for Research Assistants -->
-      <div class="team-member-placeholder">
+      <!-- Member 3 -->
+      <div class="member-card">
         <div class="member-photo">
           <div class="photo-placeholder">
             <i class="fa fa-user"></i>
           </div>
         </div>
-        <h4>Research Assistant</h4>
-        <p class="member-role">Undergraduate Researcher</p>
-        <p class="member-interests">Research Interests: Data Analysis, Programming</p>
-        <p class="member-status">
-          <span class="status-badge open-position">Open Position</span>
+        <h4 class="member-name">Member Name 3</h4>
+        <p class="member-role">Master's Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Computer Vision, Scene Understanding
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
         </p>
       </div>
 
-      <!-- Additional placeholder for future team member -->
-      <div class="team-member-placeholder">
+      <!-- Member 4 -->
+      <div class="member-card">
         <div class="member-photo">
           <div class="photo-placeholder">
             <i class="fa fa-user"></i>
           </div>
         </div>
-        <h4>Visiting Researcher</h4>
-        <p class="member-role">Collaborative Research</p>
-        <p class="member-interests">Research Interests: Specialized Computer Vision Topics</p>
-        <p class="member-status">
-          <span class="status-badge open-position">Open Position</span>
+        <h4 class="member-name">Member Name 4</h4>
+        <p class="member-role">Research Assistant</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Machine Learning, Data Analysis
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
         </p>
       </div>
     </div>
-  </div>
 
-  <!-- Join Us Section -->
-  <div class="join-us-section">
+    <!-- Second Row of Members (if needed) -->
+    <div class="members-row">
+      <!-- Member 5 -->
+      <div class="member-card">
+        <div class="member-photo">
+          <div class="photo-placeholder">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Member Name 5</h4>
+        <p class="member-role">Undergraduate Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Open-world Learning, AI Applications
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
+        </p>
+      </div>
+
+      <!-- Member 6 -->
+      <div class="member-card">
+        <div class="member-photo">
+          <div class="photo-placeholder">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Member Name 6</h4>
+        <p class="member-role">Visiting Researcher</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Large Multi-modal Models
+        </p>
+        <p class="member-email">
+          <i class="fa fa-envelope"></i> email@example.com
+        </p>
+      </div>
+
+      <!-- Open Position Placeholder -->
+      <div class="member-card open-position-card">
+        <div class="member-photo">
+          <div class="photo-placeholder open">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Join Us</h4>
+        <p class="member-role">Open Position</p>
+        <p class="member-interests">
+          <strong>Looking for:</strong> Ph.D., Master's, and Undergraduate students
+        </p>
+        <p class="member-email">
+          <a href="mailto:hongyu.sun@imu.edu.cn" class="join-link">
+            <i class="fa fa-envelope"></i> Contact to Apply
+          </a>
+        </p>
+      </div>
+
+      <!-- Empty placeholder for alignment -->
+      <div class="member-card hidden-card">
+        <!-- Keeps the grid aligned when there's an odd number of members -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Alumni -->
+  <section class="alumni-section">
+    <div class="section-header">
+      <h2><i class="fa fa-graduation-cap"></i> Alumni</h2>
+    </div>
+    
+    <div class="members-row">
+      <!-- Alumni 1 -->
+      <div class="member-card alumni-card">
+        <div class="member-photo">
+          <div class="photo-placeholder alumni-photo">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Alumni Name 1</h4>
+        <p class="member-role">Former Ph.D. Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> 3D Vision, Robotics
+        </p>
+        <p class="alumni-destination">
+          <i class="fa fa-building"></i> Now at: Company/University Name
+        </p>
+      </div>
+
+      <!-- Alumni 2 -->
+      <div class="member-card alumni-card">
+        <div class="member-photo">
+          <div class="photo-placeholder alumni-photo">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Alumni Name 2</h4>
+        <p class="member-role">Former Master's Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Computer Vision, Deep Learning
+        </p>
+        <p class="alumni-destination">
+          <i class="fa fa-building"></i> Now at: Company/University Name
+        </p>
+      </div>
+
+      <!-- Alumni 3 -->
+      <div class="member-card alumni-card">
+        <div class="member-photo">
+          <div class="photo-placeholder alumni-photo">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Alumni Name 3</h4>
+        <p class="member-role">Former Research Assistant</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Point Cloud Processing
+        </p>
+        <p class="alumni-destination">
+          <i class="fa fa-building"></i> Now at: Company/University Name
+        </p>
+      </div>
+
+      <!-- Alumni 4 -->
+      <div class="member-card alumni-card">
+        <div class="member-photo">
+          <div class="photo-placeholder alumni-photo">
+            <i class="fa fa-user"></i>
+          </div>
+        </div>
+        <h4 class="member-name">Alumni Name 4</h4>
+        <p class="member-role">Former Undergraduate Student</p>
+        <p class="member-interests">
+          <strong>Research:</strong> Machine Learning, AI
+        </p>
+        <p class="alumni-destination">
+          <i class="fa fa-building"></i> Now at: Company/University Name
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Us CTA Section -->
+  <section class="join-us-section">
     <div class="text-center">
-      <h2>Join Our Team</h2>
-      <p>We are always looking for motivated students and researchers to join our laboratory. If you are interested in computer vision research and want to be part of our team, please contact Dr. Sun.</p>
+      <h2><i class="fa fa-handshake-o"></i> Join Our Team</h2>
+      <p class="join-description">
+        We are always looking for motivated students and researchers who are passionate about 
+        computer vision and AI. If you are interested in joining our lab or collaborating with us, 
+        please don't hesitate to reach out.
+      </p>
       <div class="join-us-actions">
         <a href="mailto:hongyu.sun@imu.edu.cn?subject=Interest in joining the research team" class="btn btn-primary btn-lg">
           <i class="fa fa-envelope"></i> Contact Dr. Sun
@@ -142,5 +385,6 @@ css: "/css/team.css"
         </a>
       </div>
     </div>
-  </div>
+  </section>
+
 </div>
