@@ -99,4 +99,4 @@ zhihu:
 orcid:
   name: "ORCID"
   baseURL: "https://orcid.org/"
-  icon: "fa-orcid"
+  icon: "fa-brands fa-orcid"
