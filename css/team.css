@@ -250,6 +250,45 @@
   border: 1px solid #d4ebff;
 }
 
+/* Recruitment Highlight */
+.recruitment-highlight {
+  margin-top: 25px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+}
+
+.recruitment-highlight h4 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.recruitment-highlight h4 i {
+  color: #ffc107;
+  margin-right: 8px;
+}
+
+.recruitment-highlight p {
+  margin: 0;
+  color: #856404;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.recruitment-highlight a {
+  color: #008AFF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.recruitment-highlight a:hover {
+  text-decoration: underline;
+}
+
 .btn-outline {
   background-color: transparent;
   color: #008AFF;
