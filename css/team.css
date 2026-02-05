@@ -198,6 +198,49 @@
   text-decoration: none;
 }
 
+/* PI Social Links */
+.pi-social-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  font-size: 16px;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  color: white;
+}
+
+.social-icon.github {
+  background-color: #333;
+}
+
+.social-icon.orcid {
+  background-color: #A6CE39;
+}
+
+.social-icon.scholar {
+  background-color: #4285F4;
+}
+
+.social-icon.linkedin {
+  background-color: #0077b5;
+}
+
 /* PI Bio */
 .pi-bio {
   padding: 0 20px;
@@ -374,8 +417,8 @@
 }
 
 .photo-placeholder {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background-color: #f8f9fa;
   border-radius: 50%;
   display: flex;
@@ -391,7 +434,7 @@
 }
 
 .photo-placeholder i {
-  font-size: 40px;
+  font-size: 48px;
   color: #adb5bd;
 }
 
@@ -405,8 +448,8 @@
 }
 
 .photo-img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #e9ecef;
@@ -488,77 +531,6 @@
 
 .alumni-destination i {
   margin-right: 4px;
-}
-
-/* Join Us Section */
-.join-us-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e8f4fd 100%);
-  padding: 60px 40px;
-  border-radius: 12px;
-  margin-top: 40px;
-  text-align: center;
-  border: 1px solid #e0e0e0;
-}
-
-.join-us-section h2 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  color: #404040;
-  margin-bottom: 20px;
-  font-size: 28px;
-}
-
-.join-us-section h2 i {
-  color: #008AFF;
-  margin-right: 10px;
-}
-
-.join-description {
-  color: #666;
-  margin-bottom: 30px;
-  font-size: 16px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.join-us-actions {
-  margin-top: 30px;
-}
-
-.join-us-actions .btn {
-  margin: 0 10px;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.btn-primary {
-  background-color: #008AFF;
-  color: white;
-  border: 2px solid #008AFF;
-}
-
-.btn-primary:hover {
-  background-color: #0085A1;
-  border-color: #0085A1;
-  color: white;
-  text-decoration: none;
-}
-
-.btn-outline-primary {
-  background-color: transparent;
-  color: #008AFF;
-  border: 2px solid #008AFF;
-}
-
-.btn-outline-primary:hover {
-  background-color: #008AFF;
-  color: white;
-  text-decoration: none;
 }
 
 /* Animation */
@@ -683,12 +655,17 @@
   }
   
   .photo-placeholder {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
   
   .photo-placeholder i {
-    font-size: 32px;
+    font-size: 40px;
+  }
+  
+  .photo-img {
+    width: 100px;
+    height: 100px;
   }
   
   .member-name {
