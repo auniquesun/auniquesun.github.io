@@ -47,12 +47,12 @@ comments: true
     chsh -s $(which zsh)
     ```
 
-2. 进入目录 `/mnt/sdb/public/software`，执行如下命令
+2. 进入目录 `/mnt/sda/public/software`，执行如下命令
     ```shell
-    cd /mnt/sdb/public/software
+    cd /mnt/sda/public/software
     ```
 
-3. 用 `zsh` 安装 `ohmyzsh`，执行如下命令
+3. 用 `zsh` 安装 `ohmyzsh` 管理配置框架，执行如下命令
     ```shell
     sh ohmyzsh-install.sh
     ```
@@ -94,12 +94,12 @@ comments: true
     ssh-copy-id -i id_rsa.pub <username>@<hostname>   # <username> 替换成本人用户名，<hostname> 替换成服务器ip地址，这条命令是将公钥写入服务器~/.ssh/authorized_keys文件
     ```
 
-8. 若使用 `Python` 开发，请安装 `miniconda` 环境（不推荐安装`Anaconda`：`miniconda`即轻量又能实现同样的功能）
+8. 若使用 `Python` 开发，请安装 `miniconda3` 环境（不推荐安装`Anaconda`：`miniconda3`即轻量又能实现同样的功能）
     * step 1：切换到共享软件目录
     ```shell
     cd /mnt/sdc/public/software
     ```
-    * step 2：安装 `miniconda` 环境 —— 配置均为默认
+    * step 2：安装 `miniconda3` 环境 —— 配置均为默认
     ```shell
     sh Miniconda3-latest-Linux-x86_64.sh
     ```
@@ -115,6 +115,7 @@ comments: true
 
 ### 数据和软件共享
 0. 服务器单独配备多块数据硬盘，每块容量为4T，专用于存放用户数据(代码/文档/数据集等)，挂载到 `/mnt` 目录，如
+    - `/mnt/sda`
     - `/mnt/sdb`
     - `/mnt/sdc` 
     - `/mnt/sdd` 
@@ -122,12 +123,14 @@ comments: true
     - $\cdots$
 
 * 其子目录 `public/` 用于服务器多用户**_共享数据、存放大文件_**
-* **注意：** **用户主目录 `/home/<username>` 下不要存放文件**，`/home/<username>` **占用空间超过15G会被定期清除**，数据文件存放于数据盘下，如 `/mnt/sdc/public/data/<username>`
+* **注意：** **用户主目录 `/home/<username>` 下不要存放文件**，`/home/<username>` **占用空间超过15G会被定期清除**，数据文件存放于数据盘下，如 `/mnt/sda/public/data/<username>`
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 1. 共享文件夹目录结构：
     > `public/`
+    > -            |--- `users/<username>`  : 用户代码、配置文件、小数据文件存放初
     > -            |--- `data/`       : 共享常用数据集、大的数据文件
+    > -            |--- `weights/`    : 共享预训练模型权重
     > -            |--- `software/`   : 共享常用软件、安装包
     > -            |--- `操作指南.txt`
 
@@ -152,7 +155,7 @@ comments: true
     chmod o+rx /mnt/sdc/public/data/hs
     ```
 
-4. 用户将文件拷贝到 `/mnt/sdc/public/data/`、`/mnt/sdc/public/software/` 或者 `/mnt/sdc/public/data/<username>/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
+4. 用户将文件拷贝到 `/mnt/sdc/public/data/`、`/mnt/sdc/public/weights/`、 `/mnt/sdc/public/software/`，**务必修改文件权限**，**_这样其他用户才能使用_**，修改命令如下
     ```shell
     chmod o+rx <filename>
     ```
@@ -215,7 +218,6 @@ comments: true
     * docker, nvidia-docker
 2. 编程工具
     * MATLAB、C++ suites (CMake/GCC/g++)
-
 
 ### 相关文档
 * 上一篇：[视觉项目研发环境配置](https://auniquesun.github.io/2020-06-26-basic-developing-environments-for-vision-project-and-research/)
