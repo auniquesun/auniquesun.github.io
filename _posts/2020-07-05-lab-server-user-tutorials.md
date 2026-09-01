@@ -127,7 +127,7 @@ comments: true
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
 1. 共享文件夹目录结构：
-    > `users/<username>`              : 用户个人代码、配置文件、小数据文件存放处
+    > `users/<username>`              : 用户个人代码、配置文件、小数据文件存放处  
     > `public/`
     > -            |--- `data/`       : 共享常用数据集、大的数据文件存放处
     > -            |--- `weights/`    : 共享模型预训练权重存放处 (模型权重一般较大)
