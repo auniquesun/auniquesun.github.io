@@ -126,13 +126,18 @@ comments: true
 * **注意：** **用户主目录 `/home/<username>` 下不要存放文件**，`/home/<username>` **占用空间超过50G会被定期清除**，数据文件存放于数据盘下，如 `/mnt/sda/public/data/<username>` (大数据文件) 或者 `/mnt/sda/users/<username>` (小数据文件、用户个人代码、配置文件)
 * 如果不清楚如何挂载机械硬盘到 `Ubuntu` 系统，参考这篇 [blog](https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0)；**用户不需要做这一步**，已由管理员完成
 
-1. 共享文件夹目录结构：
-    > `users/<username>`              : 用户个人代码、配置文件、小数据文件存放处  
-    > `public/`
-    > -            |--- `data/`       : 共享常用数据集、大的数据文件存放处
-    > -            |--- `weights/`    : 共享模型预训练权重存放处 (模型权重一般较大)
-    > -            |--- `software/`   : 共享常用软件、安装包存放处
-    > -            |--- `操作指南.txt`
+1. `/mnt/sda` 等共享文件夹目录结构：
+    - `users/<username>`    : 将 <username> 替换成自身用户名
+        ```sh
+        # 用户个人代码、配置文件、小数据文件存放处
+        ```
+    - `public/`
+        ```sh
+            |--- `data/`       # 共享常用数据集、大的数据文件存放处
+            |--- `weights/`    # 共享模型预训练权重存放处 (模型权重一般较大)
+            |--- `software/`   # 共享常用软件、安装包存放处
+            |--- `操作指南.txt`
+        ```
 
 2. 事先确认要存放的文件是常用的、**_有必要共享_**的，再放入对应的文件夹
 
